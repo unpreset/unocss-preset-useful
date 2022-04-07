@@ -1,0 +1,63 @@
+{
+  "name": "name",
+  "version": "0.0.0",
+  "packageManager": "pnpm@6.32.3",
+  "description": "[description]",
+  "keywords": [],
+  "license": "ISC",
+  "author": "chris-zhu <https://github.com/chris-zhu>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris-zhu/node-start.git"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "rimraf dist && unbuild",
+    "dev": "unbuild --stub",
+    "prepublishOnly": "pnpm run build",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "start": "esno src/index.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest",
+    "test:update": "vitest --update"
+  },
+  "bugs": {
+    "url": "https://github.com/chris-zhu/node-start/issues"
+  },
+  "homepage": "https://github.com/chris-zhu/node-start#readme",
+  "devDependencies": {
+    "@babel/types": "^7.17.0",
+    "@chris-zhu/eslint-config": "^1.0.0",
+    "@types/node": "^17.0.21",
+    "bumpp": "^7.1.1",
+    "eslint": "^8.10.0",
+    "esno": "^0.14.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.2",
+    "unbuild": "^0.7.2",
+    "vite": "^2.8.6",
+    "vitest": "^0.9.0"
+  }
+}
