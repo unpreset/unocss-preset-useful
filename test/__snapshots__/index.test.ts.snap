@@ -1,0 +1,15 @@
+// Vitest Snapshot v1
+
+exports[`preset-useful > targets 1`] = `
+"/* layer: useful */
+.p-c{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
+.p-c{top:50%;left:50%;--un-translate-x:-50%;transform:var(--un-transform);--un-translate-y:-50%;position:absolute;}
+.f-b{display:flex;align-items:center;justify-content:space-between;}
+.f-b-c{display:flex;flex-direction:column;align-items:center;justify-content:space-between;}
+.f-c{display:flex;align-items:center;justify-content:center;}
+.f-c-c{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.f-r{display:flex;align-items:center;justify-content:space-around;}
+.f-r-c{display:flex;flex-direction:column;align-items:center;justify-content:space-around;}
+.pr{position:relative;}
+.pa{position:absolute;}"
+`;
