@@ -1,5 +1,12 @@
 # unocss-preset-useful
+
 My useful preset about unocss usage
+
+<p>
+  <a href="https://npmjs.com/package/unocss-preset-useful" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/npm/v/unocss-preset-useful" alt="npm version">
+  </a>
+</p>
 
 
 # Usage
