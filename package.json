@@ -1,7 +1,6 @@
 {
   "name": "unocss-preset-useful",
   "version": "0.0.1-beta.4",
-  "packageManager": "pnpm@6.32.3",
   "description": "My useful preset about unocss usage",
   "keywords": [
     "unocss",

@@ -26,7 +26,7 @@ devDependencies:
   unbuild: 0.7.2
   unocss: 0.30.12
   vite: 2.9.1
-  vitest: 0.9.0
+  vitest: 0.9.2
 
 packages:
 
@@ -282,7 +282,7 @@ packages:
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.12.0
       eslint-plugin-html: 6.2.0
       eslint-plugin-import: 2.26.0_eslint@8.12.0
-      eslint-plugin-jest: 26.1.3_d66e0302f11fa190bf13280a2167b1c9
+      eslint-plugin-jest: 26.1.4_d66e0302f11fa190bf13280a2167b1c9
       eslint-plugin-jest-formatting: 3.1.0_eslint@8.12.0
       eslint-plugin-jsonc: 2.2.1_eslint@8.12.0
       eslint-plugin-jsx-a11y: 6.5.1_eslint@8.12.0
@@ -1817,8 +1817,8 @@ packages:
       eslint: 8.12.0
     dev: true
 
-  /eslint-plugin-jest/26.1.3_d66e0302f11fa190bf13280a2167b1c9:
-    resolution: {integrity: sha512-Pju+T7MFpo5VFhFlwrkK/9jRUu18r2iugvgyrWOnnGRaVTFFmFXp+xFJpHyqmjjLmGJPKLeEFLVTAxezkApcpQ==}
+  /eslint-plugin-jest/26.1.4_d66e0302f11fa190bf13280a2167b1c9:
+    resolution: {integrity: sha512-wgqxujmqc2qpvZqMFWCh6Cniqc8lWpapvXt9j/19DmBDqeDaYhJrSRezYR1SKyemvjx+9e9kny/dgRahraHImA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^5.0.0
@@ -2802,8 +2802,8 @@ packages:
       get-func-name: 2.0.0
     dev: true
 
-  /lru-cache/7.7.3:
-    resolution: {integrity: sha512-WY9wjJNQt9+PZilnLbuFKM+SwDull9+6IAguOrarOMoOHTcJ9GnXSO11+Gw6c7xtDkBkthR57OZMtZKYr+1CEw==}
+  /lru-cache/7.8.0:
+    resolution: {integrity: sha512-AmXqneQZL3KZMIgBpaPTeI6pfwh+xQ2vutMsyqOu1TBdEXFZgpG/80wuJ531w2ZN7TI0/oc8CPxzh/DKQudZqg==}
     engines: {node: '>=12'}
     dev: true
 
@@ -3402,7 +3402,7 @@ packages:
     engines: {node: ^10.0.0 || ^12.0.0 || ^14.0.0 || >=16.0.0}
     hasBin: true
     dependencies:
-      lru-cache: 7.7.3
+      lru-cache: 7.8.0
     dev: true
 
   /shebang-command/2.0.0:
@@ -3792,8 +3792,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.9.0:
-    resolution: {integrity: sha512-WyNY35WGRqtW/hd00FPgsnatDxKrRzEWVLS36KPbSFqAOn3HHtV+4/ihiPBaDAzAKtr6/eT52x+7kobUXa59TA==}
+  /vitest/0.9.2:
+    resolution: {integrity: sha512-XgR42njw350OxBfKD4MK0cNIzgQrhSUKJq9sgbgRR+bD8GonPCyjpFFmPejptaiEyjmQ2FXpEvFHN37b9X2HJA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
