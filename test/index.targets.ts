@@ -3,9 +3,7 @@ export const usefulTargets: string[] = [
   'pa',
   'f-c',
   'f-c-c',
-  'f-b',
-  'f-b-c',
-  'f-r',
-  'f-r-c',
+  'fb',
+  'fbc',
   'p-c',
 ]
