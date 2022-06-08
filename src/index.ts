@@ -4,7 +4,7 @@ import { ruleMeta } from './meta'
 import { PRESET_NAME } from './constants'
 import type { Preset } from 'unocss'
 
-export default function presetUseful(): Preset {
+export function presetUseful(): Preset {
   return {
     name: `unocss-preset-${PRESET_NAME}`,
     enforce: 'post',
