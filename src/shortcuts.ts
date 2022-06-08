@@ -1,16 +1,28 @@
 import type { RuleMeta, UserShortcuts } from 'unocss'
 
-export const shortcuts: UserShortcuts = [
+const shortcuts: UserShortcuts = [
+  ['pr', 'relative'],
+  ['pa', 'absolute'],
+  ['pf', 'fixed'],
   ['f-c', 'flex justify-center items-center'],
-  ['f-b', 'flex justify-between items-center'],
-  ['f-r', 'flex justify-around items-center'],
-  ['f-r', 'flex justify-end items-center'],
   ['f-c-c', 'f-c flex-col'],
-  ['f-b-c', 'f-b flex-col'],
-  ['f-r-c', 'f-r flex-col'],
-  ['f-e-c', 'f-e flex-col'],
-  ['f-1', 'flex-1'],
-  ['f-a', 'flex-auto'],
+
+  ['fc', 'flex justify-center'],
+  ['fcc', 'flex justify-center items-center'],
+  ['fs', 'flex justify-start'],
+  ['fsc', 'flex justify-start items-center'],
+  ['fe', 'flex justify-end'],
+  ['fec', 'flex justify-end items-center'],
+  ['fb', 'flex justify-between'],
+  ['fbc', 'flex justify-between items-center'],
+  ['fw', 'flex justify-wrap'],
+  ['fwr', 'flex justify-wrap-reverse'],
+  ['fa', 'flex justify-around'],
+  ['fac', 'flex justify-around items-center'],
+
+  ['fic', 'flex items-center'],
+  ['fccc', 'flex justify-center items-center flex-col'],
+
   ['p-c', 'pa top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'],
 ]
 
