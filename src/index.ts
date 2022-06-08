@@ -2,7 +2,7 @@ import { generateRule } from './rules'
 import { generateShortcuts } from './shortcuts'
 import { ruleMeta } from './meta'
 import { PRESET_NAME } from './constants'
-import type { Preset } from '@unocss/core'
+import type { Preset } from 'unocss'
 
 export default function presetUseful(): Preset {
   return {
