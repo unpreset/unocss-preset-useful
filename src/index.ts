@@ -2,9 +2,9 @@ import { generateRule } from './rules'
 import { generateShortcuts } from './shortcuts'
 import { ruleMeta } from './meta'
 import { PRESET_NAME } from './constants'
-import type { Preset } from 'unocss'
+import type { Preset } from '@unocss/core'
 
-export function presetUseful(): Preset {
+export default function presetUseful(): Preset {
   return {
     name: `unocss-preset-${PRESET_NAME}`,
     enforce: 'post',
@@ -28,5 +28,3 @@ export function presetUseful(): Preset {
     },
   }
 }
-
-export default presetUseful
