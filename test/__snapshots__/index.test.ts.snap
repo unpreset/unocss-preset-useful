@@ -1,13 +1,23 @@
 // Vitest Snapshot v1
 
 exports[`preset-useful > targets 1`] = `
-"/* layer: useful */
-.p-c{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));}
-.p-c{position:absolute;top:50%;left:50%;--un-translate-x:-50%;transform:var(--un-transform);--un-translate-y:-50%;}
+"/* layer: default */
+.text-\\\\[rgb\\\\(--c\\\\)\\\\]\\\\:50{color:rgba(--c,0.5);}
+/* layer: useful */
+.p-c{position:absolute;top:50%;left:50%;--un-translate-x:-50%;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));--un-translate-y:-50%;}
 .pa{position:absolute;}
 .pr{position:relative;}
 .f-c{display:flex;align-items:center;justify-content:center;}
 .f-c-c{display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .fb{display:flex;justify-content:space-between;}
-.fbc{display:flex;align-items:center;justify-content:space-between;}"
+.fbc{display:flex;align-items:center;justify-content:space-between;}
+.bg{--un-bg-opacity:1;background-color:rgba(254,254,254,var(--un-bg-opacity));transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:350ms;transition-timing-function:linear;}
+.dark .bg{--un-bg-opacity:1;background-color:rgba(28,31,36,var(--un-bg-opacity));}
+.base{--un-text-opacity:1;color:rgba(61,66,72,var(--un-text-opacity));transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:350ms;transition-timing-function:linear;}
+.dark .base,
+.dark .text{--un-text-opacity:1;color:rgba(200,204,208,var(--un-text-opacity));}
+.text{--un-text-opacity:1;color:rgba(61,66,72,var(--un-text-opacity));}
+.c-custom\\\\:\\\\:red{--c-custom:248,113,113;}
+.c\\\\:\\\\:red{--c:248,113,113;}
+.p-10\\\\:\\\\:10px{--p-10:10px;}"
 `;

@@ -16,11 +16,11 @@ export function presetUseful(): Preset {
     theme: {
       colors: {
         bg: {
-          default: '#fefefe',
+          DEFAULT: '#fefefe',
           dark: '#1c1f24',
         },
         text: {
-          default: '#3D4248',
+          DEFAULT: '#3D4248',
           dark: '#C8CCD0',
         },
         primary: '#00bcd4',

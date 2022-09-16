@@ -6,4 +6,13 @@ export const usefulTargets: string[] = [
   'fb',
   'fbc',
   'p-c',
+  'bg',
+  'text',
+  'base',
+
+  // rules
+  'c::red',
+  'c-custom::red',
+  'p-10::10px',
+  'text-[rgb(--c)]:50',
 ]

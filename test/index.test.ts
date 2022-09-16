@@ -13,10 +13,10 @@ const uno = createGenerator({
 describe('preset-useful', () => {
   test('targets', async() => {
     const code = usefulTargets.join(' ')
-    const { css } = await uno.generate(code)
-    const { css: css2 } = await uno.generate(code)
+    const { css } = await uno.generate(code, { preflights: false })
+    const { css: css2 } = await uno.generate(code, { preflights: false })
 
-    const unmatched = []
+    const unmatched:string[] = []
     for (const i of usefulTargets) {
       if (!css.includes(escapeSelector(i)))
         unmatched.push(i)

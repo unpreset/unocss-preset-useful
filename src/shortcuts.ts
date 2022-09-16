@@ -1,4 +1,4 @@
-import type { RuleMeta, UserShortcuts } from 'unocss'
+import type { RuleMeta, UserShortcuts } from '@unocss/core'
 
 const shortcuts: UserShortcuts = [
   ['pr', 'relative'],
@@ -9,24 +9,26 @@ const shortcuts: UserShortcuts = [
   ['f-c-c', 'f-c flex-col'],
 
   ['fc', 'flex justify-center'],
+  ['fi', 'flex items-center'],
   ['fcc', 'flex justify-center items-center'],
   ['fs', 'flex justify-start'],
   ['fsc', 'flex justify-start items-center'],
+  ['fse', 'flex justify-start items-end'],
   ['fe', 'flex justify-end'],
   ['fec', 'flex justify-end items-center'],
   ['fb', 'flex justify-between'],
   ['fbc', 'flex justify-between items-center'],
-  ['fw', 'flex justify-wrap'],
-  ['fwr', 'flex justify-wrap-reverse'],
   ['fa', 'flex justify-around'],
   ['fac', 'flex justify-around items-center'],
+  ['fw', 'flex justify-wrap'],
+  ['fwr', 'flex justify-wrap-reverse'],
 
   ['fic', 'flex items-center'],
   ['fccc', 'flex justify-center items-center flex-col'],
 
   ['trans', 'transition-all-350 ease-linear'],
-  ['text', 'text-text-default dark:text-text-dark'],
-  ['bg', 'trans bg-bg-default dark:bg-bg-dark'],
+  ['text', 'c-text dark:c-text-dark'],
+  ['bg', 'trans bg-bg dark:bg-bg-dark'],
   ['base', 'trans text'],
 
   ['icon', 'w-5.5 h-5.5 cursor-pointer select-none transition-opacity-300 ease-in-out text'],
