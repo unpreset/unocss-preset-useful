@@ -17,3 +17,5 @@ export function presetUseful(): Preset {
     shortcuts,
   }
 }
+
+export default presetUseful
