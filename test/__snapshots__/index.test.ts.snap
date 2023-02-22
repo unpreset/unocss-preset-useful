@@ -11,12 +11,6 @@ exports[`preset-useful > targets 1`] = `
 .f-c-c{display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .fb{display:flex;justify-content:space-between;}
 .fbc{display:flex;align-items:center;justify-content:space-between;}
-.bg{--un-bg-opacity:1;background-color:rgba(254,254,254,var(--un-bg-opacity));transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:350ms;transition-timing-function:linear;}
-.dark .bg{--un-bg-opacity:1;background-color:rgba(28,31,36,var(--un-bg-opacity));}
-.base{--un-text-opacity:1;color:rgba(61,66,72,var(--un-text-opacity));transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:350ms;transition-timing-function:linear;}
-.dark .base,
-.dark .text{--un-text-opacity:1;color:rgba(200,204,208,var(--un-text-opacity));}
-.text{--un-text-opacity:1;color:rgba(61,66,72,var(--un-text-opacity));}
 .c-custom\\\\:\\\\:red{--c-custom:248,113,113;}
 .c\\\\:\\\\:red{--c:248,113,113;}
 .p-10\\\\:\\\\:10px{--p-10:10px;}"

@@ -1,6 +1,6 @@
-import { PRESET_NAME } from './constants'
 import type { RuleMeta } from 'unocss'
+import { PRESET_NAME } from './constants'
 
-export const ruleMeta: RuleMeta = {
+export const layerMeta: RuleMeta = {
   layer: PRESET_NAME,
 }

@@ -1,7 +1,7 @@
 import { parseColor } from '@unocss/preset-mini/utils'
 import type { Rule, RuleMeta } from 'unocss'
 
-const rules: Rule[] = [
+export const rules: Rule[] = [
   [/^(.+)::(.+)$/, ([, n, v], { theme }) => {
     const color = parseColor(v, theme)
     if (color?.cssColor?.type === 'rgb' && color.cssColor.components) {
@@ -15,6 +15,7 @@ const rules: Rule[] = [
   }],
 ]
 
-export const generateRule = (ruleMeta: RuleMeta) => {
-  return rules.map((r) => { r[2] = ruleMeta; return r })
+export const normalizeRuleMeta = (ruleMeta: RuleMeta) => {
+  for (const r of rules)
+    r[2] = Object.assign(r[2] || {}, ruleMeta)
 }

@@ -1,6 +1,6 @@
 import type { RuleMeta, UserShortcuts } from '@unocss/core'
 
-const shortcuts: UserShortcuts = [
+export const shortcuts: UserShortcuts = [
   ['pr', 'relative'],
   ['pa', 'absolute'],
   ['pf', 'fixed'],
@@ -27,15 +27,9 @@ const shortcuts: UserShortcuts = [
   ['fccc', 'flex justify-center items-center flex-col'],
 
   ['trans', 'transition-all-350 ease-linear'],
-  ['text', 'c-text dark:c-text-dark'],
-  ['bg', 'trans bg-bg dark:bg-bg-dark'],
-  ['base', 'trans text'],
-
-  ['icon', 'w-5.5 h-5.5 cursor-pointer select-none transition-opacity-300 ease-in-out text'],
-  ['icon-btn', 'icon color-inherit op64 hover-op100 hover-color-teal-500 dark-hover-color-inherit'],
-  ['icon-link', 'icon color-inherit op64 hover:op100 hover-text-red-300 dark-hover-color-inherit'],
 ]
 
-export const generateShortcuts = (ruleMeta: RuleMeta) => {
-  return shortcuts.map((s) => { s[2] = (ruleMeta); return s })
+export const normalizeShortcutMeta = (ruleMeta: RuleMeta) => {
+  for (const s of shortcuts)
+    s[2] = Object.assign(s[2] || {}, ruleMeta)
 }

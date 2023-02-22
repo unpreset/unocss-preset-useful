@@ -1,31 +1,33 @@
 {
   "name": "unocss-preset-useful",
   "version": "0.0.7",
-  "description": "My useful preset about unocss usage",
+  "description": "My useful preset about unocss usage.",
+  "author": "Chris <https://github.com/zyyv>",
+  "license": "MIT",
+  "homepage": "https://github.com/chris-zhu/unocss-preset-useful#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyyv/unocss-preset-useful.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chris-zhu/unocss-preset-useful/issues"
+  },
   "keywords": [
     "unocss",
     "unocss-preset",
     "unocss-preset-useful"
   ],
-  "license": "MIT",
-  "author": "chris-zhu <https://github.com/chris-zhu>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chris-zhu/unocss-preset-useful.git"
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "typesVersions": {
     "*": {
       "*": [
@@ -34,9 +36,11 @@
       ]
     }
   },
-  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "rimraf dist && unbuild",
+    "build": "unbuild",
     "dev": "unbuild --stub",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp --commit --push --tag && pnpm publish",
@@ -46,26 +50,22 @@
     "test": "vitest",
     "test:update": "vitest --update"
   },
-  "bugs": {
-    "url": "https://github.com/chris-zhu/unocss-preset-useful/issues"
-  },
-  "homepage": "https://github.com/chris-zhu/unocss-preset-useful#readme",
   "dependencies": {
-    "@unocss/preset-mini": "^0.48.0"
+    "@unocss/preset-mini": "latest"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.35.2",
     "@babel/types": "^7.20.7",
-    "@chris-zhu/eslint-config": "^1.0.7",
     "@types/node": "^18.11.18",
-    "@unocss/core": "^0.48.0",
+    "@unocss/core": "latest",
     "bumpp": "^8.2.1",
     "eslint": "^8.31.0",
     "esno": "^0.16.3",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.1.2",
     "typescript": "^4.9.4",
     "unbuild": "^1.0.2",
-    "unocss": "^0.48.0",
+    "unocss": "latest",
     "vite": "^4.0.3",
-    "vitest": "^0.26.3"
+    "vitest": "^0.28.5"
   }
 }

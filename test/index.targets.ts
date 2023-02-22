@@ -6,9 +6,6 @@ export const usefulTargets: string[] = [
   'fb',
   'fbc',
   'p-c',
-  'bg',
-  'text',
-  'base',
 
   // rules
   'c::red',
