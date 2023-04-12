@@ -15,7 +15,7 @@ export const rules: Rule[] = [
   }],
 ]
 
-export const normalizeRuleMeta = (ruleMeta: RuleMeta) => {
+export function normalizeRuleMeta(ruleMeta: RuleMeta) {
   for (const r of rules)
     r[2] = Object.assign(r[2] || {}, ruleMeta)
 }

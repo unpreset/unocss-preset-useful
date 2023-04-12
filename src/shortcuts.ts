@@ -29,7 +29,7 @@ export const shortcuts: UserShortcuts = [
   ['trans', 'transition-all-350 ease-linear'],
 ]
 
-export const normalizeShortcutMeta = (ruleMeta: RuleMeta) => {
-  for (const s of shortcuts)
-    s[2] = Object.assign(s[2] || {}, ruleMeta)
+export function normalizeShortcutMeta(ruleMeta: RuleMeta) {
+  for (const r of shortcuts as any)
+    r[2] = Object.assign(r[2] || {}, ruleMeta)
 }
