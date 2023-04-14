@@ -8,7 +8,7 @@ import { extractors } from './extractors'
 normalizeRuleMeta(layerMeta)
 normalizeShortcutMeta(layerMeta)
 
-export function presetUseful() {
+export function presetUseful(): ReturnType<typeof definePreset> {
   return definePreset({
     name: `unocss-preset-${PRESET_NAME}`,
     layers: {
@@ -19,5 +19,3 @@ export function presetUseful() {
     extractors,
   })
 }
-
-export default presetUseful

@@ -1,6 +1,6 @@
-import type { RuleMeta, UserShortcuts } from '@unocss/core'
+import type { RuleMeta, StaticShortcut } from 'unocss'
 
-export const shortcuts: UserShortcuts = [
+export const shortcuts: StaticShortcut[] = [
   ['pr', 'relative'],
   ['pa', 'absolute'],
   ['pf', 'fixed'],
@@ -30,6 +30,6 @@ export const shortcuts: UserShortcuts = [
 ]
 
 export function normalizeShortcutMeta(ruleMeta: RuleMeta) {
-  for (const r of shortcuts as any)
+  for (const r of shortcuts)
     r[2] = Object.assign(r[2] || {}, ruleMeta)
 }
