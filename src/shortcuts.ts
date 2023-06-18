@@ -6,6 +6,7 @@ import { layerMeta } from './meta'
 type CustomStaticShortcut = [string | string[], StaticShortcut[1]] | [string | string[], StaticShortcut[1], StaticShortcut[2]]
 type CustomStaticShortcuts = CustomStaticShortcut[]
 
+// IN-README-START
 const _shortcuts: CustomStaticShortcuts = [
   // position
   ['pr', 'relative'],
@@ -38,6 +39,7 @@ const _shortcuts: CustomStaticShortcuts = [
   // transition
   ['trans', 'transition-all-350 ease-linear'],
 ]
+// IN-README-END
 
 export const shortcuts = normalizeShortcut(_shortcuts)
 

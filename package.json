@@ -1,5 +1,6 @@
 {
   "name": "unocss-preset-useful",
+  "type": "module",
   "version": "0.0.11",
   "description": "My useful preset about unocss usage.",
   "author": "Chris <https://github.com/zyyv>",
@@ -40,7 +41,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "unbuild && esno scripts/readme.ts",
     "dev": "unbuild --stub",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp --commit --push --tag && pnpm publish",

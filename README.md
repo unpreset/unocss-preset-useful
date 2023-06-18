@@ -19,10 +19,24 @@ export default defineConfig({
   ],
 })
 ```
-## Rules
 
-```ts
-export const rules: Rule[] = [
+
+  ## extractors
+  
+  ```ts
+  export const extractors: Extractor[] = [{
+  name: 'unocss-preset-useful-extractor-includes-base64',
+  order: 0,
+  extract({ code }) {
+    return [...new Set(code.split(/[\\:]?[\s'"`{}]|;(?!base64)+/g))]
+  },
+}]
+  ```
+  
+  ## rules
+  
+  ```ts
+  export const rules: Rule[] = [
   [/^(.+)::(.+)$/, ([, n, v], { theme }) => {
     const color = parseColor(v, theme)
     if (color?.cssColor?.type === 'rgb' && color.cssColor.components) {
@@ -35,22 +49,28 @@ export const rules: Rule[] = [
     }
   }],
 ]
-```
-
-## Shortcuts
-
-```ts
-export const shortcuts: UserShortcuts = [
+  ```
+  
+  ## shortcuts
+  
+  ```ts
+  const _shortcuts: CustomStaticShortcuts = [
+  // position
   ['pr', 'relative'],
   ['pa', 'absolute'],
   ['pf', 'fixed'],
-  ['p-c', 'pa top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'],
-  ['f-c', 'flex justify-center items-center'],
-  ['f-c-c', 'f-c flex-col'],
+  ['ps', 'sticky'],
 
-  ['fc', 'flex justify-center'],
-  ['fi', 'flex items-center'],
-  ['fcc', 'flex justify-center items-center'],
+  // position layout
+  [['pxc', 'p-x-c'], 'pa left-1/2 -translate-x-1/2'],
+  [['pyc', 'p-y-c'], 'pa top-1/2 -translate-y-1/2'],
+  [['pcc', 'pc', 'p-c', 'p-c-c'], 'pxc pyc'],
+
+  // flex layout
+  [['f-c', 'fcc'], 'flex justify-center items-center'],
+  [['f-c-c', 'fccc'], 'f-c flex-col'],
+  [['fc', 'fxc', 'f-x-c'], 'flex justify-center'],
+  [['fi', 'fyc', 'f-y-c'], 'flex items-center'],
   ['fs', 'flex justify-start'],
   ['fsc', 'flex justify-start items-center'],
   ['fse', 'flex justify-start items-end'],
@@ -63,12 +83,12 @@ export const shortcuts: UserShortcuts = [
   ['fw', 'flex justify-wrap'],
   ['fwr', 'flex justify-wrap-reverse'],
 
-  ['fic', 'flex items-center'],
-  ['fccc', 'flex justify-center items-center flex-col'],
-
+  // transition
   ['trans', 'transition-all-350 ease-linear'],
 ]
-```
+  ```
+  
+
 ## License
 
 [MIT](./LICENSE) License © 2022 [zyyv](https://github.com/zyyv)
