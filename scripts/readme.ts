@@ -20,12 +20,12 @@ async function generateContent() {
     for (const item of Array.from(content.matchAll(README_RE))) {
       if (item != null) {
         template += `
-  ## ${fileInfo.name}
+## ${fileInfo.name}
   
-  \`\`\`ts
-  ${item[1].trim()}
-  \`\`\`
-  `
+\`\`\`ts
+${item[1].trim()}
+\`\`\`
+`
       }
     }
   }

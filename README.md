@@ -21,22 +21,24 @@ export default defineConfig({
 ```
 
 
-  ## extractors
+## extractors
   
-  ```ts
-  export const extractors: Extractor[] = [{
-  name: 'unocss-preset-useful-extractor-includes-base64',
-  order: 0,
-  extract({ code }) {
-    return [...new Set(code.split(/[\\:]?[\s'"`{}]|;(?!base64)+/g))]
+```ts
+export const extractors: Extractor[] = [
+  {
+    name: 'unocss-preset-useful-extractor-includes-base64',
+    order: 0,
+    extract({ code }) {
+      return [...new Set(code.split(/[\\:]?[\s'"`{}]|;(?!base64)+/g))]
+    },
   },
-}]
-  ```
+]
+```
+
+## rules
   
-  ## rules
-  
-  ```ts
-  export const rules: Rule[] = [
+```ts
+export const rules: Rule[] = [
   [/^(.+)::(.+)$/, ([, n, v], { theme }) => {
     const color = parseColor(v, theme)
     if (color?.cssColor?.type === 'rgb' && color.cssColor.components) {
@@ -49,12 +51,12 @@ export default defineConfig({
     }
   }],
 ]
-  ```
+```
+
+## shortcuts
   
-  ## shortcuts
-  
-  ```ts
-  const _shortcuts: CustomStaticShortcuts = [
+```ts
+const _shortcuts: CustomStaticShortcuts = [
   // position
   ['pr', 'relative'],
   ['pa', 'absolute'],
@@ -86,8 +88,8 @@ export default defineConfig({
   // transition
   ['trans', 'transition-all-350 ease-linear'],
 ]
-  ```
-  
+```
+
 
 ## License
 

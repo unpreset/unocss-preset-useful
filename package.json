@@ -41,7 +41,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild && esno scripts/readme.ts",
+    "build": "unbuild && esno scripts/readme.ts && pnpm lint:fix",
     "dev": "unbuild --stub",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp --commit --push --tag && pnpm publish",
