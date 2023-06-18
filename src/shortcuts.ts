@@ -1,4 +1,5 @@
 import type { RuleMeta, StaticShortcut } from 'unocss'
+import { layerMeta } from './meta'
 
 // @unocss-include
 
@@ -39,6 +40,8 @@ const _shortcuts: CustomStaticShortcuts = [
 ]
 
 export const shortcuts = normalizeShortcut(_shortcuts)
+
+normalizeShortcutMeta(layerMeta)
 
 export function normalizeShortcutMeta(ruleMeta: RuleMeta) {
   for (const r of shortcuts)

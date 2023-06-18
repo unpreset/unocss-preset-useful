@@ -1,12 +1,8 @@
 import { definePreset } from 'unocss'
-import { normalizeRuleMeta, rules } from './rules'
-import { normalizeShortcutMeta, shortcuts } from './shortcuts'
-import { layerMeta } from './meta'
+import { rules } from './rules'
+import { shortcuts } from './shortcuts'
 import { PRESET_NAME } from './constants'
 import { extractors } from './extractors'
-
-normalizeRuleMeta(layerMeta)
-normalizeShortcutMeta(layerMeta)
 
 export function presetUseful(): ReturnType<typeof definePreset> {
   return definePreset({

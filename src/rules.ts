@@ -1,5 +1,6 @@
 import { parseColor } from '@unocss/preset-mini/utils'
 import type { Rule, RuleMeta } from 'unocss'
+import { layerMeta } from './meta'
 
 export const rules: Rule[] = [
   [/^(.+)::(.+)$/, ([, n, v], { theme }) => {
@@ -14,6 +15,8 @@ export const rules: Rule[] = [
     }
   }],
 ]
+
+normalizeRuleMeta(layerMeta)
 
 export function normalizeRuleMeta(ruleMeta: RuleMeta) {
   for (const r of rules)
