@@ -45,10 +45,10 @@ export function normalizeShortcutMeta(ruleMeta: RuleMeta) {
     r[2] = Object.assign(r[2] || {}, ruleMeta)
 }
 
-export function normalizeShortcut(shortcut: CustomStaticShortcuts) {
+export function normalizeShortcut(shortcut: CustomStaticShortcuts): StaticShortcut[] {
   return shortcut.flatMap((s) => {
     if (Array.isArray(s[0]))
-      return s[0].map(i => [i, s[1], s[2]])
-    return [s]
+      return s[0].map(i => [i, s[1], s[2]] as StaticShortcut)
+    return [s] as StaticShortcut[]
   })
 }
