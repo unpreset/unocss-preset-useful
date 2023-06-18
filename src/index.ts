@@ -4,7 +4,7 @@ import { shortcuts } from './shortcuts'
 import { PRESET_NAME } from './constants'
 import { extractors } from './extractors'
 
-export function presetUseful(): ReturnType<typeof definePreset> {
+export function presetUseful() {
   return definePreset({
     name: `unocss-preset-${PRESET_NAME}`,
     layers: {
@@ -15,3 +15,5 @@ export function presetUseful(): ReturnType<typeof definePreset> {
     extractors,
   })
 }
+
+export default presetUseful
