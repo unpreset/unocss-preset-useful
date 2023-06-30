@@ -35,6 +35,26 @@ export const extractors: Extractor[] = [
 ]
 ```
 
+## postprocess
+  
+```ts
+// https://github.com/unocss/unocss/discussions/2816
+export function postprocessWithUnColor(unColor: string): Postprocessor {
+  return (util) => {
+    util.entries.forEach((i) => {
+      const value = i[1]
+      if (typeof value === 'string') {
+        const match = value.match(rgbaRE)
+        if (match != null) {
+          i[1] = value.replace(rgbaRE, `rgba(var(${unColor}),$2)`)
+          util.entries.unshift([unColor, match[1]])
+        }
+      }
+    })
+  }
+}
+```
+
 ## rules
   
 ```ts

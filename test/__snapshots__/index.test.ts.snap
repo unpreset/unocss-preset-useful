@@ -4,7 +4,7 @@ exports[`preset-useful > targets 1`] = `
 "/* layer: default */
 .text-\\\\[rgb\\\\(--c\\\\)\\\\]\\\\:50{color:rgba(--c,0.5);}
 /* layer: useful */
-.p-c{position:absolute;top:50%;left:50%;--un-translate-x:-50%;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));--un-translate-y:-50%;}
+.p-c{position:absolute;left:50%;top:50%;--un-translate-x:-50%;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));--un-translate-y:-50%;}
 .pa{position:absolute;}
 .pr{position:relative;}
 .f-c{display:flex;align-items:center;justify-content:center;}

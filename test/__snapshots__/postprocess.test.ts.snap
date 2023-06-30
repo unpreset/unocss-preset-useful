@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`postprocess with unColor > base 1`] = `
+"/* layer: default */
+.bg-red{--un-color:248,113,113;--un-bg-opacity:1;background-color:rgba(var(--un-color),var(--un-bg-opacity));}
+.text-blue{--un-color:96,165,250;--un-text-opacity:1;color:rgba(var(--un-color),var(--un-text-opacity));}"
+`;
+
+exports[`postprocess with unColor > with string 1`] = `
+"/* layer: default */
+.bg-red{--test-color:248,113,113;--un-bg-opacity:1;background-color:rgba(var(--test-color),var(--un-bg-opacity));}
+.text-blue{--test-color:96,165,250;--un-text-opacity:1;color:rgba(var(--test-color),var(--un-text-opacity));}"
+`;
