@@ -24,6 +24,8 @@ export default defineConfig({
 ## extractors
   
 ```ts
+// https://github.com/unocss/unocss/pull/2485
+// Support extract base64 image.
 export const extractors: Extractor[] = [
   {
     name: 'unocss-preset-useful-extractor-includes-base64',
@@ -39,6 +41,7 @@ export const extractors: Extractor[] = [
   
 ```ts
 // https://github.com/unocss/unocss/discussions/2816
+// Extract rgba color in css variable.
 export function postprocessWithUnColor(unColor: string): Postprocessor {
   return (util) => {
     util.entries.forEach((i) => {
@@ -58,6 +61,7 @@ export function postprocessWithUnColor(unColor: string): Postprocessor {
 ## rules
   
 ```ts
+// Use any css variable easily.
 export const rules: Rule[] = [
   [/^(.+)::(.+)$/, ([, n, v], { theme }) => {
     const color = parseColor(v, theme)
@@ -76,6 +80,7 @@ export const rules: Rule[] = [
 ## shortcuts
   
 ```ts
+// FYI. My own shortcuts.
 const _shortcuts: CustomStaticShortcuts = [
   // position
   ['pr', 'relative'],
