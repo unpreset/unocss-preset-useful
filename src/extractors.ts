@@ -1,8 +1,8 @@
 import type { Extractor } from 'unocss'
 
-// https://github.com/unocss/unocss/pull/2485
-
 // IN-README-START
+// https://github.com/unocss/unocss/pull/2485
+// Support extract base64 image.
 export const extractors: Extractor[] = [
   {
     name: 'unocss-preset-useful-extractor-includes-base64',

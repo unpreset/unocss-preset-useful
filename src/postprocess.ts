@@ -4,6 +4,7 @@ const rgbaRE = /rgba\((\d+,\d+,\d+),([^)]*)\)/
 
 // IN-README-START
 // https://github.com/unocss/unocss/discussions/2816
+// Extract rgba color in css variable.
 export function postprocessWithUnColor(unColor: string): Postprocessor {
   return (util) => {
     util.entries.forEach((i) => {

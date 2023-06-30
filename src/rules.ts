@@ -3,6 +3,7 @@ import type { Rule, RuleMeta } from 'unocss'
 import { layerMeta } from './meta'
 
 // IN-README-START
+// Use any css variable easily.
 export const rules: Rule[] = [
   [/^(.+)::(.+)$/, ([, n, v], { theme }) => {
     const color = parseColor(v, theme)

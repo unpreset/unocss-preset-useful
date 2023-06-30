@@ -7,6 +7,7 @@ type CustomStaticShortcut = [string | string[], StaticShortcut[1]] | [string | s
 type CustomStaticShortcuts = CustomStaticShortcut[]
 
 // IN-README-START
+// FYI. My own shortcuts.
 const _shortcuts: CustomStaticShortcuts = [
   // position
   ['pr', 'relative'],
