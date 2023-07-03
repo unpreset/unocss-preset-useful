@@ -1,6 +1,6 @@
 # unocss-preset-useful [![npm](https://img.shields.io/npm/v/unocss-preset-useful)](https://npmjs.com/package/unocss-preset-useful)
 
-My useful preset about unocss usage.
+My useful private preset about unocss usage.
 
 ## Usage
 ```shell
