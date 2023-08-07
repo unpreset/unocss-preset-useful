@@ -5,6 +5,7 @@ import { shortcuts } from './shortcuts'
 import { PRESET_NAME } from './constants'
 import { extractors } from './extractors'
 import { postprocessWithUnColor } from './postprocess'
+import { nomarlizeTheme } from './theme'
 
 export interface UsefulOptions {
   /**
@@ -13,12 +14,25 @@ export interface UsefulOptions {
    * @default false
    */
   unColor?: boolean | string
+
+  /**
+   * Expand theme animation name usage
+   *
+   * [ name, duration, timing-function, iteration-count ]
+   *
+   * @example
+   * ```ts
+    themeAnimate: ['spin 1s linear infinite'],
+   * ```
+   */
+  themeAnimate?: string[]
 }
 
 export function presetUseful(options: UsefulOptions = {}): Preset {
-  options.unColor = typeof options.unColor === 'string'
-    ? options.unColor
-    : options.unColor ? '--un-color' : false
+  let { unColor, themeAnimate } = options
+  unColor = typeof unColor === 'string'
+    ? unColor
+    : unColor ? '--un-color' : false
 
   return definePreset({
     name: `unocss-preset-${PRESET_NAME}`,
@@ -26,10 +40,13 @@ export function presetUseful(options: UsefulOptions = {}): Preset {
       [PRESET_NAME]: 2,
     },
     rules,
+    theme: {
+      animation: nomarlizeTheme(themeAnimate),
+    },
     shortcuts,
     extractors,
     postprocess: [
-      options.unColor ? postprocessWithUnColor(options.unColor as string) : undefined,
+      unColor ? postprocessWithUnColor(unColor as string) : undefined,
     ].filter(Boolean) as Postprocessor[],
   })
 }

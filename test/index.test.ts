@@ -1,5 +1,6 @@
 import { createGenerator, escapeSelector, presetUno } from 'unocss'
 import { describe, expect, test } from 'vitest'
+import type { Theme } from '@unocss/preset-mini'
 import { presetUseful } from '../src'
 import { usefulTargets } from './fixtures/index.targets'
 
@@ -25,10 +26,8 @@ describe('preset-useful', () => {
     expect(css).toMatchSnapshot()
     expect(css).toEqual(css2)
   })
-})
 
-describe('extractor includes base64', () => {
-  test('base64', async () => {
+  test('extractor includes base64', async () => {
     const code = '<div class="bg-[url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIwAAAABJRU5ErkJggg==)]"></div>'
     const { css, matched } = await uno.generate(code, { preflights: false })
     expect(css).toMatchInlineSnapshot(`
@@ -38,6 +37,40 @@ describe('extractor includes base64', () => {
     expect(matched).toMatchInlineSnapshot(`
       Set {
         "bg-[url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIwAAAABJRU5ErkJggg==)]",
+      }
+    `)
+  })
+
+  test('themeAnimate configuration', async () => {
+    const _uno = createGenerator<Theme>({
+      presets: [
+        presetUseful({
+          themeAnimate: [
+            'spin 1s linear infinite',
+            'bounce 2s ease-in-out 3',
+            'fade 1s ease-in-out 3',
+          ],
+        }),
+      ],
+    })
+
+    expect(_uno.config.theme.animation).toMatchInlineSnapshot(`
+      {
+        "counts": {
+          "bounce": "3",
+          "fade": "3",
+          "spin": "infinite",
+        },
+        "durations": {
+          "bounce": "2s",
+          "fade": "1s",
+          "spin": "1s",
+        },
+        "timingFns": {
+          "bounce": "ease-in-out",
+          "fade": "ease-in-out",
+          "spin": "linear",
+        },
       }
     `)
   })
