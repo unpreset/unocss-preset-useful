@@ -1,6 +1,6 @@
 import type { Postprocessor } from 'unocss'
 
-const rgbaRE = /rgba\((\d+,\d+,\d+),([^)]*)\)/
+const rgbaRE = /rgba\(((?:\d+,?){3}),([^)]*)\)/
 
 // IN-README-START
 // https://github.com/unocss/unocss/discussions/2816
