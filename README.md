@@ -1,6 +1,6 @@
 # unocss-preset-useful [![npm](https://img.shields.io/npm/v/unocss-preset-useful)](https://npmjs.com/package/unocss-preset-useful)
 
-My useful preset about unocss usage.
+My useful private preset about unocss usage.
 
 ## Usage
 ```shell
@@ -113,6 +113,34 @@ const _shortcuts: CustomStaticShortcuts = [
   // transition
   ['trans', 'transition-all-350 ease-linear'],
 ]
+```
+
+## theme
+  
+```ts
+// See index.test.ts `themeAnimate configuration` for usage.
+export function nomarlizeTheme(themeAnimate?: string[]) {
+  const animateTheme: ThemeAnimation = {}
+  const animateKeys: (Exclude<keyof ThemeAnimation, 'properties'>)[] = ['durations', 'timingFns', 'counts']
+  themeAnimate?.forEach((v) => {
+    const ps = v.split(/\s+/)
+    if (ps.length > 1) {
+      const key = ps[0]
+      for (let i = 1; i < ps.length; i++) {
+        if (animateTheme[animateKeys[i - 1]]) {
+          animateTheme[animateKeys[i - 1]]![key] = ps[i]
+        }
+        else {
+          animateTheme[animateKeys[i - 1]] = {
+            [key]: ps[i],
+          }
+        }
+      }
+    }
+  })
+
+  return animateTheme
+}
 ```
 
 
