@@ -1,11 +1,7 @@
 import { definePreset } from 'unocss'
 import type { Postprocessor, Preset } from 'unocss'
-import { rules } from './rules'
-import { shortcuts } from './shortcuts'
-import { PRESET_NAME } from './constants'
-import { extractors } from './extractors'
-import { postprocessWithUnColor } from './postprocess'
-import { nomarlizeTheme } from './theme'
+import { PRESET_NAME } from './meta'
+import { extractors, nomarlizeTheme, postprocessWithUnColor, rules, shortcuts } from './core'
 
 export interface UsefulOptions {
   /**

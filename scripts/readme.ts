@@ -5,7 +5,7 @@ const IN_README_START = 'IN-README-START'
 const IN_README_END = 'IN-README-END'
 const README_RE = new RegExp(`(?:\/\/\\s*?${IN_README_START}\\s*?|\\/\\*\\s*?${IN_README_START}\\s*?\\*\\/|<!--\\s*?${IN_README_START}\\s*?-->)([\\s\\S]*?)(?:\/\/\\s*?${IN_README_END}\\s*?|\\/\\*\\s*?${IN_README_END}\\s*?\\*\\/|<!--\\s*?${IN_README_END}\\s*?-->)`, 'g')
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
-const workspace = path.resolve(__dirname, '../src')
+const workspace = path.resolve(__dirname, '../src/core')
 
 run()
 

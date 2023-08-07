@@ -1,6 +1,6 @@
 import { parseColor } from '@unocss/preset-mini/utils'
 import type { Rule, RuleMeta } from 'unocss'
-import { layerMeta } from './meta'
+import { layerMeta } from '../meta'
 
 // IN-README-START
 // Use any css variable easily.

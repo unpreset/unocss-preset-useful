@@ -1,5 +1,5 @@
 import type { RuleMeta, StaticShortcut } from 'unocss'
-import { layerMeta } from './meta'
+import { layerMeta } from '../meta'
 
 // @unocss-include
 
