@@ -51,18 +51,18 @@
     "test:update": "vitest --update"
   },
   "dependencies": {
-    "@unocss/preset-mini": "^0.55.3"
+    "@unocss/preset-mini": "^0.55.6"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
     "@babel/types": "^7.22.11",
-    "@types/node": "^20.5.7",
+    "@types/node": "^20.5.9",
     "bumpp": "^9.2.0",
     "eslint": "^8.48.0",
     "esno": "^0.17.0",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "unbuild": "^2.0.0",
-    "unocss": "^0.55.3",
+    "unocss": "^0.55.6",
     "vite": "^4.4.9",
     "vitest": "^0.34.3"
   }
