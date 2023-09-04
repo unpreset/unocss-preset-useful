@@ -41,14 +41,15 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild && esno scripts/readme.ts && pnpm lint:fix",
+    "build": "unbuild && pnpm readme && pnpm lint:fix",
     "dev": "unbuild --stub",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
-    "test:update": "vitest --update"
+    "test:update": "vitest --update",
+    "readme": "esno scripts/readme.ts"
   },
   "dependencies": {
     "@unocss/preset-mini": "^0.55.6"
