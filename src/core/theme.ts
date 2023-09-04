@@ -2,10 +2,10 @@ import type { ThemeAnimation } from '@unocss/preset-mini'
 
 // IN-README-START
 // See index.test.ts `themeAnimate configuration` for usage.
-export function nomarlizeTheme(themeAnimate?: string[]) {
+export function nomarlizeTheme(themeAnimate: string[]) {
   const animateTheme: ThemeAnimation = {}
   const animateKeys: (Exclude<keyof ThemeAnimation, 'properties'>)[] = ['durations', 'timingFns', 'counts']
-  themeAnimate?.forEach((v) => {
+  themeAnimate.forEach((v) => {
     const ps = v.split(/\s+/)
     if (ps.length > 1) {
       const key = ps[0]

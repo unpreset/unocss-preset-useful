@@ -2,33 +2,12 @@ import { definePreset } from 'unocss'
 import type { Postprocessor, Preset } from 'unocss'
 import { PRESET_NAME } from './meta'
 import { extractors, nomarlizeTheme, postprocessWithUnColor, rules, shortcuts } from './core'
+import type { ResolvedOptions, UsefulOptions } from './type'
 
-export interface UsefulOptions {
-  /**
-   * Extract rgba color in css variable
-   *
-   * @default false
-   */
-  unColor?: boolean | string
-
-  /**
-   * Expand theme animation name usage
-   *
-   * [ name, duration, timing-function, iteration-count ]
-   *
-   * @example
-   * ```ts
-    themeAnimate: ['spin 1s linear infinite'],
-   * ```
-   */
-  themeAnimate?: string[]
-}
+export * from './type'
 
 export function presetUseful(options: UsefulOptions = {}): Preset {
-  let { unColor, themeAnimate } = options
-  unColor = typeof unColor === 'string'
-    ? unColor
-    : unColor ? '--un-color' : false
+  const { unColor, themeAnimate } = resolveOptions(options)
 
   return definePreset({
     name: `unocss-preset-${PRESET_NAME}`,
@@ -48,3 +27,15 @@ export function presetUseful(options: UsefulOptions = {}): Preset {
 }
 
 export default presetUseful
+
+function resolveOptions(options: UsefulOptions): ResolvedOptions {
+  let { unColor, themeAnimate } = options
+  unColor = typeof unColor === 'string'
+    ? unColor
+    : unColor ? '--un-color' : false
+
+  return {
+    unColor,
+    themeAnimate: themeAnimate ?? [],
+  }
+}
