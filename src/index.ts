@@ -4,7 +4,9 @@ import { PRESET_NAME } from './meta'
 import { extractors, nomarlizeTheme, postprocessWithUnColor, rules, shortcuts } from './core'
 import type { ResolvedOptions, UsefulOptions } from './type'
 
-export * from './type'
+export * from './utils'
+
+export type { UsefulOptions }
 
 export function presetUseful(options: UsefulOptions = {}): Preset {
   const { unColor, themeAnimate } = resolveOptions(options)
