@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import type { Theme } from '@unocss/preset-mini'
 import { presetUseful } from '../src'
 
-describe('Theme', () => {
+describe('utils', () => {
   test('themeAnimate configuration', async () => {
     const _uno = createGenerator<Theme>({
       presets: [

@@ -52,7 +52,8 @@
     "readme": "esno scripts/readme.ts"
   },
   "dependencies": {
-    "@unocss/preset-mini": "^0.55.6"
+    "@unocss/core": "latest",
+    "@unocss/preset-mini": "latest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
@@ -63,7 +64,6 @@
     "esno": "^0.17.0",
     "typescript": "5.2.2",
     "unbuild": "^2.0.0",
-    "unocss": "^0.55.6",
     "vite": "^4.4.9",
     "vitest": "^0.34.3"
   }
