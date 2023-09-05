@@ -1,4 +1,5 @@
 import type { ThemeAnimation } from '@unocss/preset-mini'
+import type { DeepPartial } from './type'
 
 /**
  * Normalize custom animate usage to UnoCSS animations theme.
@@ -44,4 +45,41 @@ export function nomarlizeAnimate(themeAnimate: string[]) {
   })
 
   return animateTheme
+}
+
+/**
+ * Deep merge two objects.
+ * @param original Original object
+ * @param patch Patch object
+ * @returns Merged object
+ */
+export function deepMerge<T>(original: T, patch: DeepPartial<T>): T {
+  const o = original as any
+  const p = patch as any
+
+  if (Array.isArray(o) && Array.isArray(p))
+    return [...o, ...p] as any
+
+  if (Array.isArray(o))
+    return [...o] as any
+
+  const output = { ...o }
+  if (isObject(o) && isObject(p)) {
+    Object.keys(p).forEach((key) => {
+      if (isObject(p[key])) {
+        if (!(key in o))
+          Object.assign(output, { [key]: p[key] })
+        else
+          output[key] = deepMerge(o[key], p[key])
+      }
+      else {
+        Object.assign(output, { [key]: p[key] })
+      }
+    })
+  }
+  return output
+}
+
+function isObject(val: unknown): val is Record<any, any> {
+  return val !== null && typeof val === 'object'
 }

@@ -20,3 +20,5 @@ export interface UsefulOptions {
 }
 
 export type ResolvedOptions = Required<UsefulOptions>
+
+export type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> }

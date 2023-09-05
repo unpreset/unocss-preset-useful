@@ -6,16 +6,19 @@ exports[`Theme > themeAnimate configuration 1`] = `
     "bounce": "3",
     "fade": "3",
     "spin": "infinite",
+    "test": "3",
   },
   "durations": {
     "bounce": "2s",
     "fade": "1s",
     "spin": "1s",
+    "test": "1s",
   },
   "timingFns": {
     "bounce": "ease-in-out",
     "fade": "ease-in-out",
     "spin": "linear",
+    "test": "_",
   },
 }
 `;
