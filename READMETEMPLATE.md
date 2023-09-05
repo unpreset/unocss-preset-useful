@@ -1,29 +1,38 @@
 # unocss-preset-useful [![npm](https://img.shields.io/npm/v/unocss-preset-useful)](https://npmjs.com/package/unocss-preset-useful)
 
-My useful private preset about unocss usage.
+Integrate and useful preset.
+
+## Features
+- 🔥 Integrate popular presets, Use One Get All.
+- 🚀 Collection of features not integrated into UnoCSS
+  - 🍥 Support extract base64 image
+  - 🎨 Support extract rgba color in css variable
+  - 💜 Support expand theme animation name usage
+  - 🍬 etc.
+
 
 ## Usage
 ```shell
-pnpm i -D unocss-preset-useful
+pnpm i -D unocss-preset-useful unocss
 ```
 
 ```ts
 // unocss.config.ts
-import { defineConfig, presetUno } from 'unocss'
+import { defineConfig } from 'unocss'
 import { presetUseful } from 'unocss-preset-useful'
 
 export default defineConfig({
   presets: [
-    presetUno(),
     presetUseful(),
   ],
 })
 ```
 
-## Options
+<details>
+<summary>Options</summary><br>
 
 ```ts
-interface UsefulOptions {
+export interface UsefulOptions {
   /**
    * Extract rgba color in css variable
    *
@@ -42,10 +51,83 @@ interface UsefulOptions {
    * ```
    */
   themeAnimate?: string[]
+
+  /**
+   * Enable the default preset
+   * Only works when `presets` is not specified
+   * @default true
+   */
+  uno?: boolean | PresetUnoOptions
+
+  /**
+   * Enable attributify mode and the options of it
+   * Only works when `presets` is not specified
+   * @default false
+   */
+  attributify?: boolean | AttributifyOptions
+
+  /**
+   * Enable icons preset and the options of it
+   * Only works when `presets` is not specified
+   * @default false
+   */
+  icons?: boolean | IconsOptions
+
+  /**
+   * Enable webFonts preset and the options of it
+   * Only works when `presets` is not specified
+   * @default false
+   */
+  webFonts?: boolean | WebFontsOptions
+
+  /**
+  * Enable typography preset and the options of it
+  * Only works when `presets` is not specified
+  * @default false
+  */
+  typography?: boolean | TypographyOptions
+
+  /**
+   * Enable tagify preset and the options of it
+   * Only works when `presets` is not specified
+   * @default false
+   */
+  tagify?: boolean | TagifyOptions
+
+  /**
+   * Enable remToPx preset and the options of it
+   * Only works when `presets` is not specified
+   * @default false
+   */
+  remToPx?: boolean | RemToPxOptions
+
+  /**
+   * Enable scrollbar preset and the options of it
+   * Only works when `presets` is not specified
+   *
+   * See: https://github.com/action-hong/unocss-preset-scrollbar
+   *
+   * @default false
+   */
+  scrollbar?: boolean | PresetScrollbarDefaultOption
 }
 ```
 
+<br></details>
+
+
+## Details
+
+<details>
+<summary>Expand it see more details</summary><br>
+
+
+
 <slot/>
+
+
+
+<br></details>
 
 ## License
 
