@@ -140,7 +140,7 @@ const _shortcuts: CustomStaticShortcuts = [
 ]
 ```
 
-## theme
+## index
   
 ```ts
 // See index.test.ts `themeAnimate configuration` for usage.

@@ -53,7 +53,15 @@
   },
   "dependencies": {
     "@unocss/core": "latest",
-    "@unocss/preset-mini": "latest"
+    "@unocss/preset-attributify": "latest",
+    "@unocss/preset-icons": "latest",
+    "@unocss/preset-mini": "latest",
+    "@unocss/preset-rem-to-px": "latest",
+    "@unocss/preset-tagify": "latest",
+    "@unocss/preset-typography": "latest",
+    "@unocss/preset-uno": "latest",
+    "@unocss/preset-web-fonts": "latest",
+    "unocss-preset-scrollbar": "latest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
@@ -62,8 +70,9 @@
     "bumpp": "^9.2.0",
     "eslint": "^8.48.0",
     "esno": "^0.17.0",
-    "typescript": "5.2.2",
+    "typescript": "5.1.6",
     "unbuild": "^2.0.0",
+    "unocss": "latest",
     "vite": "^4.4.9",
     "vitest": "^0.34.3"
   }

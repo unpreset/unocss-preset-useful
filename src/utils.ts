@@ -1,10 +1,20 @@
 import type { ThemeAnimation } from '@unocss/preset-mini'
-import type { DeepPartial } from './type'
+import type { DeepPartial } from './types'
 
 /**
  * Normalize custom animate usage to UnoCSS animations theme.
  *
+ * ⚠️ You must strictly follow the following format. ⚠️
+ *
  * [ name, duration, timing-function, iteration-count ]
+ *
+ * If you use * as placeholder, it will be ignored.
+ *
+ * [name, duration, *, iteration-count]
+ *
+ * If you use + as placeholder, it will be replaced with empty string.
+ *
+ * [name, duration, +, iteration-count]
  *
  * @example
  *
@@ -32,12 +42,15 @@ export function nomarlizeAnimate(themeAnimate: string[]) {
     if (ps.length > 1) {
       const key = ps[0]
       for (let i = 1; i < ps.length; i++) {
-        if (animateTheme[animateKeys[i - 1]]) {
-          animateTheme[animateKeys[i - 1]]![key] = ps[i]
+        if (ps[i] === '*')
+          continue
+        const _key = animateKeys[i - 1]
+        if (animateTheme[_key]) {
+          animateTheme[_key]![key] = ps[i] === '+' ? '' : ps[i]
         }
         else {
-          animateTheme[animateKeys[i - 1]] = {
-            [key]: ps[i],
+          animateTheme[_key] = {
+            [key]: ps[i] === '+' ? '' : ps[i],
           }
         }
       }
@@ -80,6 +93,6 @@ export function deepMerge<T>(original: T, patch: DeepPartial<T>): T {
   return output
 }
 
-function isObject(val: unknown): val is Record<any, any> {
+export function isObject(val: unknown): val is Record<any, any> {
   return val !== null && typeof val === 'object'
 }

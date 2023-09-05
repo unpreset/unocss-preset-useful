@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`useful presets > mutiple preset 1`] = `
+"/* layer: typography */
+.prose{color:var(--un-prose-body);max-width:65ch;}
+/* layer: shortcuts */
+.scrollbar::-webkit-scrollbar{width:var(--scrollbar-width);height:var(--scrollbar-height);}
+.scrollbar{overflow:auto;scrollbar-color:var(--scrollbar-thumb) var(--scrollbar-track);--scrollbar-track:#f5f5f5;--scrollbar-thumb:#ddd;--scrollbar-width:8px;--scrollbar-height:8px;--scrollbar-track-radius:4px;--scrollbar-thumb-radius:4px;}
+.scrollbar::-webkit-scrollbar-thumb{background-color:var(--scrollbar-thumb);}
+.scrollbar::-webkit-scrollbar-track{background-color:var(--scrollbar-track);}
+/* layer: default */
+.text-center{text-align:center;}"
+`;

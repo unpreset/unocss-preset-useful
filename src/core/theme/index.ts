@@ -1,4 +1,4 @@
-import { nomarlizeAnimate } from '../utils'
+import { nomarlizeAnimate } from '../../utils'
 
 // IN-README-START
 // See index.test.ts `themeAnimate configuration` for usage.

@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`utils > themeAnimate configuration 1`] = `
+{
+  "counts": {
+    "bounce": "3",
+    "fade": "3",
+    "spin": "infinite",
+    "test": "3",
+  },
+  "durations": {
+    "aaa": "1s",
+    "bounce": "2s",
+    "fade": "1s",
+    "spin": "1s",
+    "test": "1s",
+  },
+  "timingFns": {
+    "aaa": "",
+    "bounce": "ease-in-out",
+    "fade": "ease-in-out",
+    "spin": "linear",
+  },
+}
+`;
