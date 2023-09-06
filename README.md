@@ -41,16 +41,20 @@ export interface UsefulOptions {
   unColor?: boolean | string
 
   /**
-   * Expand theme animation name usage
+   * Improve theme to be more useful
+   *
+   * - Add `animation` to theme, Expand theme animation name usage
    *
    * [ name, duration, timing-function, iteration-count ]
    *
    * @example
+   *
    * ```ts
     themeAnimate: ['spin 1s linear infinite'],
    * ```
+   *
    */
-  themeAnimate?: string[]
+  theme?: UsefulTheme
 
   /**
    * Enable the default preset
@@ -222,8 +226,11 @@ const _shortcuts: CustomStaticShortcuts = [
   
 ```ts
 // See index.test.ts `themeAnimate configuration` for usage.
-export function nomarlizeTheme(themeAnimate: string[]) {
-  return nomarlizeAnimate(themeAnimate)
+export function nomarlizeTheme(theme: UsefulTheme): UsefulTheme {
+  return {
+    ...theme,
+    animation: theme.animation ? nomarlizeAnimate(theme.animation) : undefined,
+  }
 }
 ```
 
