@@ -21,9 +21,9 @@ describe('useful presets', () => {
     expect(sortedPresets.map(i => i.name)).toMatchInlineSnapshot(`
       [
         "@unocss/preset-icons",
+        "unocss-preset-useful",
         "@unocss/preset-uno",
         "unocss-preset-scrollbar",
-        "unocss-preset-useful",
         "@unocss/preset-attributify",
         "@unocss/preset-typography",
       ]

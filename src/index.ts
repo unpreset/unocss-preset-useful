@@ -16,7 +16,7 @@ export * from './utils'
 export type { UsefulOptions }
 
 export function presetUseful(options: UsefulOptions = {}): Preset {
-  const { unColor, themeAnimate, presets } = resolveOptions(options)
+  const { unColor, theme, presets } = resolveOptions(options)
 
   return {
     name: `unocss-preset-${PRESET_NAME}`,
@@ -24,9 +24,7 @@ export function presetUseful(options: UsefulOptions = {}): Preset {
       [PRESET_NAME]: 2,
     },
     rules,
-    theme: {
-      animation: nomarlizeTheme(themeAnimate),
-    },
+    theme,
     shortcuts,
     extractors,
     postprocess: [
@@ -48,7 +46,7 @@ function resolveOptions(options: UsefulOptions) {
     tagify: false,
     remToPx: false,
     scrollbar: false,
-    themeAnimate: [],
+    theme: {},
   }
   const optionsWithDefault = Object.assign({}, defaultOptions, options)
   optionsWithDefault.unColor = typeof optionsWithDefault.unColor === 'string'
@@ -74,6 +72,7 @@ function resolveOptions(options: UsefulOptions) {
 
   return {
     ...optionsWithDefault,
+    theme: nomarlizeTheme(optionsWithDefault.theme!),
     presets,
   } as ResolvedOptions
 }

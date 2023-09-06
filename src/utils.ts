@@ -1,5 +1,5 @@
 import type { ThemeAnimation } from '@unocss/preset-mini'
-import type { DeepPartial } from './types'
+import type { DeepPartial, UsefulThemeAnimation } from './types'
 
 /**
  * Normalize custom animate usage to UnoCSS animations theme.
@@ -18,11 +18,12 @@ import type { DeepPartial } from './types'
  *
  * @example
  *
- * themeAnimate: ['spin 1s linear infinite'],
+ * { animate: ['spin 1s linear infinite'] }
  *
  * Will be transformd:
  *
  * {
+ *   animate: ['spin 1s linear infinite'],
  *   durations: {
  *     spin: '1s',
  *   },
@@ -34,10 +35,11 @@ import type { DeepPartial } from './types'
  *   },
  * }
  */
-export function nomarlizeAnimate(themeAnimate: string[]) {
+export function nomarlizeAnimate(animation: UsefulThemeAnimation) {
+  const { animate: themeAnimate } = animation
   const animateTheme: ThemeAnimation = {}
   const animateKeys: (Exclude<keyof ThemeAnimation, 'properties'>)[] = ['durations', 'timingFns', 'counts']
-  themeAnimate.forEach((v) => {
+  themeAnimate?.forEach((v) => {
     const ps = v.split(/\s+/)
     if (ps.length > 1) {
       const key = ps[0]
@@ -57,7 +59,7 @@ export function nomarlizeAnimate(themeAnimate: string[]) {
     }
   })
 
-  return animateTheme
+  return deepMerge(animation, animateTheme)
 }
 
 /**
