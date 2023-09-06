@@ -53,6 +53,8 @@ export interface UsefulOptions {
     themeAnimate: ['spin 1s linear infinite'],
    * ```
    *
+   * See: https://github.com/unpreset/unocss-preset-useful/blob/2750ad7ef72696c094e86c02ed21dfddd9c4a63d/test/utils.test.ts#L21-L36
+   *
    */
   theme?: UsefulTheme
 
