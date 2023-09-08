@@ -44,7 +44,7 @@
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
-    "release": "pnpm readme && pnpm lint:fix && bumpp --commit --push --tag",
+    "release": "pnpm readme && pnpm lint:fix && npx changelogen --release && bumpp --commit --push --tag",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
