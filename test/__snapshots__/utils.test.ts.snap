@@ -1,7 +1,45 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`utils > nomarlizeAnimate 1`] = `
+{
+  "animate": [
+    "spin 1s linear infinite",
+    "bounce 2s ease-in-out 3",
+    "fade 1s ease-in-out 3",
+    "test 1s * 3",
+    "aaa 1s +",
+  ],
+  "counts": {
+    "bounce": "3",
+    "fade": "3",
+    "spin": "infinite",
+    "test": "3",
+  },
+  "durations": {
+    "aaa": "1s",
+    "bounce": "2s",
+    "fade": "1s",
+    "spin": "1s",
+    "test": "1s",
+  },
+  "timingFns": {
+    "aaa": "",
+    "bounce": "ease-in-out",
+    "fade": "ease-in-out",
+    "spin": "linear",
+  },
+}
+`;
+
 exports[`utils > themeAnimate configuration 1`] = `
 {
+  "animate": [
+    "spin 1s linear infinite",
+    "bounce 2s ease-in-out 3",
+    "fade 1s ease-in-out 3",
+    "test 1s * 3",
+    "aaa 1s +",
+  ],
   "counts": {
     "bounce": "3",
     "fade": "3",

@@ -7,6 +7,15 @@ import type { TagifyOptions } from '@unocss/preset-tagify'
 import type { RemToPxOptions } from '@unocss/preset-rem-to-px'
 import type { PresetScrollbarDefaultOption } from 'unocss-preset-scrollbar'
 import type { Preset } from '@unocss/core'
+import type { Theme, ThemeAnimation } from '@unocss/preset-mini'
+
+export interface UsefulThemeAnimation extends ThemeAnimation {
+  animate?: string[]
+}
+
+export interface UsefulTheme extends Theme {
+  animation?: UsefulThemeAnimation
+}
 
 export interface UsefulOptions {
   /**
@@ -17,16 +26,20 @@ export interface UsefulOptions {
   unColor?: boolean | string
 
   /**
-   * Expand theme animation name usage
+   * Improve theme to be more useful
+   *
+   * - Add `animation` to theme, Expand theme animation name usage
    *
    * [ name, duration, timing-function, iteration-count ]
    *
    * @example
+   *
    * ```ts
     themeAnimate: ['spin 1s linear infinite'],
    * ```
+   *
    */
-  themeAnimate?: string[]
+  theme?: UsefulTheme
 
   /**
    * Enable the default preset
