@@ -12,4 +12,5 @@ export const usefulTargets: string[] = [
   'c-custom::red',
   'p-10::10px',
   'text-[rgb(--c)]:50',
+  'c-context::#818181',
 ]

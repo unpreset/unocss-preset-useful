@@ -2,16 +2,17 @@
   "name": "unocss-preset-useful",
   "type": "module",
   "version": "0.1.2",
+  "packageManager": "pnpm@8.7.4",
   "description": "My useful preset about unocss usage.",
   "author": "Chris <https://github.com/zyyv>",
   "license": "MIT",
-  "homepage": "https://github.com/zyyv/unocss-preset-useful#readme",
+  "homepage": "https://github.com/unpreset/unocss-preset-useful#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zyyv/unocss-preset-useful.git"
+    "url": "git+https://github.com/unpreset/unocss-preset-useful.git"
   },
   "bugs": {
-    "url": "https://github.com/zyyv/unocss-preset-useful/issues"
+    "url": "https://github.com/unpreset/unocss-preset-useful/issues"
   },
   "keywords": [
     "unocss",
