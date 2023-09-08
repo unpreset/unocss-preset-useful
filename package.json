@@ -42,10 +42,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild && pnpm readme && pnpm lint:fix",
+    "build": "unbuild",
     "dev": "unbuild --stub",
-    "prepublishOnly": "pnpm run build",
-    "release": "bumpp --commit --push --tag",
+    "release": "pnpm readme && pnpm lint:fix && bumpp --commit --push --tag",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
