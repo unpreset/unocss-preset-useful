@@ -45,7 +45,7 @@
     "build": "unbuild && pnpm readme && pnpm lint:fix",
     "dev": "unbuild --stub",
     "prepublishOnly": "pnpm run build",
-    "release": "bumpp --commit --push --tag && pnpm publish",
+    "release": "bumpp --commit --push --tag",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
