@@ -2,7 +2,7 @@ import type { CSSObject } from 'unocss'
 import { createGenerator } from 'unocss'
 import { describe, expect, test } from 'vitest'
 import type { Theme } from '@unocss/preset-mini'
-import { convertCSSObjectToString, nomarlizeAnimate, presetUseful } from '../src'
+import { convertCSSObjectToString, nomarlizeAnimate, presetUseful, stringifyObj } from '../src'
 
 describe('utils', () => {
   const animate = [
@@ -43,6 +43,15 @@ describe('utils', () => {
       '100%': { opacity: 0, transform: 'scale(1, 1) translateY(-900%)' },
     }
 
-    expect(await convertCSSObjectToString(style)).toMatchInlineSnapshot('"{0%,20%,40%,50%{\\"opacity\\":1,\\"transform\\":\\"scale(1,1)translateY(0)\\"}}{10%,30%{\\"opacity\\":1,\\"transform\\":\\"scale(1.1,1.1)translateY(0)\\"}}{100%{\\"opacity\\":0,\\"transform\\":\\"scale(1,1)translateY(-900%)\\"}}"')
+    expect(await convertCSSObjectToString(style)).toMatchInlineSnapshot('"0%, 20%, 40%, 50%{opacity:1;transform:scale(1, 1) translateY(0);}10%, 30%{opacity:1;transform:scale(1.1, 1.1) translateY(0);}100%{opacity:0;transform:scale(1, 1) translateY(-900%);}"')
+  })
+
+  test('stringify CSSObject', () => {
+    const obj = {
+      aa: 'bb',
+      cc: 'dd',
+    }
+
+    expect(stringifyObj(obj)).toMatchInlineSnapshot('"{aa:bb;cc:dd;}"')
   })
 })

@@ -1,6 +1,6 @@
 import type { ThemeAnimation } from '@unocss/preset-mini'
 import postcss from 'postcss'
-import { objectify } from 'postcss-js'
+import postcssJs, { objectify } from 'postcss-js'
 import type { CSSObject } from 'unocss'
 import type { DeepPartial, UsefulThemeAnimation } from './types'
 
@@ -113,15 +113,21 @@ export function getKeyframes(css: string) {
   }, {})
 }
 
-export function convertCSSObjectToString(style: Record<string, object>): string {
+export function convertCSSObjectToString(style: Record<string, CSSObject>): string {
   return Object.keys(style).reduce((str, key) => {
-    return `${str}{${key}${JSON.stringify(style[key])}}`
-  }, '').replace(/\n|\s/g, '')
+    return `${str}${key}${stringifyObj(style[key])}`
+  }, '').replace(/\n/g, '')
 }
 
-// export async function convertCSSObjectToString(style: Record<string, CSSObject>) {
-//   return postcss().process(style, { parser: postcssJs } as any).then(result => result.css)
-// }
+export function stringifyObj(obj: CSSObject) {
+  return `{${Object.keys(obj).reduce((str, key) => {
+    return `${str}${key}:${obj[key]};`
+  }, '')}}`
+}
+
+export async function convertCSSObjectToString2(style: Record<string, CSSObject>) {
+  return postcss().process(style, { parser: postcssJs } as any).then(result => result.css)
+}
 
 export function toArray<T>(val: T | T[]): T[] {
   return Array.isArray(val) ? val : [val]
