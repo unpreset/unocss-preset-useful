@@ -1,4 +1,7 @@
 import type { ThemeAnimation } from '@unocss/preset-mini'
+import postcss from 'postcss'
+import postcssJs, { objectify } from 'postcss-js'
+import type { CSSObject } from 'unocss'
 import type { DeepPartial, UsefulThemeAnimation } from './types'
 
 /**
@@ -97,4 +100,35 @@ export function deepMerge<T>(original: T, patch: DeepPartial<T>): T {
 
 export function isObject(val: unknown): val is Record<any, any> {
   return val !== null && typeof val === 'object'
+}
+
+export function getKeyframes(css: string) {
+  const root = postcss.parse(css)
+  const obj = objectify(root)
+
+  return Object.keys(obj).reduce<Record<string, Record<string, CSSObject>>>((acc, key) => {
+    if (key.startsWith('@keyframes'))
+      acc[key] = obj[key]
+    return acc
+  }, {})
+}
+
+export function convertCSSObjectToString(style: Record<string, CSSObject>): string {
+  return Object.keys(style).reduce((str, key) => {
+    return `${str}${key}${stringifyObj(style[key])}`
+  }, '').replace(/\n/g, '')
+}
+
+export function stringifyObj(obj: CSSObject) {
+  return `{${Object.keys(obj).reduce((str, key) => {
+    return `${str}${key}:${obj[key]};`
+  }, '')}}`
+}
+
+export async function convertCSSObjectToString2(style: Record<string, CSSObject>) {
+  return postcss().process(style, { parser: postcssJs } as any).then(result => result.css)
+}
+
+export function toArray<T>(val: T | T[]): T[] {
+  return Array.isArray(val) ? val : [val]
 }

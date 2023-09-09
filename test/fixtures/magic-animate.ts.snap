@@ -1,59 +1,9 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`utils > nomarlizeAnimate 1`] = `
 {
-  "animate": [
-    "spin 1s linear infinite",
-    "bounce 2s ease-in-out 3",
-    "fade 1s ease-in-out 3",
-    "test 1s * 3",
-    "aaa 1s +",
-  ],
-  "counts": {
-    "bounce": "3",
-    "fade": "3",
-    "spin": "infinite",
-    "test": "3",
-  },
   "durations": {
-    "aaa": "1s",
-    "bounce": "2s",
-    "fade": "1s",
-    "spin": "1s",
-    "test": "1s",
-  },
-  "timingFns": {
-    "aaa": "",
-    "bounce": "ease-in-out",
-    "fade": "ease-in-out",
-    "spin": "linear",
-  },
-}
-`;
-
-exports[`utils > themeAnimate configuration 1`] = `
-{
-  "animate": [
-    "spin 1s linear infinite",
-    "bounce 2s ease-in-out 3",
-    "fade 1s ease-in-out 3",
-    "test 1s * 3",
-    "aaa 1s +",
-  ],
-  "counts": {
-    "bounce": "3",
-    "fade": "3",
-    "spin": "infinite",
-    "test": "3",
-  },
-  "durations": {
-    "aaa": "1s",
     "boingInUp": "1s",
     "boingOutDown": "1s",
     "bombLeftOut": "1s",
     "bombRightOut": "1s",
-    "bounce": "2s",
-    "fade": "1s",
     "foolishIn": "1s",
     "foolishOut": "1s",
     "holeOut": "1s",
@@ -100,11 +50,9 @@ exports[`utils > themeAnimate configuration 1`] = `
     "spaceOutLeft": "1s",
     "spaceOutRight": "1s",
     "spaceOutUp": "1s",
-    "spin": "1s",
     "swap": "1s",
     "swashIn": "1s",
     "swashOut": "1s",
-    "test": "1s",
     "tinDownIn": "1s",
     "tinDownOut": "1s",
     "tinLeftIn": "1s",
@@ -382,11 +330,4 @@ exports[`utils > themeAnimate configuration 1`] = `
       "animation-fill-mode": "both",
     },
   },
-  "timingFns": {
-    "aaa": "",
-    "bounce": "ease-in-out",
-    "fade": "ease-in-out",
-    "spin": "linear",
-  },
 }
-`;
