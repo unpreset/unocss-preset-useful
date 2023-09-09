@@ -5,7 +5,6 @@ import { usefulTargets } from './fixtures/index.targets'
 
 const uno = createGenerator({
   presets: [
-    presetUno(),
     presetUseful(),
   ],
 })

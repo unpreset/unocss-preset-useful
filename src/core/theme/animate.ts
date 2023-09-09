@@ -1,27 +1,26 @@
-/*!
- * Magic - https://www.minimamente.com
- * Licensed under the MIT license - https://opensource.org/licenses/MIT
- * Copyright (c) 2022 Christian Pucci
- */
+// import MagicCSS from 'magic.css/dist/magic.css'
+import type { Theme } from '@unocss/preset-mini'
+import { convertCSSObjectToString, getKeyframes } from '../../utils'
+import { magicCSS } from './magicCSS'
 
-const css = `
-@keyframes puffIn {
-  0% {
-    opacity: 0;
-    transform-origin: 50% 50%;
+// IN-README-START
+export function magicAnimate(): Theme['animation'] {
+  const keyframesObj = getKeyframes(magicCSS)
+
+  function generate<T = string>(val?: T): Record<string, T> {
+    return Object.keys(keyframesObj).reduce((acc, key) => {
+      const name = key.replace('@keyframes ', '')
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      acc[name] = val ?? `{${convertCSSObjectToString(keyframesObj[key])}}`
+      return acc
+    }, {})
   }
-  100% {
-    opacity: 1;
-    transform-origin: 100% 100%;
+
+  return {
+    keyframes: generate(),
+    durations: generate('1s'),
+    properties: generate({ 'animation-fill-mode': 'both' }),
   }
 }
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-`
-const reg = /@keyframes\s*(?<name>.+)\s*\{.+?\}/g
+// IN-README-END
