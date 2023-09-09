@@ -49,7 +49,8 @@
     "lint:fix": "eslint . --fix",
     "test": "vitest",
     "test:update": "vitest --update",
-    "readme": "esno scripts/readme.ts"
+    "readme": "esno scripts/readme.ts",
+    "play": "npm -C playground run dev"
   },
   "dependencies": {
     "@unocss/core": "latest",
