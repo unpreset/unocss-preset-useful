@@ -113,7 +113,7 @@ export function getKeyframes(css: string) {
   }, {})
 }
 
-export function convertCSSObjectToString(style: Record<string, CSSObject>): string {
+export function cssObj2StrSync(style: Record<string, CSSObject>): string {
   return Object.keys(style).reduce((str, key) => {
     return `${str}${key}${stringifyObj(style[key])}`
   }, '').replace(/\n/g, '')
@@ -125,7 +125,7 @@ export function stringifyObj(obj: CSSObject) {
   }, '')}}`
 }
 
-export async function convertCSSObjectToString2(style: Record<string, CSSObject>) {
+export async function cssObj2StrAsync(style: Record<string, CSSObject>) {
   return postcss().process(style, { parser: postcssJs } as any).then(result => result.css)
 }
 

@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest'
 import { createGenerator } from 'unocss'
 import type { Theme } from '@unocss/preset-mini'
 import { magicAnimate } from '../src/core/theme/animate'
-import presetUseful, { convertCSSObjectToString2 } from '../src'
+import presetUseful, { cssObj2StrAsync } from '../src'
 
 describe('Theme', () => {
   test('Magic animate', () => {
@@ -31,7 +31,7 @@ describe('Theme', () => {
       '100%': { opacity: 0, transform: 'scale(1, 1) translateY(-900%)' },
     }
 
-    expect(`{${await convertCSSObjectToString2(style)}}`).toMatchInlineSnapshot(`
+    expect(`{${await cssObj2StrAsync(style)}}`).toMatchInlineSnapshot(`
       "{0%, 20%, 40%, 50% {
           opacity: 1;
           transform: scale(1, 1) translateY(0)

@@ -4,12 +4,12 @@ Integrate and useful preset.
 
 ## Features
 - 🔥 Integrate popular presets, Use One Get All.
-- 🚀 Collection of features not integrated into UnoCSS
-  - 🍥 Support extract base64 image
-  - 🎨 Support extract rgba color in css variable
-  - 💜 Support expand theme animation name usage
+- 🚀 Collection of features not integrated into UnoCSS.
+  - 🍥 Support extract base64 image.
+  - 🎨 Support extract rgba color in css variable.
+  - 💜 Support expand theme animation name usage.
   - 🍬 etc.
-
+- 📦 Build-In [Magic Animate](https://github.com/miniMAC/magic).
 
 ## Usage
 ```shell
@@ -224,6 +224,30 @@ const _shortcuts: CustomStaticShortcuts = [
 ]
 ```
 
+### animate
+  
+```ts
+export function magicAnimate(): Theme['animation'] {
+  const keyframesObj = getKeyframes(magicCSS)
+
+  function generate<T = string>(val?: T): Record<string, T> {
+    return Object.keys(keyframesObj).reduce((acc, key) => {
+      const name = key.replace('@keyframes ', '')
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      acc[name] = val ?? `{${cssObj2StrSync(keyframesObj[key])}}`
+      return acc
+    }, {})
+  }
+
+  return {
+    keyframes: generate(),
+    durations: generate('1s'),
+    properties: generate({ 'animation-fill-mode': 'both' }),
+  }
+}
+```
+
 ### index
   
 ```ts
@@ -231,7 +255,7 @@ const _shortcuts: CustomStaticShortcuts = [
 export function nomarlizeTheme(theme: UsefulTheme): UsefulTheme {
   return {
     ...theme,
-    animation: theme.animation ? nomarlizeAnimate(theme.animation) : undefined,
+    animation: deepMerge(magicAnimate(), theme.animation ? nomarlizeAnimate(theme.animation) : {}) as any,
   }
 }
 ```

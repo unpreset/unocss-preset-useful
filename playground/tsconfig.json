@@ -1,7 +1,9 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "lib": ["ES2020", "DOM", "DOM.Iterable"]
-  },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "../tsconfig.json" }]
+    "lib": ["esnext", "dom"],
+    "types": [
+      "vite/client"
+    ]
+  }
 }

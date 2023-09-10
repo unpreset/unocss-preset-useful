@@ -44,13 +44,15 @@
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
-    "release": "pnpm readme && pnpm lint:fix && npx changelogen --release && bumpp --commit --push --tag",
+    "release": "pnpm readme && pnpm lint:fix && bumpp --commit --push --tag",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
     "test:update": "vitest --update",
     "readme": "esno scripts/readme.ts",
-    "play": "npm -C playground run dev"
+    "play": "npm -C playground run dev",
+    "magicAnimate": "esno scripts/magicAnimate.ts",
+    "postinstall": "pnpm magicAnimate"
   },
   "dependencies": {
     "@unocss/core": "latest",
@@ -62,18 +64,21 @@
     "@unocss/preset-typography": "latest",
     "@unocss/preset-uno": "latest",
     "@unocss/preset-web-fonts": "latest",
+    "magic.css": "^1.4.8",
+    "postcss": "^8.4.29",
+    "postcss-js": "^4.0.1",
     "unocss-preset-scrollbar": "latest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
     "@babel/types": "^7.22.11",
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^20.5.9",
     "@types/postcss-js": "^4.0.1",
     "bumpp": "^9.2.0",
     "eslint": "^8.48.0",
     "esno": "^0.17.0",
-    "postcss": "^8.4.29",
-    "postcss-js": "^4.0.1",
+    "fs-extra": "^11.1.1",
     "typescript": "5.1.6",
     "unbuild": "^2.0.0",
     "unocss": "latest",

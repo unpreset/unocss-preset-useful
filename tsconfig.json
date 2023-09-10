@@ -12,10 +12,10 @@
     ],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "composite": true
+    "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src/**/*.ts"
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**"
   ]
 }

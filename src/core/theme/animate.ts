@@ -1,7 +1,7 @@
 // import MagicCSS from 'magic.css/dist/magic.css'
 import type { Theme } from '@unocss/preset-mini'
-import { convertCSSObjectToString, getKeyframes } from '../../utils'
-import { magicCSS } from './magicCSS'
+import { cssObj2StrSync, getKeyframes } from '../../utils'
+import magicCSS from '../../../data/magicCSS'
 
 // IN-README-START
 export function magicAnimate(): Theme['animation'] {
@@ -12,7 +12,7 @@ export function magicAnimate(): Theme['animation'] {
       const name = key.replace('@keyframes ', '')
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      acc[name] = val ?? `{${convertCSSObjectToString(keyframesObj[key])}}`
+      acc[name] = val ?? `{${cssObj2StrSync(keyframesObj[key])}}`
       return acc
     }, {})
   }

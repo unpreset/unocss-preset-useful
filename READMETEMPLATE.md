@@ -4,12 +4,12 @@ Integrate and useful preset.
 
 ## Features
 - 🔥 Integrate popular presets, Use One Get All.
-- 🚀 Collection of features not integrated into UnoCSS
-  - 🍥 Support extract base64 image
-  - 🎨 Support extract rgba color in css variable
-  - 💜 Support expand theme animation name usage
+- 🚀 Collection of features not integrated into UnoCSS.
+  - 🍥 Support extract base64 image.
+  - 🎨 Support extract rgba color in css variable.
+  - 💜 Support expand theme animation name usage.
   - 🍬 etc.
-
+- 📦 Build-In [Magic Animate](https://github.com/miniMAC/magic).
 
 ## Usage
 ```shell
