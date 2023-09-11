@@ -23,10 +23,6 @@ jobs:
         with:
           node-version: 18.x
 
-      - run: npx changelogithub
-        env:
-          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
-
       - name: Install
         run: pnpm install
 
@@ -36,8 +32,14 @@ jobs:
       - name: Test
         run: pnpm test
 
-      - name: Publish to NPM
-        run: pnpm -r publish --access public --no-git-checks
+      - name: Config npm
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to npm
+        run: pnpm -r publish --access public --no-git-checks
+
+      - run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
