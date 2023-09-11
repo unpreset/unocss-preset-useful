@@ -8,7 +8,7 @@
     "build": "pnpm -r -F=./packages/* run build",
     "stub": "pnpm -r -F=./packages/* --parallel run stub",
     "dev": "pnpm stub",
-    "release": "pnpm readme && pnpm lint:fix && bumpp --commit --push --tag",
+    "release": "pnpm readme && pnpm lint:fix && bumpp -r",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
