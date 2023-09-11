@@ -2,7 +2,7 @@ import type { CSSObject } from 'unocss'
 import { createGenerator } from 'unocss'
 import { describe, expect, test } from 'vitest'
 import type { Theme } from '@unocss/preset-mini'
-import { cssObj2StrSync, nomarlizeAnimate, presetUseful, stringifyObj } from '../src'
+import { cssObj2StrSync, nomarlizeAnimate, presetUseful, stringifyObj } from 'unocss-preset-useful'
 
 describe('utils', () => {
   const animate = [

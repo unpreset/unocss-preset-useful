@@ -12,7 +12,10 @@
     ],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "unocss-preset-useful": ["./packages/unocss-preset-useful/src/index.ts"]
+    }
   },
   "exclude": [
     "**/dist/**",

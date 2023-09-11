@@ -1,5 +1,5 @@
 import { defineConfig } from 'unocss'
-import { presetUseful } from './src'
+import { presetUseful } from 'unocss-preset-useful'
 
 // Just for Vscode Extension
 

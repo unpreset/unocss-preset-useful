@@ -1,3 +1,1 @@
-import UnoConfig from '../uno.config'
-
-export default UnoConfig
+export { default } from '../uno.config'

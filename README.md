@@ -3,7 +3,7 @@
 Integrate and useful preset.
 
 ## Features
-- 🔥 Integrate popular presets, Use One Get All.
+- 🔥 All-in-One popular presets.
 - 🚀 Collection of features not integrated into UnoCSS.
   - 🍥 Support extract base64 image.
   - 🎨 Support extract rgba color in css variable.

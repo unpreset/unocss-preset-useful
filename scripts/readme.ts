@@ -5,7 +5,9 @@ const IN_README_START = 'IN-README-START'
 const IN_README_END = 'IN-README-END'
 const README_RE = new RegExp(`(?:\/\/\\s*?${IN_README_START}\\s*?|\\/\\*\\s*?${IN_README_START}\\s*?\\*\\/|<!--\\s*?${IN_README_START}\\s*?-->)([\\s\\S]*?)(?:\/\/\\s*?${IN_README_END}\\s*?|\\/\\*\\s*?${IN_README_END}\\s*?\\*\\/|<!--\\s*?${IN_README_END}\\s*?-->)`, 'g')
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
-const workspace = path.resolve(__dirname, '../src')
+const workspace = path.resolve(__dirname, '../packages/core/src')
+const output = path.resolve(__dirname, '../README.md')
+
 let template = ''
 
 run()
@@ -39,10 +41,10 @@ ${item[1].trim()}
 }
 
 async function generateReadme(content: string) {
-  const readmeTemplate = await fs.readFile(path.resolve(__dirname, '../READMETEMPLATE.md'), 'utf-8')
-  const readme = readmeTemplate.replace('<slot/>', content)
+  const template = await fs.readFile(path.resolve(__dirname, '../READMETEMPLATE.md'), 'utf-8')
+  const readme = template.replace('<slot/>', content)
 
-  await fs.writeFile(path.resolve(__dirname, '../README.md'), readme)
+  await fs.writeFile(output, readme)
 }
 
 async function run() {

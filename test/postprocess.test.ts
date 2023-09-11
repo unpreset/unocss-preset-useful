@@ -1,7 +1,7 @@
 import { createGenerator, presetUno } from 'unocss'
 import { describe, expect, test } from 'vitest'
-import type { UsefulOptions } from '../src'
-import { presetUseful } from '../src'
+import type { UsefulOptions } from 'unocss-preset-useful'
+import { presetUseful } from 'unocss-preset-useful'
 
 function generateUno(options: UsefulOptions = {}) {
   return createGenerator({

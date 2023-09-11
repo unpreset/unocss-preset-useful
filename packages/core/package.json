@@ -1,0 +1,63 @@
+{
+  "name": "unocss-preset-useful",
+  "type": "module",
+  "version": "0.2.1",
+  "description": "My useful preset about unocss usage.",
+  "author": "Chris <https://github.com/zyyv>",
+  "license": "MIT",
+  "homepage": "https://github.com/unpreset/unocss-preset-useful#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unpreset/unocss-preset-useful.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unpreset/unocss-preset-useful/issues"
+  },
+  "keywords": [
+    "unocss",
+    "unpreset",
+    "unocss-preset",
+    "unocss-preset-useful"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "@unocss/core": "latest",
+    "@unocss/preset-attributify": "latest",
+    "@unocss/preset-icons": "latest",
+    "@unocss/preset-mini": "latest",
+    "@unocss/preset-rem-to-px": "latest",
+    "@unocss/preset-tagify": "latest",
+    "@unocss/preset-typography": "latest",
+    "@unocss/preset-uno": "latest",
+    "@unocss/preset-web-fonts": "latest",
+    "magic.css": "^1.4.8",
+    "postcss": "^8.4.29",
+    "postcss-js": "^4.0.1",
+    "unocss-preset-scrollbar": "latest"
+  }
+}
