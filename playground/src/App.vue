@@ -1,16 +1,15 @@
 <template>
-  <div
-    fcc gap-8 h-screen w-screen
-    un-children="fcc w-30 h-30 rd b b-red b-solid text-white text-xl"
-  >
-    <div hover="animate-puffIn">
-      puffIn
-    </div>
-    <div hover="animate-puffOut">
-      puffOut
-    </div>
-    <div hover="animate-magic">
-      magic
+  <div class="prose ma">
+    <div fcc gap-8 un-children="fcc w-30 h-30 rd b b-red b-solid text-white text-xl">
+      <div hover="animate-puffIn">
+        puffIn
+      </div>
+      <div hover="animate-puffOut">
+        puffOut
+      </div>
+      <div hover="animate-magic">
+        magic
+      </div>
     </div>
   </div>
 </template>

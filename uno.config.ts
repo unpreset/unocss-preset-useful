@@ -5,6 +5,8 @@ import { presetUseful } from 'unocss-preset-useful'
 
 export default defineConfig({
   presets: [
-    presetUseful(),
+    presetUseful({
+      typography: true,
+    }),
   ],
 })

@@ -5,7 +5,8 @@ import presetTagify from '@unocss/preset-tagify'
 import { presetTypography } from '@unocss/preset-typography'
 import presetWebFonts from '@unocss/preset-web-fonts'
 import remToPxPreset from '@unocss/preset-rem-to-px'
-import type { Postprocessor, Preset } from 'unocss'
+import type { Postprocessor } from 'unocss'
+import { definePreset } from '@unocss/core'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { PRESET_NAME } from './meta'
 import { extractors, nomarlizeTheme, postprocessWithUnColor, rules, shortcuts } from './core'
@@ -15,7 +16,7 @@ export * from './utils'
 
 export type { UsefulOptions }
 
-export function presetUseful(options: UsefulOptions = {}): Preset {
+export const presetUseful = definePreset((options: UsefulOptions = {}) => {
   const { unColor, theme, presets } = resolveOptions(options)
 
   return {
@@ -32,7 +33,7 @@ export function presetUseful(options: UsefulOptions = {}): Preset {
     ].filter(Boolean) as Postprocessor[],
     presets,
   }
-}
+})
 
 export default presetUseful
 
