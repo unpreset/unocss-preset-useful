@@ -45,12 +45,12 @@ export interface UsefulOptions {
    * }
    * ```
    * You can choose to use special symbols as placeholders, to indicate whether to inject this property into the uno theme
-   * 
+   *
    * - `*` Abandon injection
    * - `+` Injection, but the value is empty
-   * 
+   *
    * @example
-   * 
+   *
    * ```ts
    * theme: {
    *   animation: {
