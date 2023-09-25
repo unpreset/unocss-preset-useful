@@ -35,7 +35,14 @@ export interface UsefulOptions {
    * @example
    *
    * ```ts
-    themeAnimate: ['spin 1s linear infinite'],
+   * theme: {
+   *   animation: {
+   *     animate: [
+   *      'shape 5s linear infinite'
+   *     ],
+   *     // ...
+   *   }
+   * }
    * ```
    *
    */
