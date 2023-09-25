@@ -19,11 +19,11 @@
     "magicAnimate": "esno scripts/magicAnimate.ts"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "1.0.0-beta.9",
+    "@antfu/eslint-config": "1.0.0-beta.10",
     "@babel/types": "^7.23.0",
     "@types/fs-extra": "^11.0.2",
     "@types/node": "^20.6.5",
-    "@types/postcss-js": "^4.0.2",
+    "@types/postcss-js": "^4.0.1",
     "bumpp": "^9.2.0",
     "eslint": "^8.50.0",
     "esno": "^0.17.0",
