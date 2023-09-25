@@ -44,6 +44,24 @@ export interface UsefulOptions {
    *   }
    * }
    * ```
+   * You can choose to use special symbols as placeholders, to indicate whether to inject this property into the uno theme
+   * 
+   * - `*` Abandon injection
+   * - `+` Injection, but the value is empty
+   * 
+   * @example
+   * 
+   * ```ts
+   * theme: {
+   *   animation: {
+   *     animate: [
+   *      'foo 1s * 3',
+   *      'bar 1s +',
+   *     ],
+   *     // ...
+   *   }
+   * }
+   * ```
    *
    */
   theme?: UsefulTheme
