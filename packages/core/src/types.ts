@@ -70,10 +70,10 @@ export interface UsefulOptions {
   webFonts?: boolean | WebFontsOptions
 
   /**
-  * Enable typography preset and the options of it
-  * Only works when `presets` is not specified
-  * @default false
-  */
+   * Enable typography preset and the options of it
+   * Only works when `presets` is not specified
+   * @default false
+   */
   typography?: boolean | TypographyOptions
 
   /**

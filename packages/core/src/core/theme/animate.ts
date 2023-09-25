@@ -10,8 +10,7 @@ export function magicAnimate(): Theme['animation'] {
   function generate<T = string>(val?: T): Record<string, T> {
     return Object.keys(keyframesObj).reduce((acc, key) => {
       const name = key.replace('@keyframes ', '')
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
+      // @ts-expect-error nothing
       acc[name] = val ?? `{${cssObj2StrSync(keyframesObj[key])}}`
       return acc
     }, {})

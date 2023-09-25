@@ -87,10 +87,10 @@ export interface UsefulOptions {
   webFonts?: boolean | WebFontsOptions
 
   /**
-  * Enable typography preset and the options of it
-  * Only works when `presets` is not specified
-  * @default false
-  */
+   * Enable typography preset and the options of it
+   * Only works when `presets` is not specified
+   * @default false
+   */
   typography?: boolean | TypographyOptions
 
   /**
@@ -233,8 +233,6 @@ export function magicAnimate(): Theme['animation'] {
   function generate<T = string>(val?: T): Record<string, T> {
     return Object.keys(keyframesObj).reduce((acc, key) => {
       const name = key.replace('@keyframes ', '')
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       acc[name] = val ?? `{${cssObj2StrSync(keyframesObj[key])}}`
       return acc
     }, {})
