@@ -9,8 +9,8 @@ describe('utils', () => {
     'spin 1s linear infinite',
     'bounce 2s ease-in-out 3',
     'fade 1s ease-in-out 3',
-    'test 1s * 3',
-    'aaa 1s +',
+    'foo 1s * 3',
+    'bar 1s +',
   ]
 
   test('nomarlizeAnimate', async () => {
