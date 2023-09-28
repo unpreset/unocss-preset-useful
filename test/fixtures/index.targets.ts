@@ -16,5 +16,5 @@ export const usefulTargets: string[] = [
 
   // variants
   'hover:pr',
-  '@active:bg-red'
+  '@active:bg-red',
 ]
