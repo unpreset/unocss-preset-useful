@@ -9,7 +9,7 @@ import type { Postprocessor } from 'unocss'
 import { definePreset } from '@unocss/core'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { PRESET_NAME } from './meta'
-import { extractors, nomarlizeTheme, postprocessWithUnColor, rules, shortcuts } from './core'
+import { extractors, nomarlizeTheme, postprocessWithUnColor, rules, shortcuts, variants } from './core'
 import type { ResolvedOptions, UsefulOptions } from './types'
 
 export * from './utils'
@@ -26,6 +26,7 @@ export const presetUseful = definePreset((options: UsefulOptions = {}) => {
     },
     rules,
     theme,
+    variants: variants(options),
     shortcuts,
     extractors,
     postprocess: [
