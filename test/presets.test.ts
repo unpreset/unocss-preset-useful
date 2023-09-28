@@ -2,7 +2,7 @@ import { createGenerator } from 'unocss'
 import { describe, expect, test } from 'vitest'
 import { presetUseful } from 'unocss-preset-useful'
 
-describe('useful presets', () => {
+describe('preseUseful presets', () => {
   test('mutiple preset', async () => {
     const uno = createGenerator({
       presets: [

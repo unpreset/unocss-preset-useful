@@ -12,7 +12,7 @@ function generateUno(options: UsefulOptions = {}) {
   })
 }
 
-describe('postprocess with unColor', () => {
+describe('presetUseful postprocess with unColor', () => {
   const code = 'bg-red text-blue'
 
   test('base', async () => {
@@ -25,7 +25,7 @@ describe('postprocess with unColor', () => {
     expect(css).toMatchSnapshot()
   })
 
-  test('with string', async () => {
+  test('with any string', async () => {
     const uno = generateUno({
       unColor: '--test-color',
     })

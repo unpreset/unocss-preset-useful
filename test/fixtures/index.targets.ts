@@ -13,4 +13,8 @@ export const usefulTargets: string[] = [
   'p-10::10px',
   'text-[rgb(--c)]:50',
   'c-context::#818181',
+
+  // variants
+  'hover:pr',
+  '@active:bg-red'
 ]

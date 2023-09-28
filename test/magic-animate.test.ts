@@ -4,7 +4,7 @@ import type { Theme } from '@unocss/preset-mini'
 import presetUseful, { cssObj2StrAsync } from 'unocss-preset-useful'
 import { magicAnimate } from '../packages/core/src/core/theme/animate'
 
-describe('Theme', () => {
+describe('Magic in PresetUseful Theme', () => {
   test('Magic animate', () => {
     expect(magicAnimate()).toMatchFileSnapshot('./fixtures/magic-animate.ts.snap')
   })

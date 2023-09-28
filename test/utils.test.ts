@@ -1,8 +1,6 @@
 import type { CSSObject } from 'unocss'
-import { createGenerator } from 'unocss'
 import { describe, expect, test } from 'vitest'
-import type { Theme } from '@unocss/preset-mini'
-import { cssObj2StrSync, nomarlizeAnimate, presetUseful, stringifyObj } from 'unocss-preset-useful'
+import { cssObj2StrSync, nomarlizeAnimate, stringifyObj } from 'unocss-preset-useful'
 
 describe('utils', () => {
   const animate = [
@@ -19,23 +17,6 @@ describe('utils', () => {
     expect(result).toMatchSnapshot()
   })
 
-  test('themeAnimate configuration', async () => {
-    const _uno = createGenerator<Theme>({
-      presets: [
-        presetUseful({
-          uno: false,
-          theme: {
-            animation: {
-              animate,
-            },
-          },
-        }),
-      ],
-    })
-
-    expect(_uno.config.theme.animation).toMatchSnapshot()
-  })
-
   test('cssObj2StrSync', async () => {
     const style: Record<string, CSSObject> = {
       '0%, 20%, 40%, 50%': { opacity: 1, transform: 'scale(1, 1) translateY(0)' },
@@ -48,10 +29,10 @@ describe('utils', () => {
 
   test('stringify CSSObject', () => {
     const obj = {
-      aa: 'bb',
-      cc: 'dd',
+      foo: 'bb',
+      bar: 'dd',
     }
 
-    expect(stringifyObj(obj)).toMatchInlineSnapshot('"{aa:bb;cc:dd;}"')
+    expect(stringifyObj(obj)).toMatchInlineSnapshot('"{foo:bb;bar:dd;}"')
   })
 })

@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`useful presets > mutiple preset 2`] = `
+exports[`preseUseful presets > mutiple preset 2`] = `
 "/* layer: typography */
 .prose{color:var(--un-prose-body);max-width:65ch;}
 /* layer: shortcuts */
