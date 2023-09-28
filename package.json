@@ -28,11 +28,21 @@
     "eslint": "^8.50.0",
     "esno": "^0.17.0",
     "fs-extra": "^11.1.1",
+    "lint-staged": "^14.0.1",
+    "simple-git-hooks": "^2.9.0",
     "typescript": "5.2.2",
     "unbuild": "^2.0.0",
     "unocss": "^0.56.2",
     "unocss-preset-useful": "workspace:*",
     "vite": "^4.4.9",
     "vitest": "^0.34.5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,vue,md}": [
+      "eslint --cache --fix"
+    ]
   }
 }
