@@ -6,15 +6,35 @@ import type { TypographyOptions } from '@unocss/preset-typography'
 import type { TagifyOptions } from '@unocss/preset-tagify'
 import type { RemToPxOptions } from '@unocss/preset-rem-to-px'
 import type { PresetScrollbarDefaultOption } from 'unocss-preset-scrollbar'
-import type { Preset } from '@unocss/core'
+import type { Preset, StaticShortcut } from '@unocss/core'
 import type { Theme, ThemeAnimation } from '@unocss/preset-mini'
 
+type CustomStaticShortcut = [string | string[], StaticShortcut[1]] | [string | string[], StaticShortcut[1], StaticShortcut[2]]
+export type CustomStaticShortcuts = CustomStaticShortcut[]
+
+export type Objectiable<T> = Record<string, T>
+
 export interface UsefulThemeAnimation extends ThemeAnimation {
-  animate?: string[]
+  /**
+   * Different from the original, you can use the following formats:
+   * 
+   * ```ts
+   * { name : 'name duration timing-function iteration-count' }
+   * ```
+   */
+  animation?: Objectiable<string>
+}
+
+export type CSSKeyframesRule = Objectiable<Objectiable<Objectiable<string>>>
+
+export interface UsefulExtends extends Exclude<UsefulTheme, 'extend'> {
+  keyframes?: Record<string, CSSKeyframesRule>
+  animation?: Objectiable<string>
 }
 
 export interface UsefulTheme extends Theme {
   animation?: UsefulThemeAnimation
+  extend?: Exclude<UsefulTheme, 'extend'>
 }
 
 export interface UsefulOptions {

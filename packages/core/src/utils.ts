@@ -2,7 +2,8 @@ import type { ThemeAnimation } from '@unocss/preset-mini'
 import postcss from 'postcss'
 import postcssJs, { objectify } from 'postcss-js'
 import type { CSSObject } from 'unocss'
-import type { DeepPartial, UsefulThemeAnimation } from './types'
+import type { CustomStaticShortcuts, DeepPartial, UsefulThemeAnimation } from './types'
+
 
 /**
  * Normalize custom animate usage to UnoCSS animations theme.
@@ -38,31 +39,41 @@ import type { DeepPartial, UsefulThemeAnimation } from './types'
  *   },
  * }
  */
-export function nomarlizeAnimate(animation: UsefulThemeAnimation) {
-  const { animate: themeAnimate } = animation
-  const animateTheme: ThemeAnimation = {}
-  const animateKeys: (Exclude<keyof ThemeAnimation, 'properties'>)[] = ['durations', 'timingFns', 'counts']
-  themeAnimate?.forEach((v) => {
+export function resolveAnimation(animation: UsefulThemeAnimation) {
+  const { animation: themeAnimate = {} } = animation
+  const _animation: ThemeAnimation = {}
+  const keys: (Exclude<keyof ThemeAnimation, 'properties'>)[] = ['durations', 'timingFns', 'counts']
+  const shortcuts: CustomStaticShortcuts = []
+
+  for (const name in themeAnimate) {
+    const v = themeAnimate[name]
     const ps = v.split(/\s+/)
     if (ps.length > 1) {
       const key = ps[0]
+
+      if (key !== name)
+        shortcuts.push([`animate-${name}`, `animate-${key}`])
+
       for (let i = 1; i < ps.length; i++) {
         if (ps[i] === '*')
           continue
-        const _key = animateKeys[i - 1]
-        if (animateTheme[_key]) {
-          animateTheme[_key]![key] = ps[i] === '+' ? '' : ps[i]
+        const _key = keys[i - 1]
+        if (_animation[_key]) {
+          _animation[_key]![key] = ps[i] === '+' ? '' : ps[i]
         }
         else {
-          animateTheme[_key] = {
+          _animation[_key] = {
             [key]: ps[i] === '+' ? '' : ps[i],
           }
         }
       }
     }
-  })
+  }
 
-  return deepMerge(animation, animateTheme)
+  return {
+    animation: deepMerge(animation, _animation),
+    shortcuts,
+  }
 }
 
 /**

@@ -2,28 +2,39 @@
 
 exports[`presetUseful theme > theme animate configuration 1`] = `
 {
-  "animate": [
-    "spin 1s linear infinite",
-    "bounce 2s ease-in-out 3",
-    "fade 1s ease-in-out 3",
-    "foo 1s * 3",
-    "bar 1s +",
-  ],
-  "counts": {
-    "bounce": "3",
-    "fade": "3",
-    "foo": "3",
-    "spin": "infinite",
+  "animation": {
+    "animation": {
+      "bar": "bar 1s +",
+      "bounce": "bounce 2s ease-in-out 3",
+      "fade": "fade 1s ease-in-out 3",
+      "foo": "foo 1s * 3",
+      "spin": "spin 1s linear infinite",
+    },
+    "counts": {
+      "bounce": "3",
+      "fade": "3",
+      "foo": "3",
+      "spin": "infinite",
+    },
+    "durations": {
+      "bar": "1s",
+      "bounce": "2s",
+      "fade": "1s",
+      "foo": "1s",
+      "spin": "1s",
+    },
+    "timingFns": {
+      "bar": "",
+      "bounce": "ease-in-out",
+      "fade": "ease-in-out",
+      "spin": "linear",
+    },
   },
   "durations": {
-    "bar": "1s",
     "boingInUp": "1s",
     "boingOutDown": "1s",
     "bombLeftOut": "1s",
     "bombRightOut": "1s",
-    "bounce": "2s",
-    "fade": "1s",
-    "foo": "1s",
     "foolishIn": "1s",
     "foolishOut": "1s",
     "holeOut": "1s",
@@ -70,7 +81,6 @@ exports[`presetUseful theme > theme animate configuration 1`] = `
     "spaceOutLeft": "1s",
     "spaceOutRight": "1s",
     "spaceOutUp": "1s",
-    "spin": "1s",
     "swap": "1s",
     "swashIn": "1s",
     "swashOut": "1s",
@@ -351,11 +361,6 @@ exports[`presetUseful theme > theme animate configuration 1`] = `
       "animation-fill-mode": "both",
     },
   },
-  "timingFns": {
-    "bar": "",
-    "bounce": "ease-in-out",
-    "fade": "ease-in-out",
-    "spin": "linear",
-  },
+  "shortcuts": [],
 }
 `;

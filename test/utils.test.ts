@@ -1,20 +1,51 @@
 import type { CSSObject } from 'unocss'
 import { describe, expect, test } from 'vitest'
-import { cssObj2StrSync, nomarlizeAnimate, stringifyObj } from 'unocss-preset-useful'
+import { cssObj2StrSync, resolveAnimation, stringifyObj } from 'unocss-preset-useful'
 
 describe('utils', () => {
-  const animate = [
-    'spin 1s linear infinite',
-    'bounce 2s ease-in-out 3',
-    'fade 1s ease-in-out 3',
-    'foo 1s * 3',
-    'bar 1s +',
-  ]
+  const _animation = {
+    'spin-slow': 'spin 3s linear infinite',
+    bounce: 'bounce 2s ease-in-out 3',
+    fade: 'fade 1s ease-in-out 3',
+    foo: 'foo 1s * 3',
+    bar: 'bar 1s +',
+  }
 
-  test('nomarlizeAnimate', async () => {
-    const result = nomarlizeAnimate({ animate })
+  test('resolveAnimation', async () => {
+    const { animation, shortcuts } = resolveAnimation({ animation: _animation })
 
-    expect(result).toMatchSnapshot()
+
+    expect(shortcuts).toHaveLength(1)
+    expect(animation).toMatchInlineSnapshot(`
+      {
+        "animation": {
+          "bar": "bar 1s +",
+          "bounce": "bounce 2s ease-in-out 3",
+          "fade": "fade 1s ease-in-out 3",
+          "foo": "foo 1s * 3",
+          "spin-slow": "spin 3s linear infinite",
+        },
+        "counts": {
+          "bounce": "3",
+          "fade": "3",
+          "foo": "3",
+          "spin": "infinite",
+        },
+        "durations": {
+          "bar": "1s",
+          "bounce": "2s",
+          "fade": "1s",
+          "foo": "1s",
+          "spin": "3s",
+        },
+        "timingFns": {
+          "bar": "",
+          "bounce": "ease-in-out",
+          "fade": "ease-in-out",
+          "spin": "linear",
+        },
+      }
+    `)
   })
 
   test('cssObj2StrSync', async () => {

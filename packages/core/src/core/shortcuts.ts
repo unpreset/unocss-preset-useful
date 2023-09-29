@@ -1,10 +1,8 @@
 import type { RuleMeta, StaticShortcut } from '@unocss/core'
 import { layerMeta } from '../meta'
+import type { CustomStaticShortcuts } from '../types'
 
 // @unocss-include
-
-type CustomStaticShortcut = [string | string[], StaticShortcut[1]] | [string | string[], StaticShortcut[1], StaticShortcut[2]]
-type CustomStaticShortcuts = CustomStaticShortcut[]
 
 // IN-README-START
 // FYI. My own shortcuts.

@@ -4,13 +4,13 @@ import type { Theme } from '@unocss/preset-mini'
 import { presetUseful } from 'unocss-preset-useful'
 
 describe('presetUseful theme', () => {
-  const animate = [
-    'spin 1s linear infinite',
-    'bounce 2s ease-in-out 3',
-    'fade 1s ease-in-out 3',
-    'foo 1s * 3',
-    'bar 1s +',
-  ]
+  const animation = {
+    spin: 'spin 1s linear infinite',
+    bounce: 'bounce 2s ease-in-out 3',
+    fade: 'fade 1s ease-in-out 3',
+    foo: 'foo 1s * 3',
+    bar: 'bar 1s +',
+  }
 
   test('theme animate configuration', async () => {
     const _uno = createGenerator<Theme>({
@@ -19,7 +19,7 @@ describe('presetUseful theme', () => {
           uno: false,
           theme: {
             animation: {
-              animate,
+              animation,
             },
           },
         }),
