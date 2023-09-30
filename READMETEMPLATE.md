@@ -35,6 +35,20 @@ export default defineConfig({
 ```ts
 export interface UsefulOptions {
   /**
+   * Enable default shortcuts
+   *
+   * @default true
+   */
+  enableDefaultShortcuts?: boolean
+
+  /**
+   * Enable magic animations
+   *
+   * @default true
+   */
+  enableMagicAnimations?: boolean
+
+  /**
    * Extract rgba color in css variable
    *
    * @default false
@@ -42,7 +56,7 @@ export interface UsefulOptions {
   unColor?: boolean | string
 
   /**
-   * Improve theme to be more useful
+   * Improve theme to be more useful, and align with Tailwind theme configuration
    *
    * - Add `animation` to theme, Expand theme animation name usage
    *
@@ -52,17 +66,14 @@ export interface UsefulOptions {
    *
    * ```ts
    * theme: {
-   *   animation: {
-   *     animate: [
-   *      'shape 5s linear infinite'
-   *     ],
+   *   extend: {
+   *     animation: {
+   *      shape: 'shape 5s linear infinite'
+   *     },
    *     // ...
    *   }
    * }
    * ```
-   *
-   * See: https://github.com/unpreset/unocss-preset-useful/blob/2750ad7ef72696c094e86c02ed21dfddd9c4a63d/test/utils.test.ts#L21-L36
-   *
    * You can choose to use special symbols as placeholders, to indicate whether to inject this property into the uno theme
    *
    * - `*` Abandon injection
@@ -72,11 +83,11 @@ export interface UsefulOptions {
    *
    * ```ts
    * theme: {
-   *   animation: {
-   *     animate: [
-   *      'foo 1s * 3',
-   *      'bar 1s +',
-   *     ],
+   *   extend: {
+   *     animation: {
+   *      foo: 'foo 1s * 3',
+   *      bar: 'bar 1s +',
+   *     },
    *     // ...
    *   }
    * }

@@ -56,7 +56,7 @@ export interface UsefulOptions {
   unColor?: boolean | string
 
   /**
-   * Improve theme to be more useful
+   * Improve theme to be more useful, and align with Tailwind theme configuration
    *
    * - Add `animation` to theme, Expand theme animation name usage
    *
@@ -66,10 +66,10 @@ export interface UsefulOptions {
    *
    * ```ts
    * theme: {
-   *   animation: {
-   *     animate: [
-   *      'shape 5s linear infinite'
-   *     ],
+   *   extend: {
+   *     animation: {
+   *      shape: 'shape 5s linear infinite'
+   *     },
    *     // ...
    *   }
    * }
@@ -83,11 +83,11 @@ export interface UsefulOptions {
    *
    * ```ts
    * theme: {
-   *   animation: {
-   *     animate: [
-   *      'foo 1s * 3',
-   *      'bar 1s +',
-   *     ],
+   *   extend: {
+   *     animation: {
+   *      foo: 'foo 1s * 3',
+   *      bar: 'bar 1s +',
+   *     },
    *     // ...
    *   }
    * }
