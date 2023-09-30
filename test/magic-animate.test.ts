@@ -1,15 +1,15 @@
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { createGenerator } from 'unocss'
 import type { Theme } from '@unocss/preset-mini'
-import { presetUseful, cssObj2StrAsync } from 'unocss-preset-useful'
+import { cssObj2StrAsync, presetUseful } from 'unocss-preset-useful'
 import { magicAnimate } from '../packages/core/src/core/theme/magic-animate'
 
-describe('Magic in PresetUseful Theme', () => {
-  test('Magic animate', () => {
+describe('magic in PresetUseful Theme', () => {
+  it('magic animate', () => {
     expect(magicAnimate()).toMatchFileSnapshot('./fixtures/magic-animate.ts.snap')
   })
 
-  test('Magic animate in Uno', async () => {
+  it('magic animate in Uno', async () => {
     const uno = createGenerator<Theme>({
       presets: [
         presetUseful(),
@@ -24,7 +24,7 @@ describe('Magic in PresetUseful Theme', () => {
     `)
   })
 
-  test('postcss style stringify', async () => {
+  it('postcss style stringify', async () => {
     const style = {
       '0%, 20%, 40%, 50%': { opacity: 1, transform: 'scale(1, 1) translateY(0)' },
       '10%, 30%': { opacity: 1, transform: 'scale(1.1, 1.1) translateY(0)' },

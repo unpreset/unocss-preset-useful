@@ -8,7 +8,7 @@ import type { RemToPxOptions } from '@unocss/preset-rem-to-px'
 import type { PresetScrollbarDefaultOption } from 'unocss-preset-scrollbar'
 import type { Preset, StaticShortcut } from '@unocss/core'
 import type { Theme } from '@unocss/preset-mini'
-import { CSSObject } from 'unocss'
+import type { CSSObject } from 'unocss'
 
 type CustomStaticShortcut = [string | string[], StaticShortcut[1]] | [string | string[], StaticShortcut[1], StaticShortcut[2]]
 export type CustomStaticShortcuts = CustomStaticShortcut[]
@@ -21,7 +21,7 @@ export interface UsefulExtends extends Exclude<UsefulTheme, 'extend'> {
   keyframes?: Record<string, CSSKeyframesRule>
   /**
    * Different from the original, you can use the following formats:
-   * 
+   *
    * ```ts
    * { name : 'name duration timing-function iteration-count' }
    * ```
@@ -36,10 +36,18 @@ export interface UsefulTheme extends Theme {
 export interface UsefulOptions {
   /**
    * Enable default shortcuts
-   * 
+   *
    * @default true
    */
   enableDefaultShortcuts?: boolean
+
+  /**
+   * Enable magic animations
+   *
+   * @default true
+   */
+  enableMagicAnimations?: boolean
+
   /**
    * Extract rgba color in css variable
    *

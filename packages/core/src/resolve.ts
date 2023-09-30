@@ -1,6 +1,7 @@
 import { presetAttributify } from '@unocss/preset-attributify'
 import { presetIcons } from '@unocss/preset-icons'
-import { Theme, presetUno } from '@unocss/preset-uno'
+import type { Theme } from '@unocss/preset-uno'
+import { presetUno } from '@unocss/preset-uno'
 import presetTagify from '@unocss/preset-tagify'
 import { presetTypography } from '@unocss/preset-typography'
 import presetWebFonts from '@unocss/preset-web-fonts'
@@ -22,8 +23,9 @@ export function resolveOptions(options: UsefulOptions) {
     scrollbar: false,
     theme: {},
     enableDefaultShortcuts: true,
+    enableMagicAnimations: true,
   }
-  const optionsWithDefault = Object.assign({}, defaultOptions, options)
+  const optionsWithDefault = Object.assign({}, defaultOptions, options) as Required<UsefulOptions>
   optionsWithDefault.unColor = typeof optionsWithDefault.unColor === 'string'
     ? optionsWithDefault.unColor
     : optionsWithDefault.unColor ? '--un-color' : false
@@ -45,16 +47,16 @@ export function resolveOptions(options: UsefulOptions) {
       presets.push(preset(typeof option === 'boolean' ? {} as any : option))
   }
 
-  const { theme: t_theme, shortcuts } = resolveExtend(optionsWithDefault.theme!.extend ?? {})
-  deepMerge(optionsWithDefault.theme!, t_theme)
+  const { theme: t_theme, shortcuts } = resolveExtend(optionsWithDefault.theme.extend ?? {})
+  const _theme = deepMerge(optionsWithDefault.theme, t_theme)
 
   return {
     ...optionsWithDefault,
-    theme: nomarlizeTheme(optionsWithDefault.theme!),
+    theme: nomarlizeTheme(_theme, optionsWithDefault.enableMagicAnimations),
     meta: {
       presets,
-      shortcuts
-    }
+      shortcuts,
+    },
   } as ResolvedOptions
 }
 
@@ -68,9 +70,8 @@ export function resolveExtend(extend: UsefulTheme['extend']) {
 
   // keyframes
   resolvedAnimation.keyframes = {}
-  for (const key in keyframes) {
-    resolvedAnimation.keyframes[key] = cssObj2StrSync(keyframes[key])
-  }
+  for (const key in keyframes)
+    resolvedAnimation.keyframes[key] = `{${cssObj2StrSync(keyframes[key])}}`
 
   return {
     theme: { animation: resolvedAnimation } as Theme,

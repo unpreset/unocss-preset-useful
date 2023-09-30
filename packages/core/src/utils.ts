@@ -4,7 +4,6 @@ import postcssJs, { objectify } from 'postcss-js'
 import type { CSSObject } from 'unocss'
 import type { CustomStaticShortcuts, DeepPartial, Objectiable } from './types'
 
-
 /**
  * Normalize custom animate usage to UnoCSS animations theme.
  *

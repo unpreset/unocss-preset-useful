@@ -1,5 +1,5 @@
 import { createGenerator } from 'unocss'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { presetUseful } from 'unocss-preset-useful'
 
 const uno = createGenerator({
@@ -9,7 +9,7 @@ const uno = createGenerator({
 })
 
 describe('presetUseful extractor', () => {
-  test('extractor includes base64', async () => {
+  it('extractor includes base64', async () => {
     const code = '<div class="bg-[url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIwAAAABJRU5ErkJggg==)]"></div>'
     const { css, matched } = await uno.generate(code, { preflights: false })
 

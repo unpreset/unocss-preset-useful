@@ -1,9 +1,9 @@
 import { createGenerator } from 'unocss'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { presetUseful } from 'unocss-preset-useful'
 
 describe('preseUseful presets', () => {
-  test('mutiple preset', async () => {
+  it('mutiple preset', async () => {
     const uno = createGenerator({
       presets: [
         presetUseful({
