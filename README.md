@@ -250,7 +250,22 @@ const _shortcuts: CustomStaticShortcuts = [
 ]
 ```
 
-### animate
+### index
+  
+```ts
+// See index.test.ts `themeAnimate configuration` for usage.
+export function nomarlizeTheme(theme: UsefulTheme, enableMagicAnimations: boolean): UsefulTheme {
+  return {
+    ...theme,
+    animation: deepMerge(
+      enableMagicAnimations ? MagicAnimation : {},
+      theme.animation ?? {},
+    ),
+  }
+}
+```
+
+### magic-animate
   
 ```ts
 export function magicAnimate(): Theme['animation'] {
@@ -269,18 +284,6 @@ export function magicAnimate(): Theme['animation'] {
     keyframes: generate(),
     durations: generate('1s'),
     properties: generate({ 'animation-fill-mode': 'both' }),
-  }
-}
-```
-
-### index
-  
-```ts
-// See index.test.ts `themeAnimate configuration` for usage.
-export function nomarlizeTheme(theme: UsefulTheme): UsefulTheme {
-  return {
-    ...theme,
-    animation: deepMerge(magicAnimate(), theme.animation ? resolveAnimation(theme.animation) : {}) as any,
   }
 }
 ```
