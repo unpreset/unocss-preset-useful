@@ -10,6 +10,7 @@ Integrate and useful preset.
   - 💜 Support expand theme animation name usage.
   - 🍬 etc.
 - 📦 Build-In [Magic Animate](https://github.com/miniMAC/magic).
+- 🌬️ Align with TW theme configuration.
 
 ## Usage
 ```shell
