@@ -21,6 +21,7 @@ export function resolveOptions(options: UsefulOptions) {
     remToPx: false,
     scrollbar: false,
     theme: {},
+    enableDefaultShortcuts: true,
   }
   const optionsWithDefault = Object.assign({}, defaultOptions, options)
   optionsWithDefault.unColor = typeof optionsWithDefault.unColor === 'string'

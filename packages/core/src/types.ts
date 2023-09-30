@@ -35,6 +35,12 @@ export interface UsefulTheme extends Theme {
 
 export interface UsefulOptions {
   /**
+   * Enable default shortcuts
+   * 
+   * @default true
+   */
+  enableDefaultShortcuts?: boolean
+  /**
    * Extract rgba color in css variable
    *
    * @default false
