@@ -1,5 +1,5 @@
 import { createGenerator, escapeSelector } from 'unocss'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { presetUseful } from 'unocss-preset-useful'
 import { usefulTargets } from './fixtures/index.targets'
 
@@ -10,7 +10,7 @@ const uno = createGenerator({
 })
 
 describe('preset-useful', () => {
-  test('targets', async () => {
+  it('targets', async () => {
     const code = usefulTargets.join(' ')
     const { css } = await uno.generate(code, { preflights: false })
     const { css: css2 } = await uno.generate(code, { preflights: false })

@@ -1,14 +1,19 @@
 import type { UsefulTheme } from '../../types'
-import { deepMerge, nomarlizeAnimate } from '../../utils'
+import { deepMerge } from '../../utils'
 
-import { magicAnimate } from './animate'
+import { magicAnimate } from './magic-animate'
+
+const MagicAnimation = magicAnimate()
 
 // IN-README-START
 // See index.test.ts `themeAnimate configuration` for usage.
-export function nomarlizeTheme(theme: UsefulTheme): UsefulTheme {
+export function nomarlizeTheme(theme: UsefulTheme, enableMagicAnimations: boolean): UsefulTheme {
   return {
     ...theme,
-    animation: deepMerge(magicAnimate(), theme.animation ? nomarlizeAnimate(theme.animation) : {}) as any,
+    animation: deepMerge(
+      enableMagicAnimations ? MagicAnimation : {},
+      theme.animation ?? {},
+    ),
   }
 }
 

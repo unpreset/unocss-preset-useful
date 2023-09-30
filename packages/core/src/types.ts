@@ -6,18 +6,48 @@ import type { TypographyOptions } from '@unocss/preset-typography'
 import type { TagifyOptions } from '@unocss/preset-tagify'
 import type { RemToPxOptions } from '@unocss/preset-rem-to-px'
 import type { PresetScrollbarDefaultOption } from 'unocss-preset-scrollbar'
-import type { Preset } from '@unocss/core'
-import type { Theme, ThemeAnimation } from '@unocss/preset-mini'
+import type { Preset, StaticShortcut } from '@unocss/core'
+import type { Theme } from '@unocss/preset-mini'
+import type { CSSObject } from 'unocss'
 
-export interface UsefulThemeAnimation extends ThemeAnimation {
-  animate?: string[]
+type CustomStaticShortcut = [string | string[], StaticShortcut[1]] | [string | string[], StaticShortcut[1], StaticShortcut[2]]
+export type CustomStaticShortcuts = CustomStaticShortcut[]
+
+export type Objectiable<T> = Record<string, T>
+
+export type CSSKeyframesRule = Objectiable<CSSObject>
+
+export interface UsefulExtends extends Exclude<UsefulTheme, 'extend'> {
+  keyframes?: Record<string, CSSKeyframesRule>
+  /**
+   * Different from the original, you can use the following formats:
+   *
+   * ```ts
+   * { name : 'name duration timing-function iteration-count' }
+   * ```
+   */
+  animation?: Objectiable<string>
 }
 
 export interface UsefulTheme extends Theme {
-  animation?: UsefulThemeAnimation
+  extend?: UsefulExtends
 }
 
 export interface UsefulOptions {
+  /**
+   * Enable default shortcuts
+   *
+   * @default true
+   */
+  enableDefaultShortcuts?: boolean
+
+  /**
+   * Enable magic animations
+   *
+   * @default true
+   */
+  enableMagicAnimations?: boolean
+
   /**
    * Extract rgba color in css variable
    *
@@ -126,6 +156,11 @@ export interface UsefulOptions {
   scrollbar?: boolean | PresetScrollbarDefaultOption
 }
 
-export type ResolvedOptions = Required<UsefulOptions> & { presets: Preset[] }
+export type ResolvedOptions = Required<UsefulOptions> & {
+  meta: {
+    presets: Preset[]
+    shortcuts: CustomStaticShortcuts
+  }
+}
 
 export type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> }

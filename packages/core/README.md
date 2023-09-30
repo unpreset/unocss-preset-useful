@@ -280,7 +280,7 @@ export function magicAnimate(): Theme['animation'] {
 export function nomarlizeTheme(theme: UsefulTheme): UsefulTheme {
   return {
     ...theme,
-    animation: deepMerge(magicAnimate(), theme.animation ? nomarlizeAnimate(theme.animation) : {}) as any,
+    animation: deepMerge(magicAnimate(), theme.animation ? resolveAnimation(theme.animation) : {}) as any,
   }
 }
 ```
