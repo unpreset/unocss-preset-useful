@@ -12,19 +12,12 @@ describe('utils', () => {
   }
 
   test('resolveAnimation', async () => {
-    const { animation, shortcuts } = resolveAnimation({ animation: _animation })
+    const { animation, shortcuts } = resolveAnimation(_animation)
 
 
     expect(shortcuts).toHaveLength(1)
     expect(animation).toMatchInlineSnapshot(`
       {
-        "animation": {
-          "bar": "bar 1s +",
-          "bounce": "bounce 2s ease-in-out 3",
-          "fade": "fade 1s ease-in-out 3",
-          "foo": "foo 1s * 3",
-          "spin-slow": "spin 3s linear infinite",
-        },
         "counts": {
           "bounce": "3",
           "fade": "3",

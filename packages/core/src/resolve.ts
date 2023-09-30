@@ -1,14 +1,14 @@
 import { presetAttributify } from '@unocss/preset-attributify'
 import { presetIcons } from '@unocss/preset-icons'
-import { presetUno } from '@unocss/preset-uno'
+import { Theme, presetUno } from '@unocss/preset-uno'
 import presetTagify from '@unocss/preset-tagify'
 import { presetTypography } from '@unocss/preset-typography'
 import presetWebFonts from '@unocss/preset-web-fonts'
 import remToPxPreset from '@unocss/preset-rem-to-px'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { nomarlizeTheme } from './core'
-import type { ResolvedOptions, UsefulOptions, UsefulTheme } from './types'
-import { deepMerge } from './utils'
+import type { CustomStaticShortcuts, ResolvedOptions, UsefulOptions, UsefulTheme } from './types'
+import { cssObj2StrSync, deepMerge, resolveAnimation } from './utils'
 
 export function resolveOptions(options: UsefulOptions) {
   const defaultOptions: UsefulOptions = {
@@ -44,19 +44,35 @@ export function resolveOptions(options: UsefulOptions) {
       presets.push(preset(typeof option === 'boolean' ? {} as any : option))
   }
 
+  const { theme: t_theme, shortcuts } = resolveExtend(optionsWithDefault.theme!.extend ?? {})
+  deepMerge(optionsWithDefault.theme!, t_theme)
+
   return {
     ...optionsWithDefault,
     theme: nomarlizeTheme(optionsWithDefault.theme!),
-    presets,
+    meta: {
+      presets,
+      shortcuts
+    }
   } as ResolvedOptions
 }
 
-export function resolveTheme(theme: UsefulTheme) {
-  const t_extends = theme.extend ?? {}
-  const resolveTheme = deepMerge(theme, t_extends)
+export function resolveExtend(extend: UsefulTheme['extend']) {
+  const _shortcuts: CustomStaticShortcuts = []
+  const { animation, keyframes } = extend!
 
+  // animation
+  const { animation: resolvedAnimation, shortcuts } = resolveAnimation(animation ?? {})
+  _shortcuts.push(...shortcuts)
 
+  // keyframes
+  resolvedAnimation.keyframes = {}
+  for (const key in keyframes) {
+    resolvedAnimation.keyframes[key] = cssObj2StrSync(keyframes[key])
+  }
 
-  return resolveTheme
-  // const theme = deepMerge(defaultTheme, targetTheme)
+  return {
+    theme: { animation: resolvedAnimation } as Theme,
+    shortcuts: _shortcuts,
+  }
 }

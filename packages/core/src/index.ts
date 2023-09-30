@@ -10,7 +10,7 @@ export * from './utils'
 export type { UsefulOptions }
 
 export const presetUseful = definePreset((options: UsefulOptions = {}) => {
-  const { unColor, theme, presets } = resolveOptions(options)
+  const { unColor, theme, meta } = resolveOptions(options)
 
   return {
     name: `unocss-preset-${PRESET_NAME}`,
@@ -20,12 +20,12 @@ export const presetUseful = definePreset((options: UsefulOptions = {}) => {
     rules,
     theme,
     variants: variants(options),
-    shortcuts,
+    shortcuts: [...shortcuts, ...meta.shortcuts],
     extractors,
     postprocess: [
       unColor ? postprocessWithUnColor(unColor as string) : undefined,
     ].filter(Boolean) as Postprocessor[],
-    presets,
+    presets: meta.presets,
   }
 })
 

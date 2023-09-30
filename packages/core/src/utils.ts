@@ -2,7 +2,7 @@ import type { ThemeAnimation } from '@unocss/preset-mini'
 import postcss from 'postcss'
 import postcssJs, { objectify } from 'postcss-js'
 import type { CSSObject } from 'unocss'
-import type { CustomStaticShortcuts, DeepPartial, UsefulThemeAnimation } from './types'
+import type { CustomStaticShortcuts, DeepPartial, Objectiable } from './types'
 
 
 /**
@@ -39,14 +39,13 @@ import type { CustomStaticShortcuts, DeepPartial, UsefulThemeAnimation } from '.
  *   },
  * }
  */
-export function resolveAnimation(animation: UsefulThemeAnimation) {
-  const { animation: themeAnimate = {} } = animation
-  const _animation: ThemeAnimation = {}
+export function resolveAnimation(extend_animation: Objectiable<string>) {
+  const animation: ThemeAnimation = {}
   const keys: (Exclude<keyof ThemeAnimation, 'properties'>)[] = ['durations', 'timingFns', 'counts']
   const shortcuts: CustomStaticShortcuts = []
 
-  for (const name in themeAnimate) {
-    const v = themeAnimate[name]
+  for (const name in extend_animation) {
+    const v = extend_animation[name]
     const ps = v.split(/\s+/)
     if (ps.length > 1) {
       const key = ps[0]
@@ -58,11 +57,11 @@ export function resolveAnimation(animation: UsefulThemeAnimation) {
         if (ps[i] === '*')
           continue
         const _key = keys[i - 1]
-        if (_animation[_key]) {
-          _animation[_key]![key] = ps[i] === '+' ? '' : ps[i]
+        if (animation[_key]) {
+          animation[_key]![key] = ps[i] === '+' ? '' : ps[i]
         }
         else {
-          _animation[_key] = {
+          animation[_key] = {
             [key]: ps[i] === '+' ? '' : ps[i],
           }
         }
@@ -71,7 +70,7 @@ export function resolveAnimation(animation: UsefulThemeAnimation) {
   }
 
   return {
-    animation: deepMerge(animation, _animation),
+    animation,
     shortcuts,
   }
 }

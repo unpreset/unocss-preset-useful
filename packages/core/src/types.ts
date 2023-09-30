@@ -7,14 +7,18 @@ import type { TagifyOptions } from '@unocss/preset-tagify'
 import type { RemToPxOptions } from '@unocss/preset-rem-to-px'
 import type { PresetScrollbarDefaultOption } from 'unocss-preset-scrollbar'
 import type { Preset, StaticShortcut } from '@unocss/core'
-import type { Theme, ThemeAnimation } from '@unocss/preset-mini'
+import type { Theme } from '@unocss/preset-mini'
+import { CSSObject } from 'unocss'
 
 type CustomStaticShortcut = [string | string[], StaticShortcut[1]] | [string | string[], StaticShortcut[1], StaticShortcut[2]]
 export type CustomStaticShortcuts = CustomStaticShortcut[]
 
 export type Objectiable<T> = Record<string, T>
 
-export interface UsefulThemeAnimation extends ThemeAnimation {
+export type CSSKeyframesRule = Objectiable<CSSObject>
+
+export interface UsefulExtends extends Exclude<UsefulTheme, 'extend'> {
+  keyframes?: Record<string, CSSKeyframesRule>
   /**
    * Different from the original, you can use the following formats:
    * 
@@ -25,16 +29,8 @@ export interface UsefulThemeAnimation extends ThemeAnimation {
   animation?: Objectiable<string>
 }
 
-export type CSSKeyframesRule = Objectiable<Objectiable<Objectiable<string>>>
-
-export interface UsefulExtends extends Exclude<UsefulTheme, 'extend'> {
-  keyframes?: Record<string, CSSKeyframesRule>
-  animation?: Objectiable<string>
-}
-
 export interface UsefulTheme extends Theme {
-  animation?: UsefulThemeAnimation
-  extend?: Exclude<UsefulTheme, 'extend'>
+  extend?: UsefulExtends
 }
 
 export interface UsefulOptions {
@@ -146,6 +142,11 @@ export interface UsefulOptions {
   scrollbar?: boolean | PresetScrollbarDefaultOption
 }
 
-export type ResolvedOptions = Required<UsefulOptions> & { presets: Preset[] }
+export type ResolvedOptions = Required<UsefulOptions> & {
+  meta: {
+    presets: Preset[]
+    shortcuts: CustomStaticShortcuts
+  }
+}
 
 export type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> }
