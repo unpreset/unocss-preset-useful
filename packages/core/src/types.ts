@@ -35,6 +35,13 @@ export interface UsefulTheme extends Theme {
 
 export interface UsefulOptions {
   /**
+   * Make all unitilities important.
+   *
+   * @default false
+   */
+  important?: boolean
+
+  /**
    * Enable default shortcuts
    *
    * @default true

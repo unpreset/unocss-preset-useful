@@ -24,6 +24,7 @@ export function resolveOptions(options: UsefulOptions) {
     theme: {},
     enableDefaultShortcuts: true,
     enableMagicAnimations: true,
+    important: false,
   }
   const optionsWithDefault = Object.assign({}, defaultOptions, options) as Required<UsefulOptions>
   optionsWithDefault.unColor = typeof optionsWithDefault.unColor === 'string'

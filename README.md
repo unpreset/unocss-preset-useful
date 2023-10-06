@@ -203,6 +203,12 @@ export function postprocessWithUnColor(unColor: string): Postprocessor {
     })
   }
 }
+
+export function importantProcess(): Postprocessor {
+  return (util) => {
+    util.entries.forEach(i => i[1] += ' !important')
+  }
+}
 ```
 
 ### rules
