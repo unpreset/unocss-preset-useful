@@ -35,6 +35,13 @@ export default defineConfig({
 ```ts
 export interface UsefulOptions {
   /**
+   * Make all unitilities important.
+   *
+   * @default false
+   */
+  important?: boolean
+
+  /**
    * Enable default shortcuts
    *
    * @default true
