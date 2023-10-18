@@ -22,7 +22,11 @@ export function postprocessWithUnColor(unColor: string): Postprocessor {
 
 export function importantProcess(): Postprocessor {
   return (util) => {
-    util.entries.forEach(i => i[1] += ' !important')
+    util.entries.forEach(i => {
+      if(i[1] != null && !String(i[1]).includes('!important')){
+        i[1] += ' !important'
+      }
+    })
   }
 }
 // IN-README-END
