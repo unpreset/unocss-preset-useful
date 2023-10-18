@@ -40,7 +40,6 @@ describe('presetUseful postprocess with important', () => {
   const withOutImport = ['bg-red', 'text-blue']
   const withInImport = ['!text-xl', 'sm:text-sm!', 'important-ma']
 
-
   it('base', async () => {
     const uno = generateUno({
       important: true,
