@@ -1,5 +1,5 @@
 <template>
-  <div class="prose ma">
+  <div class="ma prose">
     <div fcc gap-8 un-children="fcc w-30 h-30 rd b b-red b-solid text-white text-xl">
       <div hover="animate-puffIn">
         puffIn

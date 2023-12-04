@@ -10,12 +10,12 @@
       "unocss-preset-useful": ["./packages/unocss-preset-useful/src/index.ts"]
     },
     "resolveJsonModule": true,
-    "sourceMap": true,
-    "esModuleInterop": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "esModuleInterop": true
   },
   "exclude": [
     "**/dist/**",
