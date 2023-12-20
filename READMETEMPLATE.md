@@ -166,17 +166,12 @@ export interface UsefulOptions {
 
 <br></details>
 
-
 ## Details
 
 <details>
 <summary>Expand it see more details</summary><br>
 
-
-
 <slot/>
-
-
 
 <br></details>
 
