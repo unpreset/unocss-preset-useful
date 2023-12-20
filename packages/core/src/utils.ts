@@ -113,7 +113,7 @@ export function isObject(val: unknown): val is Record<any, any> {
 
 export function getKeyframes(css: string) {
   const root = postcss.parse(css)
-  const obj = objectify(root)
+  const obj = objectify(root as any)
 
   return Object.keys(obj).reduce<Record<string, Record<string, CSSObject>>>((acc, key) => {
     if (key.startsWith('@keyframes'))
