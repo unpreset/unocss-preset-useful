@@ -51,10 +51,10 @@ describe('presetUseful postprocess with important', () => {
       "/* layer: default */
       .important-ma{margin:auto !important;}
       .bg-red{--un-bg-opacity:1 !important;background-color:rgb(248 113 113 / var(--un-bg-opacity)) !important;}
-      .\\\\!text-xl{font-size:1.25rem !important;line-height:1.75rem !important;}
+      .\\!text-xl{font-size:1.25rem !important;line-height:1.75rem !important;}
       .text-blue{--un-text-opacity:1 !important;color:rgb(96 165 250 / var(--un-text-opacity)) !important;}
       @media (min-width: 640px){
-      .sm\\\\:text-sm\\\\!{font-size:0.875rem !important;line-height:1.25rem !important;}
+      .sm\\:text-sm\\!{font-size:0.875rem !important;line-height:1.25rem !important;}
       }"
     `)
   })

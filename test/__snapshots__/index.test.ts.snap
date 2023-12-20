@@ -2,17 +2,17 @@
 
 exports[`preset-useful > targets 1`] = `
 "/* layer: default */
-.\\\\@active\\\\:bg-red.active{--un-bg-opacity:1;background-color:rgba(248,113,113,var(--un-bg-opacity));}
-.text-\\\\[rgb\\\\(--c\\\\)\\\\]\\\\:50{color:rgba(--c,0.5);}
+.\\@active\\:bg-red.active{--un-bg-opacity:1;background-color:rgba(248,113,113,var(--un-bg-opacity));}
+.text-\\[rgb\\(--c\\)\\]\\:50{color:rgba(--c,0.5);}
 /* layer: useful */
-.c-context\\\\:\\\\:\\\\#818181{--c-context:129,129,129;}
-.c-custom\\\\:\\\\:red{--c-custom:248,113,113;}
-.c\\\\:\\\\:red{--c:248,113,113;}
-.p-10\\\\:\\\\:10px{--p-10:10px;}
+.c-context\\:\\:\\#818181{--c-context:129,129,129;}
+.c-custom\\:\\:red{--c-custom:248,113,113;}
+.c\\:\\:red{--c:248,113,113;}
+.p-10\\:\\:10px{--p-10:10px;}
 .p-c{position:absolute;left:50%;top:50%;--un-translate-x:-50%;transform:translateX(var(--un-translate-x)) translateY(var(--un-translate-y)) translateZ(var(--un-translate-z)) rotate(var(--un-rotate)) rotateX(var(--un-rotate-x)) rotateY(var(--un-rotate-y)) rotateZ(var(--un-rotate-z)) skewX(var(--un-skew-x)) skewY(var(--un-skew-y)) scaleX(var(--un-scale-x)) scaleY(var(--un-scale-y)) scaleZ(var(--un-scale-z));--un-translate-y:-50%;}
 .pa{position:absolute;}
 .pr{position:relative;}
-.hover\\\\:pr:hover{position:relative;}
+.hover\\:pr:hover{position:relative;}
 .f-c{display:flex;align-items:center;justify-content:center;}
 .f-c-c{display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .fb{display:flex;justify-content:space-between;}
