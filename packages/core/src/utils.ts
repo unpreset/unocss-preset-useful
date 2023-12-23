@@ -130,7 +130,7 @@ export function cssObj2StrSync(style: Record<string, CSSObject>): string {
 
 export function stringifyObj(obj: CSSObject) {
   return `{${Object.keys(obj).reduce((str, key) => {
-    return `${str}${key}:${obj[key]};`
+    return `${str}${camelToHyphen(key)}:${obj[key]};`
   }, '')}}`
 }
 
@@ -140,4 +140,8 @@ export async function cssObj2StrAsync(style: Record<string, CSSObject>) {
 
 export function toArray<T>(val: T | T[]): T[] {
   return Array.isArray(val) ? val : [val]
+}
+
+export function camelToHyphen(str: string): string {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }

@@ -1,6 +1,6 @@
 import type { CSSObject } from 'unocss'
 import { describe, expect, it } from 'vitest'
-import { cssObj2StrSync, resolveAnimation, stringifyObj } from 'unocss-preset-useful'
+import { cssObj2StrSync, resolveAnimation, stringifyObj, camelToHyphen } from 'unocss-preset-useful'
 
 describe('utils', () => {
   const _animation = {
@@ -40,22 +40,23 @@ describe('utils', () => {
     `)
   })
 
-  it('cssObj2StrSync', async () => {
+  it('cssObj2StrSync', () => {
     const style: Record<string, CSSObject> = {
       '0%, 20%, 40%, 50%': { opacity: 1, transform: 'scale(1, 1) translateY(0)' },
       '10%, 30%': { opacity: 1, transform: 'scale(1.1, 1.1) translateY(0)' },
       '100%': { opacity: 0, transform: 'scale(1, 1) translateY(-900%)' },
     }
 
-    expect(await cssObj2StrSync(style)).toMatchInlineSnapshot('"0%, 20%, 40%, 50%{opacity:1;transform:scale(1, 1) translateY(0);}10%, 30%{opacity:1;transform:scale(1.1, 1.1) translateY(0);}100%{opacity:0;transform:scale(1, 1) translateY(-900%);}"')
+    expect(cssObj2StrSync(style)).toMatchInlineSnapshot(`"0%, 20%, 40%, 50%{opacity:1;transform:scale(1, 1) translateY(0);}10%, 30%{opacity:1;transform:scale(1.1, 1.1) translateY(0);}100%{opacity:0;transform:scale(1, 1) translateY(-900%);}"`)
   })
 
   it('stringify CSSObject', () => {
     const obj = {
       foo: 'bb',
       bar: 'dd',
+      fooBar: 'fooBar'
     }
 
-    expect(stringifyObj(obj)).toMatchInlineSnapshot('"{foo:bb;bar:dd;}"')
+    expect(stringifyObj(obj)).toMatchInlineSnapshot(`"{foo:bb;bar:dd;foo-bar:fooBar;}"`)
   })
 })
