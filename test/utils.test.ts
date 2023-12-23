@@ -1,6 +1,6 @@
 import type { CSSObject } from 'unocss'
 import { describe, expect, it } from 'vitest'
-import { cssObj2StrSync, resolveAnimation, stringifyObj, camelToHyphen } from 'unocss-preset-useful'
+import { cssObj2StrSync, resolveAnimation, stringifyObj } from 'unocss-preset-useful'
 
 describe('utils', () => {
   const _animation = {
@@ -54,7 +54,7 @@ describe('utils', () => {
     const obj = {
       foo: 'bb',
       bar: 'dd',
-      fooBar: 'fooBar'
+      fooBar: 'fooBar',
     }
 
     expect(stringifyObj(obj)).toMatchInlineSnapshot(`"{foo:bb;bar:dd;foo-bar:fooBar;}"`)
