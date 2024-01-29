@@ -3,6 +3,7 @@ import { magicAnimate } from './theme/magic-animate'
 
 const keyframes = magicAnimate()?.keyframes ?? {}
 
+// IN-README-START
 export const autocomplete: UserConfig['autocomplete'] = {
   shorthands: {
     magic: `(${Object.keys(keyframes).join('|')})`,
@@ -11,3 +12,4 @@ export const autocomplete: UserConfig['autocomplete'] = {
     'animate-<magic>',
   ],
 }
+// IN-README-END
