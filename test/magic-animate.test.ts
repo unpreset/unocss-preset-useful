@@ -12,7 +12,9 @@ describe('magic in PresetUseful Theme', () => {
   it('magic animate in Uno', async () => {
     const uno = createGenerator<Theme>({
       presets: [
-        presetUseful(),
+        presetUseful({
+          enableMagicAnimations: true,
+        }),
       ],
     })
 
