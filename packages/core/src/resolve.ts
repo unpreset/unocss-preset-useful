@@ -11,21 +11,22 @@ import { nomarlizeTheme } from './core'
 import type { CustomStaticShortcuts, ResolvedOptions, UsefulOptions, UsefulTheme } from './types'
 import { cssObj2StrSync, deepMerge, resolveAnimation } from './utils'
 
+const defaultOptions: UsefulOptions = {
+  uno: true,
+  attributify: true,
+  icons: true,
+  webFonts: false,
+  typography: false,
+  tagify: false,
+  remToPx: false,
+  scrollbar: false,
+  theme: {},
+  enableDefaultShortcuts: true,
+  enableMagicAnimations: false,
+  important: false,
+}
+
 export function resolveOptions(options: UsefulOptions) {
-  const defaultOptions: UsefulOptions = {
-    uno: true,
-    attributify: true,
-    icons: true,
-    webFonts: false,
-    typography: false,
-    tagify: false,
-    remToPx: false,
-    scrollbar: false,
-    theme: {},
-    enableDefaultShortcuts: true,
-    enableMagicAnimations: true,
-    important: false,
-  }
   const optionsWithDefault = Object.assign({}, defaultOptions, options) as Required<UsefulOptions>
   optionsWithDefault.unColor = typeof optionsWithDefault.unColor === 'string'
     ? optionsWithDefault.unColor
