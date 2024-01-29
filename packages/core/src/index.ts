@@ -1,7 +1,7 @@
 import type { Postprocessor, PresetFactory } from 'unocss'
 import { definePreset } from '@unocss/core'
 import { PRESET_NAME } from './meta'
-import { extractors, rules, shortcuts, variants, autocomplete } from './core'
+import { autocomplete, extractors, rules, shortcuts, variants } from './core'
 import { importantProcess, postprocessWithUnColor } from './core/postprocess'
 import type { UsefulOptions, UsefulTheme } from './types'
 import { resolveOptions } from './resolve'
