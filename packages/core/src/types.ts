@@ -56,6 +56,13 @@ export interface UsefulOptions {
   enableMagicAnimations?: boolean
 
   /**
+   * Enable reset styles
+   *
+   * @default true
+   */
+  enableResetStyles?: boolean
+
+  /**
    * Extract rgba color in css variable
    *
    * @default false

@@ -24,6 +24,7 @@ const defaultOptions: UsefulOptions = {
   enableDefaultShortcuts: true,
   enableMagicAnimations: false,
   important: false,
+  enableResetStyles: true,
 }
 
 export function resolveOptions(options: UsefulOptions) {
