@@ -6,9 +6,8 @@ import type { TypographyOptions } from '@unocss/preset-typography'
 import type { TagifyOptions } from '@unocss/preset-tagify'
 import type { RemToPxOptions } from '@unocss/preset-rem-to-px'
 import type { PresetScrollbarDefaultOption } from 'unocss-preset-scrollbar'
-import type { Preset, StaticShortcut } from '@unocss/core'
 import type { Theme } from '@unocss/preset-mini'
-import type { CSSObject } from 'unocss'
+import type { CSSObject, Preset, StaticShortcut } from 'unocss'
 
 type CustomStaticShortcut = [string | string[], StaticShortcut[1]] | [string | string[], StaticShortcut[1], StaticShortcut[2]]
 export type CustomStaticShortcuts = CustomStaticShortcut[]

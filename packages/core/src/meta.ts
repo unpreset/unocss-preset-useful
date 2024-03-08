@@ -1,4 +1,4 @@
-import type { RuleMeta } from '@unocss/core'
+import type { RuleMeta } from 'unocss'
 
 export const PRESET_NAME = 'useful'
 

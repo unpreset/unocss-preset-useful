@@ -1,12 +1,4 @@
-import { presetAttributify } from '@unocss/preset-attributify'
-import { presetIcons } from '@unocss/preset-icons'
-import type { Theme } from '@unocss/preset-uno'
-import { presetUno } from '@unocss/preset-uno'
-import presetTagify from '@unocss/preset-tagify'
-import { presetTypography } from '@unocss/preset-typography'
-import presetWebFonts from '@unocss/preset-web-fonts'
-import remToPxPreset from '@unocss/preset-rem-to-px'
-import { presetScrollbar } from 'unocss-preset-scrollbar'
+import type { Theme } from '@unocss/preset-mini'
 import { nomarlizeTheme } from './core'
 import type { CustomStaticShortcuts, ResolvedOptions, UsefulOptions, UsefulTheme } from './types'
 import { cssObj2StrSync, deepMerge, resolveAnimation } from './utils'
@@ -27,7 +19,7 @@ const defaultOptions: UsefulOptions = {
   enableResetStyles: true,
 }
 
-export function resolveOptions(options: UsefulOptions) {
+export async function resolveOptions(options: UsefulOptions) {
   const optionsWithDefault = Object.assign({}, defaultOptions, options) as Required<UsefulOptions>
   optionsWithDefault.unColor = typeof optionsWithDefault.unColor === 'string'
     ? optionsWithDefault.unColor
@@ -35,19 +27,21 @@ export function resolveOptions(options: UsefulOptions) {
 
   const presets = []
   const presetMap = {
-    uno: presetUno,
-    attributify: presetAttributify,
-    icons: presetIcons,
-    webFonts: presetWebFonts,
-    typography: presetTypography,
-    tagify: presetTagify,
-    remToPx: remToPxPreset,
-    scrollbar: presetScrollbar,
+    uno: import('@unocss/preset-uno').then(({ presetUno }) => presetUno),
+    attributify: import('@unocss/preset-attributify').then(({ presetAttributify }) => presetAttributify),
+    icons: import('@unocss/preset-icons').then(({ presetIcons }) => presetIcons),
+    webFonts: import('@unocss/preset-web-fonts'),
+    typography: import('@unocss/preset-typography').then(({ presetTypography }) => presetTypography),
+    tagify: import('@unocss/preset-tagify').then(({ presetTagify }) => presetTagify),
+    remToPx: import('@unocss/preset-rem-to-px').then(({ presetRemToPx }) => presetRemToPx),
+    scrollbar: import('unocss-preset-scrollbar').then(({ presetScrollbar }) => presetScrollbar),
   }
   for (const [key, preset] of Object.entries(presetMap)) {
     const option = optionsWithDefault[key as keyof typeof presetMap]
-    if (option)
-      presets.push(preset(typeof option === 'boolean' ? {} as any : option))
+    if (option){
+      const p = await preset as any
+      presets.push(p(typeof option === 'boolean' ? {} as any : option))
+    }
   }
 
   const { theme: t_theme, shortcuts } = resolveExtend(optionsWithDefault.theme.extend ?? {})

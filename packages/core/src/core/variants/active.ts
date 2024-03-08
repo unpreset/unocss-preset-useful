@@ -1,4 +1,4 @@
-import type { VariantObject } from '@unocss/core'
+import type { VariantObject } from 'unocss'
 
 export const v_active: VariantObject = {
   name: '@active',

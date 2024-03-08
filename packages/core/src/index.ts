@@ -1,5 +1,5 @@
 import type { Postprocessor, PresetFactory } from 'unocss'
-import { definePreset } from '@unocss/core'
+import { definePreset } from 'unocss'
 import { PRESET_NAME } from './meta'
 import { autocomplete, extractors, preflights, rules, shortcuts, variants } from './core'
 import { importantProcess, postprocessWithUnColor } from './core/postprocess'
@@ -10,8 +10,8 @@ export * from './utils'
 
 export type { UsefulOptions, UsefulTheme }
 
-export const presetUseful = definePreset((options: UsefulOptions = {}) => {
-  const resolvedOptions = resolveOptions(options)
+export const presetUseful = definePreset(async (options: UsefulOptions = {}) => {
+  const resolvedOptions = await resolveOptions(options)
   const { enableDefaultShortcuts, unColor, theme, meta, important } = resolvedOptions
 
   return {

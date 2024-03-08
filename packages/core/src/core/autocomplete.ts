@@ -1,4 +1,4 @@
-import type { UserConfig } from '@unocss/core'
+import type { UserConfig } from 'unocss'
 import { magicAnimate } from './theme/magic-animate'
 
 const keyframes = magicAnimate()?.keyframes ?? {}

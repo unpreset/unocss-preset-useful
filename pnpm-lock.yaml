@@ -65,16 +65,10 @@ importers:
 
   packages/core:
     dependencies:
-      '@unocss/core':
-        specifier: ^0.58.0
-        version: 0.58.0
       '@unocss/preset-attributify':
         specifier: ^0.58.0
         version: 0.58.0
       '@unocss/preset-icons':
-        specifier: ^0.58.0
-        version: 0.58.0
-      '@unocss/preset-mini':
         specifier: ^0.58.0
         version: 0.58.0
       '@unocss/preset-rem-to-px':
@@ -104,6 +98,10 @@ importers:
       unocss-preset-scrollbar:
         specifier: latest
         version: 0.3.0(unocss@0.58.4)
+    devDependencies:
+      '@unocss/preset-mini':
+        specifier: ^0.58.0
+        version: 0.58.0
 
   playground:
     dependencies:
@@ -1933,7 +1931,6 @@ packages:
 
   /@unocss/core@0.58.0:
     resolution: {integrity: sha512-KhABQXGE2AgtO9vE28d+HnciuyGDcuygsnQdUwlzUuR4K05OSw2kRE9emRN4HaMycD+gA/zDbQrJxTXb6mQUiA==}
-    dev: false
 
   /@unocss/core@0.58.4:
     resolution: {integrity: sha512-wh4pxXUCkhC+C/0ct74PMYeZgX+oWuHj2mnvr09nM0WmvOm1HeeISrDCCBGcxmKbErUk+D1v3JgzXF7b6j2l4g==}
@@ -1963,7 +1960,6 @@ packages:
     resolution: {integrity: sha512-s9wK2UugJM0WK1HpgPz2kTbpeyQc46zais+nauN/ykVX6NMq8PtGzSWszzf+0aIbtWAQGiqAfiYNTpf09tJHfg==}
     dependencies:
       '@unocss/core': 0.58.0
-    dev: false
 
   /@unocss/extractor-arbitrary-variants@0.58.4:
     resolution: {integrity: sha512-TQlVtSQk8YdBU9KuTA5k6JBJ8d/aPrIsCWjDPfBvAqDvrll/dzwBCLoLTQMdCHFjCXCOYWKPum1ET+Wn9R+XbA==}
@@ -2052,7 +2048,6 @@ packages:
       '@unocss/core': 0.58.0
       '@unocss/extractor-arbitrary-variants': 0.58.0
       '@unocss/rule-utils': 0.58.0
-    dev: false
 
   /@unocss/preset-mini@0.58.4:
     resolution: {integrity: sha512-cpIWUYxLi4VCkkjxpNJOVqH9D32NX1ebRFaoAVnvCRsoj5TRsZJSdxs0WMN7reHT/CUHh0Wh6d3TfMCFxzbZ4g==}
@@ -2152,7 +2147,6 @@ packages:
     dependencies:
       '@unocss/core': 0.58.0
       magic-string: 0.30.5
-    dev: false
 
   /@unocss/rule-utils@0.58.4:
     resolution: {integrity: sha512-52Jp4I+joGTaDm7ehB/7uZ2kJL+9BZcYRDUVk4IDacDH5W9yxf1F75LzYT8jJVWXD/HIhiS0r9V6qhcBq2OWZw==}
