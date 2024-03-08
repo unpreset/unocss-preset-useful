@@ -38,7 +38,7 @@ export async function resolveOptions(options: UsefulOptions) {
   }
   for (const [key, preset] of Object.entries(presetMap)) {
     const option = optionsWithDefault[key as keyof typeof presetMap]
-    if (option){
+    if (option) {
       const p = await preset as any
       presets.push(p(typeof option === 'boolean' ? {} as any : option))
     }
