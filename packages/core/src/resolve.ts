@@ -36,6 +36,7 @@ export async function resolveOptions(options: UsefulOptions) {
     remToPx: import('@unocss/preset-rem-to-px').then(({ presetRemToPx }) => presetRemToPx),
     scrollbar: import('unocss-preset-scrollbar').then(({ presetScrollbar }) => presetScrollbar),
   }
+
   for (const [key, preset] of Object.entries(presetMap)) {
     const option = optionsWithDefault[key as keyof typeof presetMap]
     if (option) {

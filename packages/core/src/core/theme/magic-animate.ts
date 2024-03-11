@@ -1,11 +1,11 @@
 // import MagicCSS from 'magic.css/dist/magic.css'
 import type { Theme } from '@unocss/preset-mini'
 import { cssObj2StrSync, getKeyframes } from '../../utils'
-import magicCSS from '../../../../../data/magicCSS'
+import { magicCSSMini } from '../../../../../data/magicCSS'
 
 // IN-README-START
 export function magicAnimate(): Theme['animation'] {
-  const keyframesObj = getKeyframes(magicCSS)
+  const keyframesObj = getKeyframes(magicCSSMini)
 
   function generate<T = string>(val?: T): Record<string, T> {
     return Object.keys(keyframesObj).reduce((acc, key) => {
