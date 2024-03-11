@@ -6,6 +6,6 @@ import UnoCSS from 'unocss/vite'
 export default defineConfig({
   plugins: [
     Vue(),
-    UnoCSS(),
+    UnoCSS('../unocss.config.ts') as any,
   ],
 })
