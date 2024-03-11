@@ -53,7 +53,6 @@
     "@unocss/preset-typography": "^0.58.5",
     "@unocss/preset-uno": "^0.58.5",
     "@unocss/preset-web-fonts": "^0.58.5",
-    "magic.css": "^1.4.8",
     "postcss": "^8.4.35",
     "postcss-js": "^4.0.1",
     "unocss-preset-scrollbar": "^0.3.1"
