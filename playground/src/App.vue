@@ -1,13 +1,13 @@
 <template>
   <div class="ma prose">
-    <div fcc gap-8 un-children="fcc w-30 h-30 rd b b-red b-solid text-white text-xl">
+    <div fcc gap-8 un-children="fcc w-30 h-30 rd b">
       <div hover="animate-puffIn">
         puffIn
       </div>
       <div hover="animate-puffOut">
         puffOut
       </div>
-      <div hover="animate-magic">
+      <div hover-animate-magic>
         magic
       </div>
     </div>
@@ -20,5 +20,6 @@
   padding: 0;
   box-sizing: border-box;
   background: #222;
+  color: white;
 }
 </style>
