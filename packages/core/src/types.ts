@@ -51,7 +51,7 @@ export interface UsefulOptions {
   /**
    * Enable magic animations
    *
-   * @default true
+   * @default false
    */
   enableMagicAnimations?: boolean
 
