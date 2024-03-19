@@ -1,4 +1,4 @@
-import type { Postprocessor } from '@unocss/core'
+import type { Postprocessor } from 'unocss'
 
 const rgbaRE = /rgba\(((?:\d+,?){3}),([^)]*)\)/
 

@@ -21,7 +21,7 @@ describe('magic in PresetUseful Theme', () => {
     const { css } = await uno.generate('animate-puffIn', { preflights: false })
     expect(css).toMatchInlineSnapshot(`
       "/* layer: default */
-      @keyframes puffIn{0%{opacity:0;transform-origin:50% 50%;transform:scale(2, 2);filter:blur(2px);}100%{opacity:1;transform-origin:50% 50%;transform:scale(1, 1);filter:blur(0px);}}
+      @keyframes puffIn{0%{filter:blur(2px);opacity:0;transform:scale(2);transform-origin:50% 50%;}to{filter:blur(0);opacity:1;transform:scale(1);transform-origin:50% 50%;}}
       .animate-puffIn{animation:puffIn 1s linear 1;animation-fill-mode:both;}"
     `)
   })

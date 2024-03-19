@@ -1,11 +1,6 @@
-import { presetAttributify } from '@unocss/preset-attributify'
-import { presetIcons } from '@unocss/preset-icons'
-import type { Theme } from '@unocss/preset-uno'
-import { presetUno } from '@unocss/preset-uno'
-import presetTagify from '@unocss/preset-tagify'
-import { presetTypography } from '@unocss/preset-typography'
-import presetWebFonts from '@unocss/preset-web-fonts'
-import remToPxPreset from '@unocss/preset-rem-to-px'
+import type { Theme } from '@unocss/preset-mini'
+import { presetAttributify, presetIcons, presetTagify, presetTypography, presetUno, presetWebFonts } from 'unocss'
+import presetRemToPx from '@unocss/preset-rem-to-px'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { nomarlizeTheme } from './core'
 import type { CustomStaticShortcuts, ResolvedOptions, UsefulOptions, UsefulTheme } from './types'
@@ -41,13 +36,16 @@ export function resolveOptions(options: UsefulOptions) {
     webFonts: presetWebFonts,
     typography: presetTypography,
     tagify: presetTagify,
-    remToPx: remToPxPreset,
+    remToPx: presetRemToPx,
     scrollbar: presetScrollbar,
   }
+
   for (const [key, preset] of Object.entries(presetMap)) {
     const option = optionsWithDefault[key as keyof typeof presetMap]
-    if (option)
-      presets.push(preset(typeof option === 'boolean' ? {} as any : option))
+    if (option) {
+      const p = preset as any
+      presets.push(p(typeof option === 'boolean' ? {} as any : option))
+    }
   }
 
   const { theme: t_theme, shortcuts } = resolveExtend(optionsWithDefault.theme.extend ?? {})
