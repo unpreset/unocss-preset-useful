@@ -17,7 +17,7 @@ describe('presetUseful preflights', () => {
     const uno = generateUno()
     const preflights = uno.config.preflights
 
-    expect(preflights.map(p => p.layer || 'default')).toEqual(['useful', 'default'])
+    expect(preflights.map(p => p.layer)).toEqual(['useful', 'preflights'])
   })
 
   it('output reset css', async () => {
