@@ -48,6 +48,7 @@
   "dependencies": {
     "@unocss/preset-attributify": "^0.58.5",
     "@unocss/preset-icons": "^0.58.5",
+    "@unocss/preset-mini": "^0.58.5",
     "@unocss/preset-rem-to-px": "^0.58.5",
     "@unocss/preset-tagify": "^0.58.5",
     "@unocss/preset-typography": "^0.58.5",
@@ -56,8 +57,5 @@
     "postcss": "^8.4.35",
     "postcss-js": "^4.0.1",
     "unocss-preset-scrollbar": "^0.3.1"
-  },
-  "devDependencies": {
-    "@unocss/preset-mini": "^0.58.5"
   }
 }
