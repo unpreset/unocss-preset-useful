@@ -1,4 +1,7 @@
 import type { Theme } from '@unocss/preset-mini'
+import { presetAttributify, presetIcons, presetTagify, presetTypography, presetUno, presetWebFonts } from 'unocss'
+import presetRemToPx from '@unocss/preset-rem-to-px'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { nomarlizeTheme } from './core'
 import type { CustomStaticShortcuts, ResolvedOptions, UsefulOptions, UsefulTheme } from './types'
 import { cssObj2StrSync, deepMerge, resolveAnimation } from './utils'
@@ -19,7 +22,7 @@ const defaultOptions: UsefulOptions = {
   enableResetStyles: true,
 }
 
-export async function resolveOptions(options: UsefulOptions) {
+export function resolveOptions(options: UsefulOptions) {
   const optionsWithDefault = Object.assign({}, defaultOptions, options) as Required<UsefulOptions>
   optionsWithDefault.unColor = typeof optionsWithDefault.unColor === 'string'
     ? optionsWithDefault.unColor
@@ -27,20 +30,20 @@ export async function resolveOptions(options: UsefulOptions) {
 
   const presets = []
   const presetMap = {
-    uno: import('@unocss/preset-uno').then(({ presetUno }) => presetUno),
-    attributify: import('@unocss/preset-attributify').then(({ presetAttributify }) => presetAttributify),
-    icons: import('@unocss/preset-icons').then(({ presetIcons }) => presetIcons),
-    webFonts: import('@unocss/preset-web-fonts'),
-    typography: import('@unocss/preset-typography').then(({ presetTypography }) => presetTypography),
-    tagify: import('@unocss/preset-tagify').then(({ presetTagify }) => presetTagify),
-    remToPx: import('@unocss/preset-rem-to-px').then(({ presetRemToPx }) => presetRemToPx),
-    scrollbar: import('unocss-preset-scrollbar').then(({ presetScrollbar }) => presetScrollbar),
+    uno: presetUno,
+    attributify: presetAttributify,
+    icons: presetIcons,
+    webFonts: presetWebFonts,
+    typography: presetTypography,
+    tagify: presetTagify,
+    remToPx: presetRemToPx,
+    scrollbar: presetScrollbar,
   }
 
   for (const [key, preset] of Object.entries(presetMap)) {
     const option = optionsWithDefault[key as keyof typeof presetMap]
     if (option) {
-      const p = await preset as any
+      const p = preset as any
       presets.push(p(typeof option === 'boolean' ? {} as any : option))
     }
   }

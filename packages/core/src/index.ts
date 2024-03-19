@@ -11,7 +11,7 @@ export * from './utils'
 export type { UsefulOptions, UsefulTheme }
 
 export const presetUseful = definePreset(async (options: UsefulOptions = {}) => {
-  const resolvedOptions = await resolveOptions(options)
+  const resolvedOptions = resolveOptions(options)
   const { enableDefaultShortcuts, unColor, theme, meta, important } = resolvedOptions
 
   return {
