@@ -42,7 +42,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "unbuild",
     "stub": "unbuild --stub"
   },
   "dependencies": {
