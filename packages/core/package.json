@@ -46,14 +46,14 @@
     "stub": "unbuild --stub"
   },
   "dependencies": {
-    "@unocss/preset-attributify": "^0.60.0",
-    "@unocss/preset-icons": "^0.60.0",
-    "@unocss/preset-mini": "^0.60.0",
-    "@unocss/preset-rem-to-px": "^0.60.0",
-    "@unocss/preset-tagify": "^0.60.0",
-    "@unocss/preset-typography": "^0.60.0",
-    "@unocss/preset-uno": "^0.60.0",
-    "@unocss/preset-web-fonts": "^0.60.0",
+    "@unocss/preset-attributify": "^0.61.0",
+    "@unocss/preset-icons": "^0.61.0",
+    "@unocss/preset-mini": "^0.61.0",
+    "@unocss/preset-rem-to-px": "^0.61.0",
+    "@unocss/preset-tagify": "^0.61.0",
+    "@unocss/preset-typography": "^0.61.0",
+    "@unocss/preset-uno": "^0.61.0",
+    "@unocss/preset-web-fonts": "^0.61.0",
     "postcss": "^8.4.38",
     "postcss-js": "^4.0.1",
     "unocss-preset-scrollbar": "^0.3.1"
