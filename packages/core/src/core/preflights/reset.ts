@@ -393,7 +393,7 @@ Make elements with the HTML hidden attribute stay hidden by default.
 `.trim()
 
 function compressCSS(css: string) {
-  return css.replace(/[\s\r\n]+/g, ' ').replace(/\/\*[\s\S]*?\*\//g, '')
+  return css.replace(/\s+/g, ' ').replace(/\/\*[\s\S]*?\*\//g, '')
 }
 
 export const resetPreflight: Preflight = {
