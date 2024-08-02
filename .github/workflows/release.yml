@@ -9,19 +9,15 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.4.0
+      - name: Set node LTS ✨
+        uses: actions/setup-node@v4
         with:
-          version: 8.7.4
+          node-version: lts/*
 
-      - name: Set node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
+      - name: Install pnpm 🚀
+        uses: pnpm/action-setup@v4
 
       - name: Install
         run: pnpm install
