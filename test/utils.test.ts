@@ -24,14 +24,12 @@ describe('utils', () => {
           "spin": "infinite",
         },
         "durations": {
-          "bar": "1s",
           "bounce": "2s",
           "fade": "1s",
           "foo": "1s",
           "spin": "3s",
         },
         "timingFns": {
-          "bar": "",
           "bounce": "ease-in-out",
           "fade": "ease-in-out",
           "spin": "linear",

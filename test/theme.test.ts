@@ -13,8 +13,8 @@ describe('presetUseful theme', () => {
       'bar': 'bar 1s +',
       'wiggle-slow': 'wiggle 1s ease-in-out infinite',
       // timfing function
-      'line': 'wiggle 1s linear(0, 0.25 25% 75%, 1) infinite',
-      'ease': 'wiggle 1s cubic-bezier(0.1, 0.7, 1, 0.1) infinite',
+      'line': 'test-line 1s linear(0, 0.25 25% 75%, 1) infinite',
+      'ease': 'test-ease 1s cubic-bezier(0.1, 0.7, 1, 0.1) infinite',
     },
     keyframes: {
       wiggle: {

@@ -11,10 +11,11 @@ exports[`presetUseful theme > theme extend configuration 1`] = `
     "pulse": "infinite",
     "pulse-alt": "infinite",
     "spin": "infinite",
+    "test-ease": "infinite",
+    "test-line": "infinite",
     "wiggle": "infinite",
   },
   "durations": {
-    "bar": "1s",
     "bounce": "2s",
     "bounce-in": "0.75s",
     "bounce-out": "0.75s",
@@ -26,6 +27,8 @@ exports[`presetUseful theme > theme extend configuration 1`] = `
     "hinge": "2s",
     "pulse": "2s",
     "spin": "1s",
+    "test-ease": "1s",
+    "test-line": "1s",
     "wiggle": "1s",
   },
   "keyframes": {
@@ -204,7 +207,6 @@ exports[`presetUseful theme > theme extend configuration 1`] = `
     },
   },
   "timingFns": {
-    "bar": "",
     "bounce": "ease-in-out",
     "fade": "ease-in-out",
     "head-shake": "ease-in-out",
@@ -217,6 +219,8 @@ exports[`presetUseful theme > theme extend configuration 1`] = `
     "pulse": "cubic-bezier(0.4,0,.6,1)",
     "pulse-alt": "ease-in-out",
     "spin": "linear",
+    "test-ease": "cubic-bezier(0.1, 0.7, 1, 0.1)",
+    "test-line": "linear(0, 0.25 25% 75%, 1)",
     "wiggle": "ease-in-out",
   },
 }

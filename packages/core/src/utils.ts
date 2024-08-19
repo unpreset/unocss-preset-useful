@@ -5,8 +5,7 @@ import type { CSSObject } from 'unocss'
 import type { CustomStaticShortcuts, DeepPartial, Objectiable } from './types'
 
 // name duration timing-function iteration-count
-const animationRegExp = /^([\w*+]+)\s+([\w*+]+)\s+([a-z-]+\([^)]+\)|[\w*+-]+)\s+([\d.*+]+|infinite)$/
-// const animationRegExp = /([a-z-]+)\s+([\d.]+[ms]+)\s+([a-z-]+)\s+([\d.]+|infinite)/
+const animationRegExp = /^([\w*+-]+)\s+([\w*+]+)\s+([a-z-]+\([^)]+\)|[\w*+-]+)\s+([\d.*+]+|infinite)$/
 
 /**
  * Normalize custom animate usage to UnoCSS animations theme.
@@ -60,10 +59,9 @@ export function resolveAnimation(extend_animation: Objectiable<string>) {
       for (let i = 0; i < keys.length; i++) {
         const key = keys[i]
         const value = values[i]
-        if(value === '*'){
+        if (value === '*') {
           continue
         }
-
 
         if (animation[key]) {
           animation[key]![name] = values[i] === '+' ? '' : values[i]
@@ -72,30 +70,9 @@ export function resolveAnimation(extend_animation: Objectiable<string>) {
           animation[key] = {
             [name]: values[i] === '+' ? '' : values[i],
           }
+        }
       }
     }
-
-    // const ps = v.split(/\s+/)
-    // if (ps.length > 1) {
-    //   const key = ps[0]
-
-    //   if (key !== name)
-    //     shortcuts.push([`animate-${name}`, `animate-${key}`])
-
-    //   for (let i = 1; i < ps.length; i++) {
-    //     if (ps[i] === '*')
-    //       continue
-    //     const _key = keys[i - 1]
-    //     if (animation[_key]) {
-    //       animation[_key]![key] = ps[i] === '+' ? '' : ps[i]
-    //     }
-    //     else {
-    //       animation[_key] = {
-    //         [key]: ps[i] === '+' ? '' : ps[i],
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   return {
