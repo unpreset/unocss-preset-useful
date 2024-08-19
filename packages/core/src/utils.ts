@@ -4,6 +4,10 @@ import postcssJs, { objectify } from 'postcss-js'
 import type { CSSObject } from 'unocss'
 import type { CustomStaticShortcuts, DeepPartial, Objectiable } from './types'
 
+// name duration timing-function iteration-count
+const animationRegExp = /^([\w*+]+)\s+([\w*+]+)\s+([a-z-]+\([^)]+\)|[\w*+-]+)\s+([\d.*+]+|infinite)$/
+// const animationRegExp = /([a-z-]+)\s+([\d.]+[ms]+)\s+([a-z-]+)\s+([\d.]+|infinite)/
+
 /**
  * Normalize custom animate usage to UnoCSS animations theme.
  *
@@ -43,29 +47,55 @@ export function resolveAnimation(extend_animation: Objectiable<string>) {
   const keys: (Exclude<keyof ThemeAnimation, 'properties'>)[] = ['durations', 'timingFns', 'counts']
   const shortcuts: CustomStaticShortcuts = []
 
-  for (const name in extend_animation) {
-    const v = extend_animation[name]
-    const ps = v.split(/\s+/)
-    if (ps.length > 1) {
-      const key = ps[0]
+  for (const k in extend_animation) {
+    const v = extend_animation[k]
+    const match = v.match(animationRegExp)
+    if (match != null) {
+      const [, name, duration, timing, count] = match
+      const values = [duration, timing, count]
 
-      if (key !== name)
-        shortcuts.push([`animate-${name}`, `animate-${key}`])
+      if (name !== k)
+        shortcuts.push([`animate-${k}`, `animate-${name}`])
 
-      for (let i = 1; i < ps.length; i++) {
-        if (ps[i] === '*')
+      for (let i = 0; i < keys.length; i++) {
+        const key = keys[i]
+        const value = values[i]
+        if(value === '*'){
           continue
-        const _key = keys[i - 1]
-        if (animation[_key]) {
-          animation[_key]![key] = ps[i] === '+' ? '' : ps[i]
+        }
+
+
+        if (animation[key]) {
+          animation[key]![name] = values[i] === '+' ? '' : values[i]
         }
         else {
-          animation[_key] = {
-            [key]: ps[i] === '+' ? '' : ps[i],
+          animation[key] = {
+            [name]: values[i] === '+' ? '' : values[i],
           }
-        }
       }
     }
+
+    // const ps = v.split(/\s+/)
+    // if (ps.length > 1) {
+    //   const key = ps[0]
+
+    //   if (key !== name)
+    //     shortcuts.push([`animate-${name}`, `animate-${key}`])
+
+    //   for (let i = 1; i < ps.length; i++) {
+    //     if (ps[i] === '*')
+    //       continue
+    //     const _key = keys[i - 1]
+    //     if (animation[_key]) {
+    //       animation[_key]![key] = ps[i] === '+' ? '' : ps[i]
+    //     }
+    //     else {
+    //       animation[_key] = {
+    //         [key]: ps[i] === '+' ? '' : ps[i],
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   return {
