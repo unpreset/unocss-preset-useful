@@ -4,6 +4,9 @@ import postcssJs, { objectify } from 'postcss-js'
 import type { CSSObject } from 'unocss'
 import type { CustomStaticShortcuts, DeepPartial, Objectiable } from './types'
 
+// name duration timing-function iteration-count
+export const animationRegExp = /^([a-z-]+)\s+([0-9.]+m?s?|[*+])?\s?([a-z-]+(?:\([^)]+\))?|[*+])?\s*([a-z0-9-]+|[*+])?$/i
+
 /**
  * Normalize custom animate usage to UnoCSS animations theme.
  *
@@ -43,25 +46,31 @@ export function resolveAnimation(extend_animation: Objectiable<string>) {
   const keys: (Exclude<keyof ThemeAnimation, 'properties'>)[] = ['durations', 'timingFns', 'counts']
   const shortcuts: CustomStaticShortcuts = []
 
-  for (const name in extend_animation) {
-    const v = extend_animation[name]
-    const ps = v.split(/\s+/)
-    if (ps.length > 1) {
-      const key = ps[0]
+  for (const k in extend_animation) {
+    const v = extend_animation[k]
+    const match = v.match(animationRegExp)
+    if (match != null) {
+      const [, name, duration, timing, count] = match
+      const values = [duration, timing, count]
 
-      if (key !== name)
-        shortcuts.push([`animate-${name}`, `animate-${key}`])
+      if (name !== k)
+        shortcuts.push([`animate-${k}`, `animate-${name}`])
 
-      for (let i = 1; i < ps.length; i++) {
-        if (ps[i] === '*')
-          continue
-        const _key = keys[i - 1]
-        if (animation[_key]) {
-          animation[_key]![key] = ps[i] === '+' ? '' : ps[i]
-        }
-        else {
-          animation[_key] = {
-            [key]: ps[i] === '+' ? '' : ps[i],
+      for (let i = 0; i < keys.length; i++) {
+        const key = keys[i]
+        const value = values[i]
+        if (value != null) {
+          if (value === '*') {
+            continue
+          }
+
+          if (animation[key]) {
+            animation[key]![name] = values[i] === '+' ? '' : values[i]
+          }
+          else {
+            animation[key] = {
+              [name]: values[i] === '+' ? '' : values[i],
+            }
           }
         }
       }
