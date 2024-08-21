@@ -16,6 +16,7 @@ exports[`presetUseful theme > theme extend configuration 1`] = `
     "wiggle": "infinite",
   },
   "durations": {
+    "bar": "1s",
     "bounce": "2s",
     "bounce-in": "0.75s",
     "bounce-out": "0.75s",
@@ -207,6 +208,7 @@ exports[`presetUseful theme > theme extend configuration 1`] = `
     },
   },
   "timingFns": {
+    "bar": "",
     "bounce": "ease-in-out",
     "fade": "ease-in-out",
     "head-shake": "ease-in-out",
