@@ -7,7 +7,10 @@ import type { TagifyOptions } from '@unocss/preset-tagify'
 import type { RemToPxOptions } from '@unocss/preset-rem-to-px'
 import type { PresetScrollbarDefaultOption } from 'unocss-preset-scrollbar'
 import type { Theme } from '@unocss/preset-mini'
-import type { CSSObject, Preset, StaticShortcut } from 'unocss'
+import type { CSSObject, Preset, SourceCodeTransformer, StaticShortcut } from 'unocss'
+import type { TransformerDirectivesOptions } from '@unocss/transformer-directives'
+import type { TransformerVariantGroupOptions } from '@unocss/transformer-variant-group'
+import type { CompileClassOptions } from '@unocss/transformer-compile-class'
 
 type CustomStaticShortcut = [string | string[], StaticShortcut[1]] | [string | string[], StaticShortcut[1], StaticShortcut[2]]
 export type CustomStaticShortcuts = CustomStaticShortcut[]
@@ -112,6 +115,8 @@ export interface UsefulOptions {
   /**
    * Enable the default preset
    * Only works when `presets` is not specified
+   *
+   * @about [@unocss/preset-uno](https://unocss.dev/presets/uno)
    * @default true
    */
   uno?: boolean | PresetUnoOptions
@@ -119,6 +124,8 @@ export interface UsefulOptions {
   /**
    * Enable attributify mode and the options of it
    * Only works when `presets` is not specified
+   *
+   * @about [@unocss/preset-attributify](https://unocss.dev/presets/attributify)
    * @default false
    */
   attributify?: boolean | AttributifyOptions
@@ -126,6 +133,8 @@ export interface UsefulOptions {
   /**
    * Enable icons preset and the options of it
    * Only works when `presets` is not specified
+   *
+   * @about [@unocss/preset-icons](https://unocss.dev/presets/icons)
    * @default false
    */
   icons?: boolean | IconsOptions
@@ -133,6 +142,8 @@ export interface UsefulOptions {
   /**
    * Enable webFonts preset and the options of it
    * Only works when `presets` is not specified
+   *
+   * @about [@unocss/preset-web-fonts](https://unocss.dev/presets/web-fonts)
    * @default false
    */
   webFonts?: boolean | WebFontsOptions
@@ -140,6 +151,8 @@ export interface UsefulOptions {
   /**
    * Enable typography preset and the options of it
    * Only works when `presets` is not specified
+   *
+   * @about [@unocss/preset-typography](https://unocss.dev/presets/typography)
    * @default false
    */
   typography?: boolean | TypographyOptions
@@ -147,6 +160,8 @@ export interface UsefulOptions {
   /**
    * Enable tagify preset and the options of it
    * Only works when `presets` is not specified
+   *
+   * @about [@unocss/preset-tagify](https://unocss.dev/presets/tagify)
    * @default false
    */
   tagify?: boolean | TagifyOptions
@@ -154,6 +169,8 @@ export interface UsefulOptions {
   /**
    * Enable remToPx preset and the options of it
    * Only works when `presets` is not specified
+   *
+   * @about [@unocss/preset-rem-to-px](https://unocss.dev/presets/rem-to-px)
    * @default false
    */
   remToPx?: boolean | RemToPxOptions
@@ -162,17 +179,41 @@ export interface UsefulOptions {
    * Enable scrollbar preset and the options of it
    * Only works when `presets` is not specified
    *
-   * See: https://github.com/action-hong/unocss-preset-scrollbar
-   *
+   * @about [unocss-preset-scrollbar](https://github.com/action-hong/unocss-preset-scrollbar)
    * @default false
    */
   scrollbar?: boolean | PresetScrollbarDefaultOption
+
+  /**
+   * Enable directives transformer and the options of it
+   *
+   * @about [@unocss/transformer-directives](https://unocss.dev/transformers/directives)
+   * @default true
+   */
+  directives?: boolean | TransformerDirectivesOptions
+
+  /**
+   * Enables the variant group feature of Windi CSS for UnoCSS.
+   *
+   * @about [@unocss/transformer-variant-group](https://unocss.dev/transformers/variant-group)
+   * @default true
+   */
+  variantGroup?: boolean | TransformerVariantGroupOptions
+
+  /**
+   * Compile group of classes into one class
+   *
+   * @about [@unocss/transformer-class-group](https://unocss.dev/transformers/compile-class)
+   * @default false
+   */
+  compileClass?: boolean | CompileClassOptions
 }
 
 export type ResolvedOptions = Required<UsefulOptions> & {
   meta: {
     presets: Preset[]
     shortcuts: CustomStaticShortcuts
+    transformers: SourceCodeTransformer[]
   }
 }
 

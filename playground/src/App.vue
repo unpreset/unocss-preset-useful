@@ -1,6 +1,6 @@
 <template>
-  <div class="ma prose">
-    <div fcc gap-8 un-children="fcc w-30 h-30 rd b">
+  <div class="ma mt-10 prose">
+    <div fcc gap-8 un-children="fcc px-2 aspect-square rd b text-(sm white)">
       <div hover="animate-puffIn">
         puffIn
       </div>
@@ -16,10 +16,6 @@
 
 <style>
 :root {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: #222;
-  color: white;
+  --uno: bg-#222;
 }
 </style>

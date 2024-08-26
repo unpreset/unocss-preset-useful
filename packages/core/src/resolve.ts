@@ -1,12 +1,28 @@
-import type { Theme } from '@unocss/preset-mini'
-import { presetAttributify, presetIcons, presetTagify, presetTypography, presetUno, presetWebFonts } from 'unocss'
+import presetUno from '@unocss/preset-uno'
+import presetAttributify from '@unocss/preset-attributify'
+import presetIcons from '@unocss/preset-icons'
+import presetWebFonts from '@unocss/preset-web-fonts'
+import presetTypography from '@unocss/preset-typography'
+import presetTagify from '@unocss/preset-tagify'
 import presetRemToPx from '@unocss/preset-rem-to-px'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
+
+import transformerDirectives from '@unocss/transformer-directives'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
+import transformerCompileClass from '@unocss/transformer-compile-class'
+
+import type { Theme } from '@unocss/preset-mini'
 import { nomarlizeTheme } from './core'
 import type { CustomStaticShortcuts, ResolvedOptions, UsefulOptions, UsefulTheme } from './types'
 import { cssObj2StrSync, deepMerge, resolveAnimation } from './utils'
 
 const defaultOptions: UsefulOptions = {
+  theme: {},
+  important: false,
+  enableDefaultShortcuts: true,
+  enableMagicAnimations: false,
+  enableResetStyles: true,
+  // presets
   uno: true,
   attributify: true,
   icons: true,
@@ -15,11 +31,10 @@ const defaultOptions: UsefulOptions = {
   tagify: false,
   remToPx: false,
   scrollbar: false,
-  theme: {},
-  enableDefaultShortcuts: true,
-  enableMagicAnimations: false,
-  important: false,
-  enableResetStyles: true,
+  // transformers
+  directives: true,
+  variantGroup: true,
+  compileClass: false,
 }
 
 export function resolveOptions(options: UsefulOptions) {
@@ -29,6 +44,7 @@ export function resolveOptions(options: UsefulOptions) {
     : optionsWithDefault.unColor ? '--un-color' : false
 
   const presets = []
+  const transformers = []
   const presetMap = {
     uno: presetUno,
     attributify: presetAttributify,
@@ -39,12 +55,24 @@ export function resolveOptions(options: UsefulOptions) {
     remToPx: presetRemToPx,
     scrollbar: presetScrollbar,
   }
+  const transformerMap = {
+    directives: transformerDirectives,
+    variantGroup: transformerVariantGroup,
+    compileClass: transformerCompileClass,
+  }
 
   for (const [key, preset] of Object.entries(presetMap)) {
     const option = optionsWithDefault[key as keyof typeof presetMap]
     if (option) {
       const p = preset as any
       presets.push(p(typeof option === 'boolean' ? {} as any : option))
+    }
+  }
+  for (const [key, transformer] of Object.entries(transformerMap)) {
+    const option = optionsWithDefault[key as keyof typeof transformerMap]
+    if (option) {
+      const t = transformer as any
+      transformers.push(t(typeof option === 'boolean' ? {} as any : option))
     }
   }
 
@@ -57,6 +85,7 @@ export function resolveOptions(options: UsefulOptions) {
     meta: {
       presets,
       shortcuts,
+      transformers,
     },
   } as ResolvedOptions
 }

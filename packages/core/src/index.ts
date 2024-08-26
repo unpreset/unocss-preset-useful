@@ -29,6 +29,7 @@ export const presetUseful = definePreset((options: UsefulOptions = {}) => {
       important ? importantProcess() : undefined,
     ].filter(Boolean) as Postprocessor[],
     presets: meta.presets,
+    transformers: meta.transformers,
     autocomplete,
     preflights: preflights(resolvedOptions),
   }
