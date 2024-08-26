@@ -1,4 +1,4 @@
-import type { Extractor } from 'unocss'
+import type { Extractor } from '@unocss/core'
 
 // IN-README-START
 // https://github.com/unocss/unocss/pull/2485

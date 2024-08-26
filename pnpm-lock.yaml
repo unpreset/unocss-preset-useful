@@ -68,6 +68,9 @@ importers:
 
   packages/core:
     dependencies:
+      '@unocss/core':
+        specifier: ^0.62.2
+        version: 0.62.2
       '@unocss/preset-attributify':
         specifier: ^0.62.2
         version: 0.62.2

@@ -1,7 +1,7 @@
 import type { ThemeAnimation } from '@unocss/preset-mini'
 import postcss from 'postcss'
 import postcssJs, { objectify } from 'postcss-js'
-import type { CSSObject } from 'unocss'
+import type { CSSObject } from '@unocss/core'
 import type { CustomStaticShortcuts, DeepPartial, Objectiable } from './types'
 
 // name duration timing-function iteration-count

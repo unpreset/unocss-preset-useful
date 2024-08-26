@@ -49,6 +49,7 @@
     "unocss": "^0.62.2"
   },
   "dependencies": {
+    "@unocss/core": "^0.62.2",
     "@unocss/preset-attributify": "^0.62.2",
     "@unocss/preset-icons": "^0.62.2",
     "@unocss/preset-mini": "^0.62.2",

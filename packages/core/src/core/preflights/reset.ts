@@ -1,4 +1,4 @@
-import type { Preflight } from 'unocss'
+import type { Preflight } from '@unocss/core'
 import { layerMeta } from '../../meta'
 
 const resetCSS = `

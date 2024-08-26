@@ -1,5 +1,5 @@
 import { parseColor } from '@unocss/preset-mini/utils'
-import type { Rule, RuleMeta } from 'unocss'
+import type { Rule, RuleMeta } from '@unocss/core'
 import { layerMeta } from '../meta'
 
 // IN-README-START

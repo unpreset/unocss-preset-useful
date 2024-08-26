@@ -1,4 +1,4 @@
-import type { Preflight } from 'unocss'
+import type { Preflight } from '@unocss/core'
 import type { ResolvedOptions } from '../../types'
 import { resetPreflight } from './reset'
 
