@@ -10,8 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "nuxt": "^3.13.0",
-    "vue": "latest"
+    "nuxt": "catalog:",
+    "vue": "catalog:"
   },
   "devDependencies": {
     "unocss-preset-useful": "workspace:*"
