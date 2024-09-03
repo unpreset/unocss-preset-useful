@@ -2,7 +2,8 @@
 import type { DefineComponent, SlotsType } from 'vue'
 type IslandComponent<T extends DefineComponent> = T & DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>>
 interface _GlobalComponents {
-      'NuxtWelcome': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/welcome")['default']
+      'UnoIcon': typeof import("../../node_modules/.pnpm/@unocss+nuxt@0.62.3_magicast@0.3.5_postcss@8.4.41_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_atygzmivmh4l7krsz7z2hxsabe/node_modules/@unocss/nuxt/runtime/UnoIcon.vue")['default']
+    'NuxtWelcome': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/welcome")['default']
     'NuxtLayout': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
     'ClientOnly': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/client-only")['default']
@@ -25,7 +26,8 @@ interface _GlobalComponents {
     'Body': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtIsland': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/server-placeholder")['default']>
-      'LazyNuxtWelcome': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/welcome")['default']
+      'LazyUnoIcon': typeof import("../../node_modules/.pnpm/@unocss+nuxt@0.62.3_magicast@0.3.5_postcss@8.4.41_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_atygzmivmh4l7krsz7z2hxsabe/node_modules/@unocss/nuxt/runtime/UnoIcon.vue")['default']
+    'LazyNuxtWelcome': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/welcome")['default']
     'LazyNuxtLayout': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'LazyNuxtErrorBoundary': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
     'LazyClientOnly': typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/client-only")['default']
@@ -54,6 +56,7 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const UnoIcon: typeof import("../../node_modules/.pnpm/@unocss+nuxt@0.62.3_magicast@0.3.5_postcss@8.4.41_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_atygzmivmh4l7krsz7z2hxsabe/node_modules/@unocss/nuxt/runtime/UnoIcon.vue")['default']
 export const NuxtWelcome: typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/welcome")['default']
 export const NuxtLayout: typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -77,6 +80,7 @@ export const Html: typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+w
 export const Body: typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/server-placeholder")['default']>
+export const LazyUnoIcon: typeof import("../../node_modules/.pnpm/@unocss+nuxt@0.62.3_magicast@0.3.5_postcss@8.4.41_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_atygzmivmh4l7krsz7z2hxsabe/node_modules/@unocss/nuxt/runtime/UnoIcon.vue")['default']
 export const LazyNuxtWelcome: typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/welcome")['default']
 export const LazyNuxtLayout: typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const LazyNuxtErrorBoundary: typeof import("../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']

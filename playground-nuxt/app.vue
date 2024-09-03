@@ -1,6 +1,7 @@
 <template>
   <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+    <h1 fcc text-red>
+      Playground Nuxt
+    </h1>
   </div>
 </template>

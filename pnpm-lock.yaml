@@ -27,6 +27,9 @@ catalogs:
     '@unocss/eslint-plugin':
       specifier: ^0.62.2
       version: 0.62.2
+    '@unocss/nuxt':
+      specifier: ^0.62.2
+      version: 0.62.3
     '@unocss/preset-attributify':
       specifier: ^0.62.2
       version: 0.62.2
@@ -265,6 +268,12 @@ importers:
         specifier: 'catalog:'
         version: 3.4.38(typescript@5.5.4)
     devDependencies:
+      '@unocss/nuxt':
+        specifier: 'catalog:'
+        version: 0.62.3(magicast@0.3.5)(postcss@8.4.41)(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))(webpack@5.94.0(esbuild@0.23.1))
+      unocss:
+        specifier: 'catalog:'
+        version: 0.62.3(@unocss/webpack@0.62.3(rollup@4.21.0)(webpack@5.94.0(esbuild@0.23.1)))(postcss@8.4.41)(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))
       unocss-preset-useful:
         specifier: workspace:*
         version: link:../packages/core
@@ -1875,6 +1884,9 @@ packages:
 
   '@unocss/inspector@0.62.3':
     resolution: {integrity: sha512-nTSXOf7YimFPxEYJo5VfP5wlMgYOCjlv3c5Ub/0fynCJXZNb89SFeU05ABXkEgg/FfiobVBTscikLc6guW8eHQ==}
+
+  '@unocss/nuxt@0.62.3':
+    resolution: {integrity: sha512-GktKR2hFP0RjCn8GB9d0SKZY6fXr6dFJZURV6KOgRlu3hvlXJiUA/6MU/eij86q/Q5CZcHEUcVFkHD5Ex8cqKw==}
 
   '@unocss/postcss@0.62.2':
     resolution: {integrity: sha512-x0vSz1l2eWpkfqLPcAO0kO36oKcMqtC6JmmM2tRB9WSxiz6xu9qHibfj6VXLe+KqggvFRnKObok4Fr1GIe0Srw==}
@@ -6935,6 +6947,17 @@ snapshots:
       - rollup
       - supports-color
 
+  '@unocss/astro@0.62.3(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))':
+    dependencies:
+      '@unocss/core': 0.62.3
+      '@unocss/reset': 0.62.3
+      '@unocss/vite': 0.62.3(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))
+    optionalDependencies:
+      vite: 5.4.2(@types/node@22.4.2)(terser@5.31.6)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
   '@unocss/cli@0.62.2(rollup@4.21.0)':
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -6958,6 +6981,25 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@rollup/pluginutils': 5.1.0(rollup@3.29.1)
+      '@unocss/config': 0.62.3
+      '@unocss/core': 0.62.3
+      '@unocss/preset-uno': 0.62.3
+      cac: 6.7.14
+      chokidar: 3.6.0
+      colorette: 2.0.20
+      consola: 3.2.3
+      magic-string: 0.30.11
+      pathe: 1.1.2
+      perfect-debounce: 1.0.0
+      tinyglobby: 0.2.5
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
+  '@unocss/cli@0.62.3(rollup@4.21.0)':
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.0)
       '@unocss/config': 0.62.3
       '@unocss/core': 0.62.3
       '@unocss/preset-uno': 0.62.3
@@ -7030,6 +7072,30 @@ snapshots:
       '@unocss/rule-utils': 0.62.3
       gzip-size: 6.0.0
       sirv: 2.0.4
+
+  '@unocss/nuxt@0.62.3(magicast@0.3.5)(postcss@8.4.41)(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))(webpack@5.94.0(esbuild@0.23.1))':
+    dependencies:
+      '@nuxt/kit': 3.13.0(magicast@0.3.5)(rollup@4.21.0)
+      '@unocss/config': 0.62.3
+      '@unocss/core': 0.62.3
+      '@unocss/preset-attributify': 0.62.3
+      '@unocss/preset-icons': 0.62.3
+      '@unocss/preset-tagify': 0.62.3
+      '@unocss/preset-typography': 0.62.3
+      '@unocss/preset-uno': 0.62.3
+      '@unocss/preset-web-fonts': 0.62.3
+      '@unocss/preset-wind': 0.62.3
+      '@unocss/reset': 0.62.3
+      '@unocss/vite': 0.62.3(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))
+      '@unocss/webpack': 0.62.3(rollup@4.21.0)(webpack@5.94.0(esbuild@0.23.1))
+      unocss: 0.62.3(@unocss/webpack@0.62.3(rollup@4.21.0)(webpack@5.94.0(esbuild@0.23.1)))(postcss@8.4.41)(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))
+    transitivePeerDependencies:
+      - magicast
+      - postcss
+      - rollup
+      - supports-color
+      - vite
+      - webpack
 
   '@unocss/postcss@0.62.2(postcss@8.4.41)':
     dependencies:
@@ -7265,6 +7331,23 @@ snapshots:
       - rollup
       - supports-color
 
+  '@unocss/vite@0.62.3(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))':
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.0)
+      '@unocss/config': 0.62.3
+      '@unocss/core': 0.62.3
+      '@unocss/inspector': 0.62.3
+      '@unocss/scope': 0.62.3
+      '@unocss/transformer-directives': 0.62.3
+      chokidar: 3.6.0
+      magic-string: 0.30.11
+      tinyglobby: 0.2.5
+      vite: 5.4.2(@types/node@22.4.2)(terser@5.31.6)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
   '@unocss/webpack@0.62.3(rollup@3.29.1)(webpack@5.94.0(esbuild@0.23.1))':
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -7281,6 +7364,22 @@ snapshots:
       - rollup
       - supports-color
     optional: true
+
+  '@unocss/webpack@0.62.3(rollup@4.21.0)(webpack@5.94.0(esbuild@0.23.1))':
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.0)
+      '@unocss/config': 0.62.3
+      '@unocss/core': 0.62.3
+      chokidar: 3.6.0
+      magic-string: 0.30.11
+      tinyglobby: 0.2.5
+      unplugin: 1.12.3
+      webpack: 5.94.0(esbuild@0.23.1)
+      webpack-sources: 3.2.3
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
 
   '@vercel/nft@0.26.5':
     dependencies:
@@ -7513,26 +7612,20 @@ snapshots:
     dependencies:
       '@webassemblyjs/helper-numbers': 1.11.6
       '@webassemblyjs/helper-wasm-bytecode': 1.11.6
-    optional: true
 
-  '@webassemblyjs/floating-point-hex-parser@1.11.6':
-    optional: true
+  '@webassemblyjs/floating-point-hex-parser@1.11.6': {}
 
-  '@webassemblyjs/helper-api-error@1.11.6':
-    optional: true
+  '@webassemblyjs/helper-api-error@1.11.6': {}
 
-  '@webassemblyjs/helper-buffer@1.12.1':
-    optional: true
+  '@webassemblyjs/helper-buffer@1.12.1': {}
 
   '@webassemblyjs/helper-numbers@1.11.6':
     dependencies:
       '@webassemblyjs/floating-point-hex-parser': 1.11.6
       '@webassemblyjs/helper-api-error': 1.11.6
       '@xtuc/long': 4.2.2
-    optional: true
 
-  '@webassemblyjs/helper-wasm-bytecode@1.11.6':
-    optional: true
+  '@webassemblyjs/helper-wasm-bytecode@1.11.6': {}
 
   '@webassemblyjs/helper-wasm-section@1.12.1':
     dependencies:
@@ -7540,20 +7633,16 @@ snapshots:
       '@webassemblyjs/helper-buffer': 1.12.1
       '@webassemblyjs/helper-wasm-bytecode': 1.11.6
       '@webassemblyjs/wasm-gen': 1.12.1
-    optional: true
 
   '@webassemblyjs/ieee754@1.11.6':
     dependencies:
       '@xtuc/ieee754': 1.2.0
-    optional: true
 
   '@webassemblyjs/leb128@1.11.6':
     dependencies:
       '@xtuc/long': 4.2.2
-    optional: true
 
-  '@webassemblyjs/utf8@1.11.6':
-    optional: true
+  '@webassemblyjs/utf8@1.11.6': {}
 
   '@webassemblyjs/wasm-edit@1.12.1':
     dependencies:
@@ -7565,7 +7654,6 @@ snapshots:
       '@webassemblyjs/wasm-opt': 1.12.1
       '@webassemblyjs/wasm-parser': 1.12.1
       '@webassemblyjs/wast-printer': 1.12.1
-    optional: true
 
   '@webassemblyjs/wasm-gen@1.12.1':
     dependencies:
@@ -7574,7 +7662,6 @@ snapshots:
       '@webassemblyjs/ieee754': 1.11.6
       '@webassemblyjs/leb128': 1.11.6
       '@webassemblyjs/utf8': 1.11.6
-    optional: true
 
   '@webassemblyjs/wasm-opt@1.12.1':
     dependencies:
@@ -7582,7 +7669,6 @@ snapshots:
       '@webassemblyjs/helper-buffer': 1.12.1
       '@webassemblyjs/wasm-gen': 1.12.1
       '@webassemblyjs/wasm-parser': 1.12.1
-    optional: true
 
   '@webassemblyjs/wasm-parser@1.12.1':
     dependencies:
@@ -7592,19 +7678,15 @@ snapshots:
       '@webassemblyjs/ieee754': 1.11.6
       '@webassemblyjs/leb128': 1.11.6
       '@webassemblyjs/utf8': 1.11.6
-    optional: true
 
   '@webassemblyjs/wast-printer@1.12.1':
     dependencies:
       '@webassemblyjs/ast': 1.12.1
       '@xtuc/long': 4.2.2
-    optional: true
 
-  '@xtuc/ieee754@1.2.0':
-    optional: true
+  '@xtuc/ieee754@1.2.0': {}
 
-  '@xtuc/long@4.2.2':
-    optional: true
+  '@xtuc/long@4.2.2': {}
 
   abbrev@1.1.1: {}
 
@@ -7631,7 +7713,6 @@ snapshots:
   ajv-keywords@3.5.2(ajv@6.12.6):
     dependencies:
       ajv: 6.12.6
-    optional: true
 
   ajv@6.12.6:
     dependencies:
@@ -7880,8 +7961,7 @@ snapshots:
 
   chownr@2.0.0: {}
 
-  chrome-trace-event@1.0.4:
-    optional: true
+  chrome-trace-event@1.0.4: {}
 
   ci-info@4.0.0: {}
 
@@ -8543,7 +8623,6 @@ snapshots:
     dependencies:
       esrecurse: 4.3.0
       estraverse: 4.3.0
-    optional: true
 
   eslint-scope@7.2.2:
     dependencies:
@@ -8624,8 +8703,7 @@ snapshots:
     dependencies:
       estraverse: 5.3.0
 
-  estraverse@4.3.0:
-    optional: true
+  estraverse@4.3.0: {}
 
   estraverse@5.3.0: {}
 
@@ -8829,8 +8907,7 @@ snapshots:
     dependencies:
       is-glob: 4.0.3
 
-  glob-to-regexp@0.4.1:
-    optional: true
+  glob-to-regexp@0.4.1: {}
 
   glob@10.4.5:
     dependencies:
@@ -9126,7 +9203,6 @@ snapshots:
       '@types/node': 22.4.2
       merge-stream: 2.0.0
       supports-color: 8.1.1
-    optional: true
 
   jiti@1.21.6: {}
 
@@ -9254,8 +9330,7 @@ snapshots:
 
   load-tsconfig@0.2.5: {}
 
-  loader-runner@4.3.0:
-    optional: true
+  loader-runner@4.3.0: {}
 
   local-pkg@0.5.0:
     dependencies:
@@ -9352,13 +9427,11 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
-  mime-db@1.52.0:
-    optional: true
+  mime-db@1.52.0: {}
 
   mime-types@2.1.35:
     dependencies:
       mime-db: 1.52.0
-    optional: true
 
   mime@1.6.0: {}
 
@@ -9448,8 +9521,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  neo-async@2.6.2:
-    optional: true
+  neo-async@2.6.2: {}
 
   nitropack@2.9.7(magicast@0.3.5):
     dependencies:
@@ -10228,7 +10300,6 @@ snapshots:
       '@types/json-schema': 7.0.15
       ajv: 6.12.6
       ajv-keywords: 3.5.2(ajv@6.12.6)
-    optional: true
 
   scslre@0.3.0:
     dependencies:
@@ -10456,7 +10527,6 @@ snapshots:
   supports-color@8.1.1:
     dependencies:
       has-flag: 4.0.0
-    optional: true
 
   supports-color@9.4.0: {}
 
@@ -10512,7 +10582,6 @@ snapshots:
       webpack: 5.94.0(esbuild@0.23.1)
     optionalDependencies:
       esbuild: 0.23.1
-    optional: true
 
   terser@5.31.6:
     dependencies:
@@ -10755,6 +10824,36 @@ snapshots:
       '@unocss/vite': 0.62.3(rollup@3.29.1)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))
     optionalDependencies:
       '@unocss/webpack': 0.62.3(rollup@3.29.1)(webpack@5.94.0(esbuild@0.23.1))
+      vite: 5.4.2(@types/node@22.4.2)(terser@5.31.6)
+    transitivePeerDependencies:
+      - postcss
+      - rollup
+      - supports-color
+
+  unocss@0.62.3(@unocss/webpack@0.62.3(rollup@4.21.0)(webpack@5.94.0(esbuild@0.23.1)))(postcss@8.4.41)(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6)):
+    dependencies:
+      '@unocss/astro': 0.62.3(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))
+      '@unocss/cli': 0.62.3(rollup@4.21.0)
+      '@unocss/core': 0.62.3
+      '@unocss/extractor-arbitrary-variants': 0.62.3
+      '@unocss/postcss': 0.62.3(postcss@8.4.41)
+      '@unocss/preset-attributify': 0.62.3
+      '@unocss/preset-icons': 0.62.3
+      '@unocss/preset-mini': 0.62.3
+      '@unocss/preset-tagify': 0.62.3
+      '@unocss/preset-typography': 0.62.3
+      '@unocss/preset-uno': 0.62.3
+      '@unocss/preset-web-fonts': 0.62.3
+      '@unocss/preset-wind': 0.62.3
+      '@unocss/reset': 0.62.3
+      '@unocss/transformer-attributify-jsx': 0.62.3
+      '@unocss/transformer-attributify-jsx-babel': 0.62.3
+      '@unocss/transformer-compile-class': 0.62.3
+      '@unocss/transformer-directives': 0.62.3
+      '@unocss/transformer-variant-group': 0.62.3
+      '@unocss/vite': 0.62.3(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.2)(terser@5.31.6))
+    optionalDependencies:
+      '@unocss/webpack': 0.62.3(rollup@4.21.0)(webpack@5.94.0(esbuild@0.23.1))
       vite: 5.4.2(@types/node@22.4.2)(terser@5.31.6)
     transitivePeerDependencies:
       - postcss
@@ -11043,7 +11142,6 @@ snapshots:
     dependencies:
       glob-to-regexp: 0.4.1
       graceful-fs: 4.2.11
-    optional: true
 
   webidl-conversions@3.0.1: {}
 
@@ -11080,7 +11178,6 @@ snapshots:
       - '@swc/core'
       - esbuild
       - uglify-js
-    optional: true
 
   whatwg-url@5.0.0:
     dependencies:

@@ -93,7 +93,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/26fa2c84-e3c2-4cff-8c22-f137af9cae22.json"
+        "./manifest/meta/dev.json"
       ],
       "#build": [
         "."
@@ -137,6 +137,8 @@
     "./nuxt.d.ts",
     "../.config/nuxt.*",
     "../**/*",
+    "../../node_modules/.pnpm/@unocss+nuxt@0.62.3_magicast@0.3.5_postcss@8.4.41_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_atygzmivmh4l7krsz7z2hxsabe/node_modules/@unocss/nuxt/runtime",
+    "../../node_modules/.pnpm/@unocss+nuxt@0.62.3_magicast@0.3.5_postcss@8.4.41_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_atygzmivmh4l7krsz7z2hxsabe/node_modules/@unocss/nuxt/dist/runtime",
     "../../node_modules/.pnpm/@nuxt+devtools@1.4.1_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_terser@5.31.6_/node_modules/@nuxt/devtools/runtime",
     "../../node_modules/.pnpm/@nuxt+devtools@1.4.1_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_terser@5.31.6_/node_modules/@nuxt/devtools/dist/runtime",
     "../../node_modules/.pnpm/@nuxt+telemetry@2.5.4_magicast@0.3.5_rollup@4.21.0/node_modules/@nuxt/telemetry/runtime",
@@ -151,6 +153,8 @@
     "../node_modules",
     "../../node_modules",
     "../../node_modules/.pnpm/nuxt@3.13.0_@parcel+watcher@2.4.1_@types+node@22.4.2_eslint@9.9.0_jiti@1.21.6__ioredis@5.4.1__rnj4fitoosxnasdwlqcycuhlsq/node_modules/nuxt/node_modules",
+    "../../node_modules/.pnpm/@unocss+nuxt@0.62.3_magicast@0.3.5_postcss@8.4.41_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_atygzmivmh4l7krsz7z2hxsabe/node_modules/@unocss/nuxt/runtime/server",
+    "../../node_modules/.pnpm/@unocss+nuxt@0.62.3_magicast@0.3.5_postcss@8.4.41_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_atygzmivmh4l7krsz7z2hxsabe/node_modules/@unocss/nuxt/dist/runtime/server",
     "../../node_modules/.pnpm/@nuxt+devtools@1.4.1_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_terser@5.31.6_/node_modules/@nuxt/devtools/runtime/server",
     "../../node_modules/.pnpm/@nuxt+devtools@1.4.1_rollup@4.21.0_vite@5.4.2_@types+node@22.4.2_terser@5.31.6_/node_modules/@nuxt/devtools/dist/runtime/server",
     "../../node_modules/.pnpm/@nuxt+telemetry@2.5.4_magicast@0.3.5_rollup@4.21.0/node_modules/@nuxt/telemetry/runtime/server",
