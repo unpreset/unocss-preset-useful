@@ -35,6 +35,15 @@ export interface UsefulTheme extends Theme {
   extend?: UsefulExtends
 }
 
+interface PreflightOptions {
+  /**
+   * Enable reset styles
+   *
+   * @default true
+   */
+  reset?: boolean
+}
+
 export interface UsefulOptions {
   /**
    * Make all unitilities important.
@@ -61,8 +70,17 @@ export interface UsefulOptions {
    * Enable reset styles
    *
    * @default true
+   *
+   * @deprecated Use `preflights.reset` instead
    */
   enableResetStyles?: boolean
+
+  /**
+   * Enable preflights
+   *
+   * @default true
+   */
+  preflights?: boolean | PreflightOptions
 
   /**
    * Extract rgba color in css variable

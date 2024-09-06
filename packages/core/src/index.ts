@@ -32,6 +32,7 @@ export const presetUseful = definePreset((options: UsefulOptions = {}) => {
     transformers: meta.transformers,
     autocomplete,
     preflights: preflights(resolvedOptions),
+    options: resolvedOptions,
   }
 }) as PresetFactory<UsefulTheme, UsefulOptions>
 

@@ -21,7 +21,13 @@ const defaultOptions: UsefulOptions = {
   important: false,
   enableDefaultShortcuts: true,
   enableMagicAnimations: false,
+  /**
+   * @deprecated Use `preflights.reset` instead
+   */
   enableResetStyles: true,
+  preflights: {
+    reset: true,
+  },
   // presets
   uno: true,
   attributify: true,
