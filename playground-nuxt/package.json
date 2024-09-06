@@ -17,5 +17,5 @@
     "@unocss/nuxt": "catalog:",
     "unocss": "catalog:",
     "unocss-preset-useful": "workspace:*"
-  }
+  },"version": "0.5.2"
 }
