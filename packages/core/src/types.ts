@@ -161,6 +161,8 @@ export interface UsefulOptions {
    * Enable webFonts preset and the options of it
    * Only works when `presets` is not specified
    *
+   * **Note:** Default by [`fontsource`](https://fontsource.org/) provider
+   *
    * @about [@unocss/preset-web-fonts](https://unocss.dev/presets/web-fonts)
    * @default false
    */

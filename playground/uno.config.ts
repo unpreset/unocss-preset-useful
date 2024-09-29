@@ -6,6 +6,13 @@ export default defineConfig({
     presetUseful({
       typography: true,
       enableMagicAnimations: true,
+      webFonts: {
+        fonts: {
+          dm: 'DM Sans',
+          mono: 'Fira Code',
+          roboto: 'Roboto Condensed',
+        },
+      },
     }),
   ],
 })

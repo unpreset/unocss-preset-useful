@@ -1,6 +1,7 @@
 import presetUno from '@unocss/preset-uno'
 import presetAttributify from '@unocss/preset-attributify'
 import presetIcons from '@unocss/preset-icons'
+import type { WebFontsOptions } from '@unocss/preset-web-fonts'
 import presetWebFonts from '@unocss/preset-web-fonts'
 import presetTypography from '@unocss/preset-typography'
 import presetTagify from '@unocss/preset-tagify'
@@ -43,6 +44,12 @@ const defaultOptions: UsefulOptions = {
   compileClass: false,
 }
 
+const defaultPresetOptions: Record<string, any> = {
+  webFonts: {
+    provider: 'fontsource',
+  } as WebFontsOptions,
+}
+
 export function resolveOptions(options: UsefulOptions) {
   const optionsWithDefault = Object.assign({}, defaultOptions, options) as Required<UsefulOptions>
   optionsWithDefault.unColor = typeof optionsWithDefault.unColor === 'string'
@@ -71,7 +78,11 @@ export function resolveOptions(options: UsefulOptions) {
     const option = optionsWithDefault[key as keyof typeof presetMap]
     if (option) {
       const p = preset as any
-      presets.push(p(typeof option === 'boolean' ? {} as any : option))
+      const presetOptions = defaultPresetOptions[key as keyof typeof defaultPresetOptions]
+      if (typeof option === 'object')
+        presets.push(p({ ...presetOptions, ...option }))
+      else
+        presets.push(p(presetOptions ?? {}))
     }
   }
   for (const [key, transformer] of Object.entries(transformerMap)) {
