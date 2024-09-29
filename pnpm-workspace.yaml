@@ -1,6 +1,5 @@
 packages:
   - playground
-  - playground-nuxt
   - packages/**
 catalog:
   '@antfu/eslint-config': ^3.7.3
@@ -29,7 +28,6 @@ catalog:
   fs-extra: ^11.2.0
   lint-staged: ^15.2.10
   magic.css: ^1.4.8
-  nuxt: ^3.13.2
   postcss: ^8.4.47
   postcss-js: ^4.0.1
   simple-git-hooks: ^2.11.1
