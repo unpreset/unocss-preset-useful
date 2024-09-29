@@ -1,6 +1,6 @@
 import type { CSSObject } from 'unocss'
-import { describe, expect, it } from 'vitest'
 import { cssObj2StrSync, resolveAnimation, stringifyObj } from 'unocss-preset-useful'
+import { describe, expect, it } from 'vitest'
 
 describe('utils', () => {
   const _animation = {

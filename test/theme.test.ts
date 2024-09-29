@@ -1,7 +1,7 @@
-import { createGenerator } from 'unocss'
-import { describe, expect, it } from 'vitest'
-import { animationRegExp, presetUseful } from 'unocss-preset-useful'
 import type { UsefulExtends, UsefulTheme } from '../packages/core/src/types'
+import { createGenerator } from 'unocss'
+import { animationRegExp, presetUseful } from 'unocss-preset-useful'
+import { describe, expect, it } from 'vitest'
 
 describe('presetUseful theme', () => {
   const extend: UsefulExtends = {

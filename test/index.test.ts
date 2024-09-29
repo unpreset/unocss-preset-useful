@@ -1,6 +1,6 @@
 import { createGenerator, escapeSelector } from 'unocss'
-import { describe, expect, it } from 'vitest'
 import { presetUseful } from 'unocss-preset-useful'
+import { describe, expect, it } from 'vitest'
 import { usefulTargets } from './fixtures/index.targets'
 
 const uno = createGenerator({

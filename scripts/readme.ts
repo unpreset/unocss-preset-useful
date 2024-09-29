@@ -1,5 +1,5 @@
-import path from 'node:path'
 import fs from 'node:fs/promises'
+import path from 'node:path'
 
 const IN_README_START = 'IN-README-START'
 const IN_README_END = 'IN-README-END'

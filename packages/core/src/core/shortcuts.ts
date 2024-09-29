@@ -1,6 +1,6 @@
 import type { RuleMeta, StaticShortcut } from '@unocss/core'
-import { layerMeta } from '../meta'
 import type { CustomStaticShortcuts } from '../types'
+import { layerMeta } from '../meta'
 
 // @unocss-include
 

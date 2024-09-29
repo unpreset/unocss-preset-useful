@@ -1,7 +1,7 @@
-import { createGenerator } from 'unocss'
-import { describe, expect, it } from 'vitest'
 import type { UsefulOptions } from 'unocss-preset-useful'
+import { createGenerator } from 'unocss'
 import { presetUseful } from 'unocss-preset-useful'
+import { describe, expect, it } from 'vitest'
 import { resetPreflight } from '../packages/core/src/core/preflights/reset'
 
 function generateUno(options: UsefulOptions = {}) {

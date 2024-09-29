@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest'
-import { createGenerator } from 'unocss'
 import type { Theme } from '@unocss/preset-mini'
+import { createGenerator } from 'unocss'
 import { cssObj2StrAsync, presetUseful } from 'unocss-preset-useful'
+import { describe, expect, it } from 'vitest'
 import { magicAnimate } from '../packages/core/src/core/theme/magic-animate'
 
 describe('magic in PresetUseful Theme', () => {
