@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "type": "module",
+  "version": "0.5.2",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -17,5 +18,5 @@
     "@unocss/nuxt": "catalog:",
     "unocss": "catalog:",
     "unocss-preset-useful": "workspace:*"
-  },"version": "0.5.2"
+  }
 }
