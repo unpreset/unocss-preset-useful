@@ -32,8 +32,8 @@ const _shortcuts: CustomStaticShortcuts = [
   ['fbc', 'flex justify-between items-center'],
   ['fa', 'flex justify-around'],
   ['fac', 'flex justify-around items-center'],
-  ['fw', 'flex justify-wrap'],
-  ['fwr', 'flex justify-wrap-reverse'],
+  ['fw', 'flex flex-wrap'],
+  ['fwr', 'flex flex-wrap-reverse'],
 
   // transition
   ['trans', 'transition-all-350 ease-linear'],
