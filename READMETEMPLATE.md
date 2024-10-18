@@ -19,14 +19,19 @@ pnpm i -D unocss-preset-useful unocss
 
 ```ts
 // unocss.config.ts
-import { defineConfig } from 'unocss'
-import { presetUseful } from 'unocss-preset-useful'
+import { defineUsefulConfig } from 'unocss-preset-useful'
 
-export default defineConfig({
-  presets: [
-    presetUseful(),
-  ],
-})
+export default defineUsefulConfig()
+
+// Custom options
+export default defineUsefulConfig(
+  {
+    // Useful options
+  },
+  {
+    // Uno options
+  }
+)
 ```
 
 <details>

@@ -19,14 +19,19 @@ pnpm i -D unocss-preset-useful unocss
 
 ```ts
 // unocss.config.ts
-import { defineConfig } from 'unocss'
-import { presetUseful } from 'unocss-preset-useful'
+import { defineUsefulConfig } from 'unocss-preset-useful'
 
-export default defineConfig({
-  presets: [
-    presetUseful(),
-  ],
-})
+export default defineUsefulConfig()
+
+// Custom options
+export default defineUsefulConfig(
+  {
+    // Useful options
+  },
+  {
+    // Uno options
+  }
+)
 ```
 
 <details>
@@ -171,8 +176,9 @@ export interface UsefulOptions {
 <details>
 <summary>Expand it see more details</summary><br>
 
-### autocomplete
 
+### autocomplete
+  
 ```ts
 export const autocomplete: UserConfig['autocomplete'] = {
   shorthands: {
@@ -185,7 +191,7 @@ export const autocomplete: UserConfig['autocomplete'] = {
 ```
 
 ### extractors
-
+  
 ```ts
 // https://github.com/unocss/unocss/pull/2485
 // Support extract base64 image.
@@ -201,7 +207,7 @@ export const extractors: Extractor[] = [
 ```
 
 ### postprocess
-
+  
 ```ts
 // https://github.com/unocss/unocss/discussions/2816
 // Extract rgba color in css variable.
@@ -231,7 +237,7 @@ export function importantProcess(): Postprocessor {
 ```
 
 ### rules
-
+  
 ```ts
 // Use any css variable easily.
 export const rules: Rule[] = [
@@ -250,7 +256,7 @@ export const rules: Rule[] = [
 ```
 
 ### shortcuts
-
+  
 ```ts
 // FYI. My own shortcuts.
 const _shortcuts: CustomStaticShortcuts = [
@@ -279,8 +285,8 @@ const _shortcuts: CustomStaticShortcuts = [
   ['fbc', 'flex justify-between items-center'],
   ['fa', 'flex justify-around'],
   ['fac', 'flex justify-around items-center'],
-  ['fw', 'flex justify-wrap'],
-  ['fwr', 'flex justify-wrap-reverse'],
+  ['fw', 'flex flex-wrap'],
+  ['fwr', 'flex flex-wrap-reverse'],
 
   // transition
   ['trans', 'transition-all-350 ease-linear'],
@@ -288,7 +294,7 @@ const _shortcuts: CustomStaticShortcuts = [
 ```
 
 ### index
-
+  
 ```ts
 // See index.test.ts `themeAnimate configuration` for usage.
 export function nomarlizeTheme(theme: UsefulTheme, enableMagicAnimations: boolean): UsefulTheme {
@@ -303,7 +309,7 @@ export function nomarlizeTheme(theme: UsefulTheme, enableMagicAnimations: boolea
 ```
 
 ### magic-animate
-
+  
 ```ts
 export function magicAnimate(): Theme['animation'] {
   const keyframesObj = getKeyframes(magicCSS)
@@ -324,6 +330,7 @@ export function magicAnimate(): Theme['animation'] {
   }
 }
 ```
+
 
 <br></details>
 
