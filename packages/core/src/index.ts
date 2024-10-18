@@ -1,6 +1,6 @@
-import type { Postprocessor, PresetFactory } from '@unocss/core'
+import type { Postprocessor, PresetFactory, UserConfig } from '@unocss/core'
 import type { UsefulOptions, UsefulTheme } from './types'
-import { definePreset } from '@unocss/core'
+import { definePreset, mergeConfigs } from '@unocss/core'
 import { autocomplete, extractors, preflights, rules, shortcuts, variants } from './core'
 import { importantProcess, postprocessWithUnColor } from './core/postprocess'
 import { PRESET_NAME } from './meta'
@@ -37,3 +37,18 @@ export const presetUseful = definePreset((options: UsefulOptions = {}) => {
 }) as PresetFactory<UsefulTheme, UsefulOptions>
 
 export default presetUseful
+
+export function defineConfig<T extends object = UsefulTheme>(config: UserConfig<T>) {
+  return config
+}
+
+export function defineUsefulConfig<T extends object = UsefulTheme>(options: UsefulOptions = {}, config: UserConfig<T> = {}) {
+  return mergeConfigs([
+    defineConfig<T>({
+      presets: [
+        presetUseful(options) as any,
+      ],
+    }),
+    config,
+  ])
+}
