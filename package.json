@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.7.0",
   "private": true,
-  "packageManager": "pnpm@9.11.0",
+  "packageManager": "pnpm@9.12.3",
   "scripts": {
     "build": "pnpm -r -F=./packages/* run build",
     "stub": "pnpm -r -F=./packages/* --parallel run stub",
@@ -17,7 +17,7 @@
     "postinstall": "pnpm magicAnimate",
     "readme": "esno scripts/readme.ts",
     "magicAnimate": "esno scripts/magicAnimate.ts",
-    "taze": "taze minor -wIr"
+    "taze": "taze major -wIr"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",

@@ -14,7 +14,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "catalog:",
     "typescript": "^5.5.4",
-    "unocss": "^0.63.1",
+    "unocss": "^0.64.0",
     "unocss-preset-useful": "workspace:*",
     "vite": "catalog:",
     "vue-tsc": "catalog:"
