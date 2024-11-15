@@ -2,27 +2,22 @@ import type { Theme } from '@unocss/preset-mini'
 import { createGenerator } from 'unocss'
 import { cssObj2StrAsync, presetUseful } from 'unocss-preset-useful'
 import { describe, expect, it } from 'vitest'
-import { magicAnimate } from '../packages/core/src/core/theme/magic-animate'
 
 describe('magic in PresetUseful Theme', () => {
-  it('magic animate', () => {
-    expect(magicAnimate()).toMatchFileSnapshot('./fixtures/magic-animate.ts.snap')
-  })
-
   it('magic animate in Uno', async () => {
     const uno = createGenerator<Theme>({
       presets: [
         presetUseful({
-          enableMagicAnimations: true,
+          magicss: true,
         }),
       ],
     })
 
-    const { css } = await uno.generate('animate-puffIn', { preflights: false })
+    const { css } = await uno.generate('animate-magic', { preflights: false })
     expect(css).toMatchInlineSnapshot(`
       "/* layer: default */
-      @keyframes puffIn{0%{filter:blur(2px);opacity:0;transform:scale(2);transform-origin:50% 50%;}to{filter:blur(0);opacity:1;transform:scale(1);transform-origin:50% 50%;}}
-      .animate-puffIn{animation:puffIn 1s linear 1;animation-fill-mode:both;}"
+      @keyframes magic{0% {opacity: 1;-webkit-transform-origin: 100% 200%;transform-origin: 100% 200%;-webkit-transform: scale(1, 1) rotate(0deg);transform: scale(1, 1) rotate(0deg);}100% {opacity: 0;-webkit-transform-origin: 200% 500%;transform-origin: 200% 500%;-webkit-transform: scale(0, 0) rotate(270deg);transform: scale(0, 0) rotate(270deg);}}
+      .animate-magic{animation:magic 1s linear 1;animation-fill-mode:both;}"
     `)
   })
 

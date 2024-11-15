@@ -1,7 +1,7 @@
 import type { Postprocessor, PresetFactory, UserConfig } from '@unocss/core'
 import type { UsefulOptions, UsefulTheme } from './types'
 import { definePreset, mergeConfigs } from '@unocss/core'
-import { autocomplete, extractors, preflights, rules, shortcuts, variants } from './core'
+import { extractors, preflights, rules, shortcuts, variants } from './core'
 import { importantProcess, postprocessWithUnColor } from './core/postprocess'
 import { PRESET_NAME } from './meta'
 import { resolveOptions } from './resolve'
@@ -30,7 +30,6 @@ export const presetUseful = definePreset((options: UsefulOptions = {}) => {
     ].filter(Boolean) as Postprocessor[],
     presets: meta.presets,
     transformers: meta.transformers,
-    autocomplete,
     preflights: preflights(resolvedOptions),
     options: resolvedOptions,
   }

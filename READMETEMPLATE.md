@@ -56,7 +56,8 @@ export interface UsefulOptions {
   /**
    * Enable magic animations
    *
-   * @default true
+   * @default false
+   * @deprecated Use `magicss` option instead.
    */
   enableMagicAnimations?: boolean
 

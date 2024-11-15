@@ -31,7 +31,6 @@ describe('presetUseful theme', () => {
       presets: [
         presetUseful({
           enableDefaultShortcuts: false,
-          enableMagicAnimations: false,
           uno: true,
           theme: {
             extend,

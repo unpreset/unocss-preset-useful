@@ -9,7 +9,7 @@ Integrate and useful preset.
   - 🎨 Support extract rgba color in css variable.
   - 💜 Support expand theme animation name usage.
   - 🍬 etc.
-- 📦 Build-In [Magic Animate](https://github.com/miniMAC/magic).
+- 📦 Build-In [Magic Animate](https://github.com/unpreset/unocss-preset-magicss).
 - 🌬️ Align with TW theme configuration.
 
 ## Usage
@@ -44,7 +44,8 @@ export interface UsefulOptions {
   /**
    * Enable magic animations
    *
-   * @default true
+   * @default false
+   * @deprecated Use `magicss` option instead.
    */
   enableMagicAnimations?: boolean
 
@@ -256,21 +257,6 @@ const _shortcuts: CustomStaticShortcuts = [
   // transition
   ['trans', 'transition-all-350 ease-linear'],
 ]
-```
-
-### index
-
-```ts
-// See index.test.ts `themeAnimate configuration` for usage.
-export function nomarlizeTheme(theme: UsefulTheme, enableMagicAnimations: boolean): UsefulTheme {
-  return {
-    ...theme,
-    animation: deepMerge(
-      enableMagicAnimations ? MagicAnimation : {},
-      theme.animation ?? {},
-    ),
-  }
-}
 ```
 
 ### magic-animate

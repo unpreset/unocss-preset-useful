@@ -2,7 +2,7 @@ import { defineUsefulConfig } from 'unocss-preset-useful'
 
 export default defineUsefulConfig({
   typography: true,
-  enableMagicAnimations: true,
+  magicss: true,
   webFonts: {
     fonts: {
       dm: 'DM Sans',

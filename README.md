@@ -57,6 +57,7 @@ export interface UsefulOptions {
    * Enable magic animations
    *
    * @default true
+   * @deprecated Use `magicss` option instead.
    */
   enableMagicAnimations?: boolean
 
@@ -176,19 +177,6 @@ export interface UsefulOptions {
 <details>
 <summary>Expand it see more details</summary><br>
 
-### autocomplete
-
-```ts
-export const autocomplete: UserConfig['autocomplete'] = {
-  shorthands: {
-    magic: `(${Object.keys(keyframes).join('|')})`,
-  },
-  templates: [
-    'animate-<magic>',
-  ],
-}
-```
-
 ### extractors
 
 ```ts
@@ -296,36 +284,9 @@ const _shortcuts: CustomStaticShortcuts = [
 
 ```ts
 // See index.test.ts `themeAnimate configuration` for usage.
-export function nomarlizeTheme(theme: UsefulTheme, enableMagicAnimations: boolean): UsefulTheme {
+export function nomarlizeTheme(theme: UsefulTheme): UsefulTheme {
   return {
     ...theme,
-    animation: deepMerge(
-      enableMagicAnimations ? MagicAnimation : {},
-      theme.animation ?? {},
-    ),
-  }
-}
-```
-
-### magic-animate
-
-```ts
-export function magicAnimate(): Theme['animation'] {
-  const keyframesObj = getKeyframes(magicCSS)
-
-  function generate<T = string>(val?: T): Record<string, T> {
-    return Object.keys(keyframesObj).reduce((acc, key) => {
-      const name = key.replace('@keyframes ', '')
-      // @ts-expect-error nothing
-      acc[name] = val ?? `{${cssObj2StrSync(keyframesObj[key])}}`
-      return acc
-    }, {})
-  }
-
-  return {
-    keyframes: generate(),
-    durations: generate('1s'),
-    properties: generate({ 'animation-fill-mode': 'both' }),
   }
 }
 ```

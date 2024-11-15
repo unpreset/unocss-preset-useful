@@ -7,7 +7,7 @@ export default defineConfig({
   presets: [
     presetUseful({
       typography: true,
-      enableMagicAnimations: true,
+      magicss: true,
     }),
   ],
 })

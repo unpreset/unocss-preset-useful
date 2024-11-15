@@ -7,12 +7,11 @@ import presetRemToPx from '@unocss/preset-rem-to-px'
 import presetTagify from '@unocss/preset-tagify'
 import presetTypography from '@unocss/preset-typography'
 import presetUno from '@unocss/preset-uno'
-
 import presetWebFonts from '@unocss/preset-web-fonts'
 import transformerCompileClass from '@unocss/transformer-compile-class'
 import transformerDirectives from '@unocss/transformer-directives'
-
 import transformerVariantGroup from '@unocss/transformer-variant-group'
+import { presetMagicss } from 'unocss-preset-magicss'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { nomarlizeTheme } from './core'
 import { cssObj2StrSync, deepMerge, resolveAnimation } from './utils'
@@ -21,6 +20,9 @@ const defaultOptions: UsefulOptions = {
   theme: {},
   important: false,
   enableDefaultShortcuts: true,
+  /**
+   * @deprecated Use `magicss` option instead
+   */
   enableMagicAnimations: false,
   /**
    * @deprecated Use `preflights.reset` instead
@@ -38,6 +40,8 @@ const defaultOptions: UsefulOptions = {
   tagify: false,
   remToPx: false,
   scrollbar: false,
+  magicss: false,
+
   // transformers
   directives: true,
   variantGroup: true,
@@ -67,6 +71,7 @@ export function resolveOptions(options: UsefulOptions) {
     tagify: presetTagify,
     remToPx: presetRemToPx,
     scrollbar: presetScrollbar,
+    magicss: presetMagicss,
   }
   const transformerMap = {
     directives: transformerDirectives,
@@ -98,7 +103,7 @@ export function resolveOptions(options: UsefulOptions) {
 
   return {
     ...optionsWithDefault,
-    theme: nomarlizeTheme(_theme, optionsWithDefault.enableMagicAnimations),
+    theme: nomarlizeTheme(_theme),
     meta: {
       presets,
       shortcuts,
