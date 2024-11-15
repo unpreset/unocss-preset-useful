@@ -167,6 +167,38 @@ export interface UsefulOptions {
    * @default false
    */
   scrollbar?: boolean | PresetScrollbarDefaultOption
+
+  /**
+   * Enable magicss preset
+   *
+   * @about [unocss-preset-magicss](https://github.com/unpreset/unocss-preset-magicss)
+   * @default false
+   */
+  magicss?: boolean
+
+  /**
+   * Enable directives transformer and the options of it
+   *
+   * @about [@unocss/transformer-directives](https://unocss.dev/transformers/directives)
+   * @default true
+   */
+  directives?: boolean | TransformerDirectivesOptions
+
+  /**
+   * Enables the variant group feature of Windi CSS for UnoCSS.
+   *
+   * @about [@unocss/transformer-variant-group](https://unocss.dev/transformers/variant-group)
+   * @default true
+   */
+  variantGroup?: boolean | TransformerVariantGroupOptions
+
+  /**
+   * Compile group of classes into one class
+   *
+   * @about [@unocss/transformer-class-group](https://unocss.dev/transformers/compile-class)
+   * @default false
+   */
+  compileClass?: boolean | CompileClassOptions
 }
 ```
 
