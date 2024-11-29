@@ -42,9 +42,24 @@ catalogs:
     '@unocss/preset-tagify':
       specifier: ^0.65.0-beta.2
       version: 0.65.0-beta.2
+    '@unocss/preset-typography':
+      specifier: ^0.65.0-beta.2
+      version: 0.65.0-beta.2
+    '@unocss/preset-uno':
+      specifier: ^0.65.0-beta.2
+      version: 0.65.0-beta.2
     '@unocss/preset-web-fonts':
       specifier: ^0.64.1
       version: 0.64.1
+    '@unocss/transformer-compile-class':
+      specifier: ^0.65.0-beta.2
+      version: 0.65.0-beta.2
+    '@unocss/transformer-directives':
+      specifier: ^0.65.0-beta.2
+      version: 0.65.0-beta.2
+    '@unocss/transformer-variant-group':
+      specifier: ^0.65.0-beta.2
+      version: 0.65.0-beta.2
     '@vitejs/plugin-vue':
       specifier: ^5.2.1
       version: 5.2.1
@@ -154,7 +169,7 @@ importers:
         version: 2.0.0(typescript@5.7.2)(vue-tsc@2.1.10(typescript@5.7.2))
       unocss:
         specifier: 'catalog:'
-        version: 0.65.0-beta.2(postcss@8.4.49)(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
+        version: 0.65.0-beta.2(postcss@8.4.49)(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
       unocss-preset-useful:
         specifier: workspace:*
         version: link:packages/core
@@ -170,10 +185,37 @@ importers:
       '@unocss/core':
         specifier: 'catalog:'
         version: 0.65.0-beta.2
+      '@unocss/preset-attributify':
+        specifier: 'catalog:'
+        version: 0.65.0-beta.2
+      '@unocss/preset-icons':
+        specifier: 'catalog:'
+        version: 0.65.0-beta.2
       '@unocss/preset-mini':
         specifier: 'catalog:'
         version: 0.65.0-beta.2
       '@unocss/preset-rem-to-px':
+        specifier: 'catalog:'
+        version: 0.65.0-beta.2
+      '@unocss/preset-tagify':
+        specifier: 'catalog:'
+        version: 0.65.0-beta.2
+      '@unocss/preset-typography':
+        specifier: 'catalog:'
+        version: 0.65.0-beta.2
+      '@unocss/preset-uno':
+        specifier: 'catalog:'
+        version: 0.65.0-beta.2
+      '@unocss/preset-web-fonts':
+        specifier: 'catalog:'
+        version: 0.64.1
+      '@unocss/transformer-compile-class':
+        specifier: 'catalog:'
+        version: 0.65.0-beta.2
+      '@unocss/transformer-directives':
+        specifier: 'catalog:'
+        version: 0.65.0-beta.2
+      '@unocss/transformer-variant-group':
         specifier: 'catalog:'
         version: 0.65.0-beta.2
       postcss:
@@ -182,28 +224,15 @@ importers:
       postcss-js:
         specifier: 'catalog:'
         version: 4.0.1(postcss@8.4.49)
-    devDependencies:
-      '@unocss/preset-attributify':
-        specifier: 'catalog:'
-        version: 0.65.0-beta.2
-      '@unocss/preset-icons':
-        specifier: 'catalog:'
-        version: 0.65.0-beta.2
-      '@unocss/preset-tagify':
-        specifier: 'catalog:'
-        version: 0.65.0-beta.2
-      '@unocss/preset-web-fonts':
-        specifier: 'catalog:'
-        version: 0.64.1
       unocss:
-        specifier: 'catalog:'
-        version: 0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
+        specifier: ^0.65.0-beta.2
+        version: 0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
       unocss-preset-magicss:
         specifier: 'catalog:'
-        version: 0.1.1(@unocss/preset-mini@0.65.0-beta.2)(unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)))
+        version: 0.1.1(@unocss/preset-mini@0.65.0-beta.2)(unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2)))
       unocss-preset-scrollbar:
         specifier: 'catalog:'
-        version: 0.3.1(unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)))
+        version: 0.3.1(unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2)))
 
   playground:
     dependencies:
@@ -4281,23 +4310,11 @@ snapshots:
       '@typescript-eslint/types': 8.16.0
       eslint-visitor-keys: 4.2.0
 
-  '@unocss/astro@0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))':
+  '@unocss/astro@0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))':
     dependencies:
       '@unocss/core': 0.65.0-beta.2
       '@unocss/reset': 0.65.0-beta.2
-      '@unocss/vite': 0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
-    optionalDependencies:
-      vite: 6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-      - vue
-
-  '@unocss/astro@0.65.0-beta.2(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))':
-    dependencies:
-      '@unocss/core': 0.65.0-beta.2
-      '@unocss/reset': 0.65.0-beta.2
-      '@unocss/vite': 0.65.0-beta.2(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
+      '@unocss/vite': 0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
     optionalDependencies:
       vite: 6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)
     transitivePeerDependencies:
@@ -4498,26 +4515,10 @@ snapshots:
     dependencies:
       '@unocss/core': 0.65.0-beta.2
 
-  '@unocss/vite@0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))':
+  '@unocss/vite@0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@rollup/pluginutils': 5.1.3(rollup@3.29.5)
-      '@unocss/config': 0.65.0-beta.2
-      '@unocss/core': 0.65.0-beta.2
-      '@unocss/inspector': 0.65.0-beta.2(vue@3.5.13(typescript@5.7.2))
-      chokidar: 3.6.0
-      magic-string: 0.30.13
-      tinyglobby: 0.2.10
-      vite: 6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-      - vue
-
-  '@unocss/vite@0.65.0-beta.2(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))':
-    dependencies:
-      '@ampproject/remapping': 2.3.0
-      '@rollup/pluginutils': 5.1.3(rollup@4.27.3)
       '@unocss/config': 0.65.0-beta.2
       '@unocss/core': 0.65.0-beta.2
       '@unocss/inspector': 0.65.0-beta.2(vue@3.5.13(typescript@5.7.2))
@@ -6904,19 +6905,19 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unocss-preset-magicss@0.1.1(@unocss/preset-mini@0.65.0-beta.2)(unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))):
+  unocss-preset-magicss@0.1.1(@unocss/preset-mini@0.65.0-beta.2)(unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))):
     dependencies:
       '@unocss/preset-mini': 0.65.0-beta.2
-      unocss: 0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
+      unocss: 0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
 
-  unocss-preset-scrollbar@0.3.1(unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))):
+  unocss-preset-scrollbar@0.3.1(unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))):
     dependencies:
       '@unocss/preset-mini': 0.56.5
-      unocss: 0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
+      unocss: 0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
 
-  unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)):
+  unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2)):
     dependencies:
-      '@unocss/astro': 0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
+      '@unocss/astro': 0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
       '@unocss/cli': 0.65.0-beta.2(rollup@3.29.5)
       '@unocss/core': 0.65.0-beta.2
       '@unocss/postcss': 0.65.0-beta.2(postcss@8.4.49)
@@ -6932,34 +6933,7 @@ snapshots:
       '@unocss/transformer-compile-class': 0.65.0-beta.2
       '@unocss/transformer-directives': 0.65.0-beta.2
       '@unocss/transformer-variant-group': 0.65.0-beta.2
-      '@unocss/vite': 0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
-    optionalDependencies:
-      vite: 6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)
-    transitivePeerDependencies:
-      - postcss
-      - rollup
-      - supports-color
-      - vue
-
-  unocss@0.65.0-beta.2(postcss@8.4.49)(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)):
-    dependencies:
-      '@unocss/astro': 0.65.0-beta.2(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
-      '@unocss/cli': 0.65.0-beta.2(rollup@4.27.3)
-      '@unocss/core': 0.65.0-beta.2
-      '@unocss/postcss': 0.65.0-beta.2(postcss@8.4.49)
-      '@unocss/preset-attributify': 0.65.0-beta.2
-      '@unocss/preset-icons': 0.65.0-beta.2
-      '@unocss/preset-mini': 0.65.0-beta.2
-      '@unocss/preset-tagify': 0.65.0-beta.2
-      '@unocss/preset-typography': 0.65.0-beta.2
-      '@unocss/preset-uno': 0.65.0-beta.2
-      '@unocss/preset-web-fonts': 0.65.0-beta.2
-      '@unocss/preset-wind': 0.65.0-beta.2
-      '@unocss/transformer-attributify-jsx': 0.65.0-beta.2
-      '@unocss/transformer-compile-class': 0.65.0-beta.2
-      '@unocss/transformer-directives': 0.65.0-beta.2
-      '@unocss/transformer-variant-group': 0.65.0-beta.2
-      '@unocss/vite': 0.65.0-beta.2(rollup@4.27.3)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))
+      '@unocss/vite': 0.65.0-beta.2(rollup@3.29.5)(vite@6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
     optionalDependencies:
       vite: 6.0.1(@types/node@22.10.1)(jiti@2.4.0)(tsx@4.19.2)(yaml@2.6.1)
     transitivePeerDependencies:
