@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 
 describe('preseUseful presets', () => {
   it('mutiple preset', async () => {
-    const uno = createGenerator({
+    const uno = await createGenerator({
       presets: [
         presetUseful({
           typography: true,

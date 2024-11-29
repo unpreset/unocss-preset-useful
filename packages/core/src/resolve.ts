@@ -1,18 +1,6 @@
 import type { Theme } from '@unocss/preset-mini'
 import type { WebFontsOptions } from '@unocss/preset-web-fonts'
 import type { CustomStaticShortcuts, ResolvedOptions, UsefulOptions, UsefulTheme } from './types'
-import presetAttributify from '@unocss/preset-attributify'
-import presetIcons from '@unocss/preset-icons'
-import presetRemToPx from '@unocss/preset-rem-to-px'
-import presetTagify from '@unocss/preset-tagify'
-import presetTypography from '@unocss/preset-typography'
-import presetUno from '@unocss/preset-uno'
-import presetWebFonts from '@unocss/preset-web-fonts'
-import transformerCompileClass from '@unocss/transformer-compile-class'
-import transformerDirectives from '@unocss/transformer-directives'
-import transformerVariantGroup from '@unocss/transformer-variant-group'
-import { presetMagicss } from 'unocss-preset-magicss'
-import { presetScrollbar } from 'unocss-preset-scrollbar'
 import { nomarlizeTheme } from './core'
 import { cssObj2StrSync, deepMerge, resolveAnimation } from './utils'
 
@@ -54,7 +42,7 @@ const defaultPresetOptions: Record<string, any> = {
   } as WebFontsOptions,
 }
 
-export function resolveOptions(options: UsefulOptions) {
+export async function resolveOptions(options: UsefulOptions) {
   const optionsWithDefault = Object.assign({}, defaultOptions, options) as Required<UsefulOptions>
   optionsWithDefault.unColor = typeof optionsWithDefault.unColor === 'string'
     ? optionsWithDefault.unColor
@@ -63,26 +51,26 @@ export function resolveOptions(options: UsefulOptions) {
   const presets = []
   const transformers = []
   const presetMap = {
-    uno: presetUno,
-    attributify: presetAttributify,
-    icons: presetIcons,
-    webFonts: presetWebFonts,
-    typography: presetTypography,
-    tagify: presetTagify,
-    remToPx: presetRemToPx,
-    scrollbar: presetScrollbar,
-    magicss: presetMagicss,
+    uno: import('@unocss/preset-uno').then(m => m.presetUno),
+    attributify: import('@unocss/preset-attributify').then(m => m.presetAttributify),
+    icons: import('@unocss/preset-icons').then(m => m.presetIcons),
+    webFonts: import('@unocss/preset-web-fonts').then(m => m.presetWebFonts),
+    typography: import('@unocss/preset-typography').then(m => m.presetTypography),
+    tagify: import('@unocss/preset-tagify').then(m => m.presetTagify),
+    remToPx: import('@unocss/preset-rem-to-px').then(m => m.default),
+    scrollbar: import('unocss-preset-scrollbar').then(m => m.presetScrollbar),
+    magicss: import('unocss-preset-magicss').then(m => m.presetMagicss),
   }
   const transformerMap = {
-    directives: transformerDirectives,
-    variantGroup: transformerVariantGroup,
-    compileClass: transformerCompileClass,
+    directives: import('unocss').then(m => m.transformerDirectives),
+    variantGroup: import('unocss').then(m => m.transformerVariantGroup),
+    compileClass: import('unocss').then(m => m.transformerCompileClass),
   }
 
   for (const [key, preset] of Object.entries(presetMap)) {
     const option = optionsWithDefault[key as keyof typeof presetMap]
     if (option) {
-      const p = preset as any
+      const p = await preset as any
       const presetOptions = defaultPresetOptions[key as keyof typeof defaultPresetOptions]
       if (typeof option === 'object')
         presets.push(p({ ...presetOptions, ...option }))
@@ -93,7 +81,7 @@ export function resolveOptions(options: UsefulOptions) {
   for (const [key, transformer] of Object.entries(transformerMap)) {
     const option = optionsWithDefault[key as keyof typeof transformerMap]
     if (option) {
-      const t = transformer as any
+      const t = await transformer as any
       transformers.push(t(typeof option === 'boolean' ? {} as any : option))
     }
   }

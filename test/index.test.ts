@@ -3,13 +3,12 @@ import { presetUseful } from 'unocss-preset-useful'
 import { describe, expect, it } from 'vitest'
 import { usefulTargets } from './fixtures/index.targets'
 
-const uno = createGenerator({
-  presets: [
-    presetUseful(),
-  ],
-})
-
-describe('preset-useful', () => {
+describe('preset-useful', async () => {
+  const uno = await createGenerator({
+    presets: [
+      presetUseful(),
+    ],
+  })
   it('targets', async () => {
     const code = usefulTargets.join(' ')
     const { css } = await uno.generate(code, { preflights: false })

@@ -1,10 +1,10 @@
-import { createGenerator } from 'unocss'
+import { createGenerator } from '@unocss/core'
 import { defineUsefulConfig } from 'unocss-preset-useful'
 import { describe, expect, it } from 'vitest'
 
 describe('config tests', () => {
   it('targets', async () => {
-    const unoA = createGenerator(defineUsefulConfig())
+    const unoA = await createGenerator(defineUsefulConfig())
     expect(unoA.config.presets.map(p => p.name)).toEqual(
       [
         '@unocss/preset-icons',
@@ -14,7 +14,7 @@ describe('config tests', () => {
       ],
     )
 
-    const unoB = createGenerator(defineUsefulConfig({
+    const unoB = await createGenerator(defineUsefulConfig({
       webFonts: true,
       icons: false,
     }, {

@@ -1,4 +1,4 @@
-import type { Postprocessor, PresetFactory, UserConfig } from '@unocss/core'
+import type { Postprocessor, PresetFactoryAwaitable, UserConfig } from '@unocss/core'
 import type { UsefulOptions, UsefulTheme } from './types'
 import { definePreset, mergeConfigs } from '@unocss/core'
 import { extractors, preflights, rules, shortcuts, variants } from './core'
@@ -10,8 +10,8 @@ export * from './utils'
 
 export type { UsefulOptions, UsefulTheme }
 
-export const presetUseful = definePreset((options: UsefulOptions = {}) => {
-  const resolvedOptions = resolveOptions(options)
+export const presetUseful = definePreset(async (options: UsefulOptions = {}) => {
+  const resolvedOptions = await resolveOptions(options)
   const { enableDefaultShortcuts, unColor, theme, meta, important } = resolvedOptions
 
   return {
@@ -33,7 +33,7 @@ export const presetUseful = definePreset((options: UsefulOptions = {}) => {
     preflights: preflights(resolvedOptions),
     options: resolvedOptions,
   }
-}) as PresetFactory<UsefulTheme, UsefulOptions>
+}) as PresetFactoryAwaitable<UsefulTheme, UsefulOptions>
 
 export default presetUseful
 

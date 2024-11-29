@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest'
 
 describe('magic in PresetUseful Theme', () => {
   it('magic animate in Uno', async () => {
-    const uno = createGenerator<Theme>({
+    const uno = await createGenerator<Theme>({
       presets: [
         presetUseful({
           magicss: true,

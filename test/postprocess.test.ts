@@ -3,8 +3,8 @@ import { createGenerator, presetUno } from 'unocss'
 import { presetUseful } from 'unocss-preset-useful'
 import { describe, expect, it } from 'vitest'
 
-function generateUno(options: UsefulOptions = {}) {
-  return createGenerator({
+async function generateUno(options: UsefulOptions = {}) {
+  return await createGenerator({
     presets: [
       presetUno(),
       presetUseful(options),
@@ -16,7 +16,7 @@ describe('presetUseful postprocess with unColor', () => {
   const code = 'bg-red text-blue'
 
   it('base', async () => {
-    const uno = generateUno({
+    const uno = await generateUno({
       unColor: true,
     })
 
@@ -26,7 +26,7 @@ describe('presetUseful postprocess with unColor', () => {
   })
 
   it('with any string', async () => {
-    const uno = generateUno({
+    const uno = await generateUno({
       unColor: '--test-color',
     })
 
@@ -41,7 +41,7 @@ describe('presetUseful postprocess with important', () => {
   const withInImport = ['!text-xl', 'sm:text-sm!', 'important-ma']
 
   it('base', async () => {
-    const uno = generateUno({
+    const uno = await generateUno({
       important: true,
     })
 

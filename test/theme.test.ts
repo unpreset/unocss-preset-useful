@@ -27,7 +27,7 @@ describe('presetUseful theme', () => {
   }
 
   it('theme extend configuration', async () => {
-    const _uno = createGenerator<UsefulTheme>({
+    const _uno = await createGenerator<UsefulTheme>({
       presets: [
         presetUseful({
           enableDefaultShortcuts: false,
