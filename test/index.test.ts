@@ -11,8 +11,8 @@ describe('preset-useful', async () => {
   })
   it('targets', async () => {
     const code = usefulTargets.join(' ')
-    const { css } = await uno.generate(code, { preflights: false })
-    const { css: css2 } = await uno.generate(code, { preflights: false })
+    const { css } = await uno.generate(code)
+    const { css: css2 } = await uno.generate(code)
 
     const unmatched: string[] = []
     for (const i of usefulTargets) {

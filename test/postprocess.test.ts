@@ -1,12 +1,11 @@
 import type { UsefulOptions } from 'unocss-preset-useful'
-import { createGenerator, presetUno } from 'unocss'
+import { createGenerator } from 'unocss'
 import { presetUseful } from 'unocss-preset-useful'
 import { describe, expect, it } from 'vitest'
 
 async function generateUno(options: UsefulOptions = {}) {
   return await createGenerator({
     presets: [
-      presetUno(),
       presetUseful(options),
     ],
   })
@@ -18,9 +17,10 @@ describe('presetUseful postprocess with unColor', () => {
   it('base', async () => {
     const uno = await generateUno({
       unColor: true,
+      preflights: false,
     })
 
-    const { css } = await uno.generate(code, { preflights: false })
+    const { css } = await uno.generate(code)
 
     expect(css).toMatchSnapshot()
   })
@@ -28,9 +28,10 @@ describe('presetUseful postprocess with unColor', () => {
   it('with any string', async () => {
     const uno = await generateUno({
       unColor: '--test-color',
+      preflights: false,
     })
 
-    const { css } = await uno.generate(code, { preflights: false })
+    const { css } = await uno.generate(code)
 
     expect(css).toMatchSnapshot()
   })
@@ -43,9 +44,10 @@ describe('presetUseful postprocess with important', () => {
   it('base', async () => {
     const uno = await generateUno({
       important: true,
+      preflights: false,
     })
 
-    const { css } = await uno.generate([...withInImport, ...withOutImport], { preflights: false })
+    const { css } = await uno.generate([...withInImport, ...withOutImport])
 
     expect(css).toMatchInlineSnapshot(`
       "/* layer: default */

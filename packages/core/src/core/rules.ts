@@ -5,7 +5,7 @@ import { layerMeta } from '../meta'
 // IN-README-START
 // Use any css variable easily.
 export const rules: Rule[] = [
-  [/^(.+)::(.+)$/, ([, n, v], { theme }) => {
+  [/^([^:]+)::(\S|[^:]+)$/, ([, n, v], { theme }) => {
     const color = parseColor(v, theme)
     if (color?.cssColor?.type === 'rgb' && color.cssColor.components) {
       return {

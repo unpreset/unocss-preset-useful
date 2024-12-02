@@ -20,7 +20,7 @@ const defaultOptions: UsefulOptions = {
     reset: true,
   },
   // presets
-  uno: true,
+  uno: { preflight: 'on-demand' },
   attributify: true,
   icons: true,
   webFonts: false,
