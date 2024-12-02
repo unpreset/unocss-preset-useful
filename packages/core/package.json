@@ -48,6 +48,11 @@
   "peerDependencies": {
     "unocss": "^0.65.0"
   },
+  "peerDependenciesMeta": {
+    "unocss": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@unocss/core": "catalog:",
     "@unocss/preset-attributify": "catalog:",
