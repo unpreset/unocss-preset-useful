@@ -33,6 +33,9 @@ catalogs:
     '@unocss/preset-icons':
       specifier: ^0.65.0
       version: 0.65.0
+    '@unocss/preset-legacy-compat':
+      specifier: ^0.65.0
+      version: 0.65.0
     '@unocss/preset-mini':
       specifier: ^0.65.0
       version: 0.65.0
@@ -140,6 +143,9 @@ importers:
       '@unocss/eslint-plugin':
         specifier: 'catalog:'
         version: 0.65.0(eslint@9.16.0(jiti@2.4.0))(typescript@5.7.2)
+      '@unocss/preset-legacy-compat':
+        specifier: 'catalog:'
+        version: 0.65.0
       bumpp:
         specifier: 'catalog:'
         version: 9.8.1
@@ -1388,6 +1394,9 @@ packages:
 
   '@unocss/preset-icons@0.65.0':
     resolution: {integrity: sha512-zQS7xSBb2Y5ZraARqi6XMFha1z7H0P3tl5HZ6c3nBwwN0FuCbaJnbpdzdgqezcI2V3KctZNiDM3UAT18lSuamQ==}
+
+  '@unocss/preset-legacy-compat@0.65.0':
+    resolution: {integrity: sha512-aLDtrDk6o/gRWItN6DnAs4zBoCNFNoPZ+GulNXlNKKXGY6WgWIC3ro4bH55oBNRRnUl1/wwrR44UnpirgyT1tA==}
 
   '@unocss/preset-mini@0.56.5':
     resolution: {integrity: sha512-/KhlThhs1ilauM7MwRSpahLbIPZ5VGeGvaUsU8+ZlNT3sis4yoVYkPtR14tL2IT6jhOU05N/uu3aBj+1bP8GjQ==}
@@ -4671,6 +4680,10 @@ snapshots:
       ofetch: 1.4.1
     transitivePeerDependencies:
       - supports-color
+
+  '@unocss/preset-legacy-compat@0.65.0':
+    dependencies:
+      '@unocss/core': 0.65.0
 
   '@unocss/preset-mini@0.56.5':
     dependencies:

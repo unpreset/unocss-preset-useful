@@ -1,6 +1,7 @@
 import type { Postprocessor } from '@unocss/core'
 
-const rgbaRE = /rgba\(((?:\d+,?){3}),([^)]*)\)/
+const rgbRE = /rgb\(([\d\s]+?)\s*\/\s*([^)]+)\)/
+const rgbaRE = /rgba\(([\d\s,]+),\s*([^)]+)\)/
 
 // IN-README-START
 // https://github.com/unocss/unocss/discussions/2816
@@ -10,10 +11,17 @@ export function postprocessWithUnColor(unColor: string): Postprocessor {
     util.entries.forEach((i) => {
       const value = i[1]
       if (typeof value === 'string') {
-        const match = value.match(rgbaRE)
+        let match = value.match(rgbaRE)
         if (match != null) {
-          i[1] = value.replace(rgbaRE, `rgba(var(${unColor}),$2)`)
+          i[1] = value.replace(rgbaRE, `rgba(var(${unColor}) , $2)`)
           util.entries.unshift([unColor, match[1]])
+        }
+        else {
+          match = value.match(rgbRE)
+          if (match != null) {
+            i[1] = value.replace(rgbRE, `rgb(var(${unColor}) / $2)`)
+            util.entries.unshift([unColor, match[1].trim()])
+          }
         }
       }
     })

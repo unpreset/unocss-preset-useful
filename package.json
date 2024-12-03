@@ -25,6 +25,7 @@
     "@types/node": "catalog:",
     "@types/postcss-js": "catalog:",
     "@unocss/eslint-plugin": "catalog:",
+    "@unocss/preset-legacy-compat": "catalog:",
     "bumpp": "catalog:",
     "eslint": "catalog:",
     "esno": "catalog:",

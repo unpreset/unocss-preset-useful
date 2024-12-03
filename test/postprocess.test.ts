@@ -1,4 +1,5 @@
 import type { UsefulOptions } from 'unocss-preset-useful'
+import presetLegacyCompat from '@unocss/preset-legacy-compat'
 import { createGenerator } from 'unocss'
 import { presetUseful } from 'unocss-preset-useful'
 import { describe, expect, it } from 'vitest'
@@ -22,7 +23,11 @@ describe('presetUseful postprocess with unColor', () => {
 
     const { css } = await uno.generate(code)
 
-    expect(css).toMatchSnapshot()
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: default */
+      .bg-red{--un-color:248 113 113;--un-bg-opacity:1;background-color:rgb(var(--un-color) / var(--un-bg-opacity));}
+      .text-blue{--un-color:96 165 250;--un-text-opacity:1;color:rgb(var(--un-color) / var(--un-text-opacity));}"
+    `)
   })
 
   it('with any string', async () => {
@@ -33,7 +38,33 @@ describe('presetUseful postprocess with unColor', () => {
 
     const { css } = await uno.generate(code)
 
-    expect(css).toMatchSnapshot()
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: default */
+      .bg-red{--test-color:248 113 113;--un-bg-opacity:1;background-color:rgb(var(--test-color) / var(--un-bg-opacity));}
+      .text-blue{--test-color:96 165 250;--un-text-opacity:1;color:rgb(var(--test-color) / var(--un-text-opacity));}"
+    `)
+  })
+
+  it('with any legacy rgba', async () => {
+    const uno = await createGenerator({
+      presets: [
+        presetLegacyCompat({
+          commaStyleColorFunction: true,
+        }),
+        presetUseful({
+          unColor: '--test-color',
+          preflights: false,
+        }),
+      ],
+    })
+
+    const { css } = await uno.generate(code)
+
+    expect(css).toMatchInlineSnapshot(`
+      "/* layer: default */
+      .bg-red{--test-color:248, 113, 113;--un-bg-opacity:1;background-color:rgba(var(--test-color) , var(--un-bg-opacity));}
+      .text-blue{--test-color:96, 165, 250;--un-text-opacity:1;color:rgba(var(--test-color) , var(--un-text-opacity));}"
+    `)
   })
 })
 
